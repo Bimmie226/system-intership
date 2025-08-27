@@ -1,17 +1,3 @@
-- [OSI MODEL](#osi-model)
-  - [I. Mô Hình OSI](#i-mô-hình-osi)
-  - [II. Các tầng trong mô hình OSI](#ii-các-tầng-trong-mô-hình-osi)
-    - [1. Tầng vật lý (Physical layer)](#1-tầng-vật-lý-physical-layer)
-    - [2. Tầng liên kết dữ liệu(Data link layer)](#2-tầng-liên-kết-dữ-liệudata-link-layer)
-    - [3. Tầng mạng(Network layer)](#3-tầng-mạngnetwork-layer)
-    - [4. Tầng giao vận(Transport layer)](#4-tầng-giao-vậntransport-layer)
-    - [5. Tầng phiên(Session layer)](#5-tầng-phiênsession-layer)
-    - [6. Tầng trình diễn (Presentation layer)](#6-tầng-trình-diễn-presentation-layer)
-    - [7. Tầng ứng dụng (Application layer)](#7-tầng-ứng-dụng-application-layer)
-  - [Cách hoạt động của Mô hình OSI](#cách-hoạt-động-của-mô-hình-osi)
-
-
-
 # OSI MODEL
 ## I. Mô Hình OSI
 - Mô hình OSI(Open System Interconnection) là một mô hình hỗ trợ trong việc thiết kế và hiểu cách thức hoạt động của các giao tiếp trong mạng máy tính
@@ -28,7 +14,8 @@
 - Mô hình bao gồm 7 tầng riêng biệt nhưng chúng liên kết chặt chẽ với nhau, mỗi tầng đều có nhiệm vụ gửi/nhận dữ liệu từ tầng kề trên hoặc kề dưới nó.
 - Tại thiết bị gửi, dữ liệu xuất phát từ tầng ứng dụng(Application layer), lần lượt được chuyển tiếp và xử lý qua mỗi tầng, cho tới tầng vật lý (Physical layer), bên nhận thu được dữ liệu từ tầng vật lý, chuyển tiếp và xử lý lần lượt qua các tầng, cho tới tầng ứng dụng, thiết bị đón tiếp dữ liệu tại đây.
   
-![alt text](../image/layor_of_OSI_MODEL.png)- [OSI MODEL](#osi-model)
+![alt text](../images/layer_of_OSI_model.png)
+
 ### 1. Tầng vật lý (Physical layer)
 - Là tầng thấp nhất trong mô hình OSI, tầng vật lý thực hiện chức năng chuyển tiếp dữ liệu từ kênh truyền nguồn tới kênh truyền đích. 
 - Dữ liệu trong tầng vật lý được biểu diễn dưới dạng dãy bit 0 và 1. Sau khi nhận được dữ liệu từ kênh truyền khác, tầng vật lý thực hiện chuyển tiếp dữ liệu lên tầng liên kết dữ liệu.
