@@ -41,7 +41,7 @@
 - Là giao thức trao đổi file dùng giữa hai hoặc nhiều máy tính với nhau qua Internet. Nhờ FTP, dù đang ở xa người dùng vẫn có thể truy cập vào máy chủ để truyền hoặc nhận dữ liệu.
 
 ## III. Chức năng của các tầng trong mô hình TCP/IP
-- Mô hình TCP/IP tiêu chuẩn được chia thành 4 tầng (Layer) chồng lên nhau bao gồm: Tầng vật lý (Physical) → Tầng mạng (Network) → Tầng giao vận (Transport) và cuối cùng là Tầng ứng dụng (Application). Mỗi tầng đều có giao thức cụ thể khác nhau.
+- Mô hình TCP/IP tiêu chuẩn được chia thành 4 tầng (Layer) chồng lên nhau bao gồm: Tầng vật lý (Physical) → Tầng mạng (Network) → Tầng giao vận (Transport) và cuối cùng là Tầng kết nối mạng (Internet Access). Mỗi tầng đều có giao thức cụ thể khác nhau.
 
 ![alt text](../images/layer_of_tcp_ip.png)
 
