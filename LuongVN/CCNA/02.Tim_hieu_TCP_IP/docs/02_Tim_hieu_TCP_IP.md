@@ -12,6 +12,11 @@
   - [IV. So sánh mô hình TCP/IP và OSI](#iv-so-sánh-mô-hình-tcpip-và-osi)
     - [1. Điểm giống nhau giữa OSI và TCP/IP](#1-điểm-giống-nhau-giữa-osi-và-tcpip)
     - [2. Điểm khác nhau giữa OSI và TCP/IP](#2-điểm-khác-nhau-giữa-osi-và-tcpip)
+  - [V. WORK FLOW Trong TCP/IP](#v-work-flow-trong-tcpip)
+  - [VI. Giao thức TCP và UDP](#vi-giao-thức-tcp-và-udp)
+    - [1. TCP(Transmission Control Protocol)](#1-tcptransmission-control-protocol)
+    - [2. UDP(User, Datagram Protocol)](#2-udpuser-datagram-protocol)
+    - [3. Khác nhau giữa giao thức TCP và UDP](#3-khác-nhau-giữa-giao-thức-tcp-và-udp)
 
 
 # TCP/IP MODEL
@@ -95,3 +100,44 @@
 - Mô hình TCP/IP là một giao thức có hướng tiêu chuẩn, trong khi đó, OSI là một mô hình chung dựa trên chức năng của mỗi lớp.
 - Trong mô hình TCP/IP, các giao thức được phát triển trước mô hình. Quá trình này ngược lại so với OSI.
 - TCP/IP giúp thiết lập kết nối giữa các loại máy tính với nhau. Mặt khác, OSI giúp chuẩn hóa các router, switch, bo mạch chủ và các phần cứng khác.
+
+
+## V. WORK FLOW Trong TCP/IP
+A(Gửi dữ liệu)
+  - Tầng Application: Chuẩn bị dữ liệu và chọn giao thức ứng dụng(HTTP, SMTP).
+  - Tầng Transport: Phân chia dữ liệu, chọn giao thức(TCP/UDP).
+  - Tầng Internet: Gắn địa chỉ IP, định tuyến dữ liệu.
+  - Tầng Network Access: Truyền dữ liệu qua mạng vật lý.
+  
+B(Nhận dữ liệu)
+  - Tầng Network Access: Nhận frame từ mạng.
+  - Tầng Internet: Kiểm tra IP, định tuyến đến tầng trên.
+  - Tầng Transport: Kiểm tra lỗi, kết hợp dữ liệu.
+  - Tầngh Application: Hiển thị dữ liệu cho người dùng.
+
+## VI. Giao thức TCP và UDP
+### 1. TCP(Transmission Control Protocol)
+- Kết nối ba bước(3 - way handshake): Thiết lập kết nối trước khi truyền dữ liệu bằng ba bước: SYN -> SYN-ACK -> ACK.
+- Đảm bảo dữ liệu:
+  - Cơ chế xác nhận(ACK): Mỗi gói tin sẽ nhận từ thiết bị nhận.
+  - Tự động phát hiện và gửi lại gói tin nếu phát hiện mất dữ liệu.
+- Ứng dụng: sử dụng trong các tình huóng cần truyền tải chính xác dữ liệu như: tải file, duyệt web, gửi email.
+
+### 2. UDP(User, Datagram Protocol)
+- Không cần thiết lập kết nối: Gửi dữ liệu trực tiếp mà không cần bước thiết lập ban đầu, giúp tiết kiệm thời gian và tăng tốc độ.
+- Không đảm bảo dữ liệu:
+  - Không có cơ chế phát hiện mất dữ liệu hoặc gửi lại gói tin.
+  - Gói tin có thể đến đích không đúng thứ tự hoặc bị mất mà không thông báo.
+
+### 3. Khác nhau giữa giao thức TCP và UDP
+
+![alt text](../images/phan_biet_TCP_va_UDP.png)
+
+| Tiêu chí | TCP | UDP |
+|-----------|-------------|---------|
+| Kêt nối | Hướng kết nối (Connection-oriented): Cần thiết lập kết nối trước khi truyền dữ liệu (3-way handshake). | Không hướng kết nối (Connectionless): Không cần thiết lập kết nối trước khi truyền dữ liệu |
+| Độ tin cậy | Đáng tin cậy: Đảm bảo dữ liệu được gửi đầy đủ và đúng thứ tự, có cơ chế phát hiện và gửi lại dữ liệu bị mất | Không đáng tin cậy: Không đảm bảo dữ liệu đến đúng thứ tự hoặc đầy đủ |
+| Kiểm soát luồng | Có kiểm soát luồng và tắc nghẽn để điều chỉnh tốc độ truyền dữ liệu giữa các thiết bị | Không có cơ chế kiểm soát luồng |
+| Phân đoạn và ghép nối | Dữ liệu được phân đoạn (segmentation) và ghép nối (reassembly) theo thứ tự | Không có cơ chế ghép nối, dữ liệu được gửi đi dưới dạng các gói riêng lẻ |
+| Hiệu suất | Tốc độ chậm hơn do phải thực hiện các kiểm tra, xác nhận và cơ chế đảm bảo. | Tốc độ nhanh hơn do không có các bước kiểm tra, xác nhận |
+| Header | Lớn hơn (20-60 byte) | Nhỏ hơn (8 byte) |
