@@ -1,3 +1,15 @@
+- [OSI MODEL](#osi-model)
+  - [I. Mô Hình OSI](#i-mô-hình-osi)
+  - [II. Các tầng trong mô hình OSI](#ii-các-tầng-trong-mô-hình-osi)
+    - [1. Tầng vật lý (Physical layer)](#1-tầng-vật-lý-physical-layer)
+    - [2. Tầng liên kết dữ liệu(Data link layer)](#2-tầng-liên-kết-dữ-liệudata-link-layer)
+    - [3. Tầng mạng(Network layer)](#3-tầng-mạngnetwork-layer)
+    - [4. Tầng giao vận(Transport layer)](#4-tầng-giao-vậntransport-layer)
+    - [5. Tầng phiên(Session layer)](#5-tầng-phiênsession-layer)
+    - [6. Tầng trình diễn (Presentation layer)](#6-tầng-trình-diễn-presentation-layer)
+    - [7. Tầng ứng dụng (Application layer)](#7-tầng-ứng-dụng-application-layer)
+  - [WORK FLOW Trong OSI](#work-flow-trong-osi)
+
 # OSI MODEL
 ## I. Mô Hình OSI
 - Mô hình OSI(Open System Interconnection) là một mô hình hỗ trợ trong việc thiết kế và hiểu cách thức hoạt động của các giao tiếp trong mạng máy tính
@@ -68,9 +80,16 @@
 - Đây là tầng duy nhất tương tác trực tiếp với dữ liệu người dùng. Các ứng dụng phần mềm như trình duyệt web và ứng dụng email dựa vào tầng ứng dụng để khởi tạo giao tiếp. Tuy nhiên, các ứng dụng phần mềm máy khách không phải là một phần của tầng ứng dụng. Thay vào đó, tầng ứng dụng chịu trách nhiệm về các giao thức và thao tác dữ liệu mà phần mềm dựa vào để trình bày dữ liệu có ý nghĩa cho người dùng.
 - Các giao thức lớp ứng dụng bao gồm HTTP cũng như SMTP (Giao thức truyền thư đơn giản là một trong những giao thức cho phép liên lạc qua email ).
 
-## Cách hoạt động của Mô hình OSI
-- Để thông tin mà con người có thể đọc được có thể tuyền qua mạng từ thiết bị này sang thiết bị khác, dữ liệu phải truyền xuống bảy tầng của mô hình OSI trên thiết bị gửi và sau đó truyền lên bảy tầng lớp ở đầu nhận.
-- Ví dụ: Ông Breach muốn gửi email cho bà Astra. Ông Breach soạn email trong ứng dụng email trên laptop rồi nhấn "gửi". Ứng dụng email sẽ chuyển email đến TẦNG ỨNG DỤNG, tầng này sẽ chọn giao thức SMTP (vì đây là thư email) và chuyển dữ liệu đến TẦNG TRÌNH DIỄN. Sau đó, TẦNG TRÌNH DIỄN sẽ nén dữ liệu và đến TẦNG PHIÊN, tầng này sẽ khởi tạo phiên giao tiếp.
-- Dữ liệu sau đó sẽ đến TẦNG GIAO VẬN của bên gửi, tại đây dữ liệu được phân đoạn, rồi các phân đoạn đó sẽ được chia thành các gói tin(packet) ở TẦNG MẠNG, rồi lại được chia nhỏ hơn nữa thành các khung(frames) ở TẦNG LIÊN KẾT DỮ LIỆU. TẦNG LIÊN KẾT DỮ LIỆU sau đó chuyển các khung dữ liệu này đến TẦNG VẬT LÝ, tầng này sẽ chuyển đổi dữ liệu thành luồng bit 0 và 1 và gửi qua một phương tiện vật lý(dây cap, ...).
-- khi máy tính của bà Astra nhận được luồng bit thông qua một phương tiện vật lý(dây cap, wifi, ...) dữ liệu sẽ chạy qua cùng một chuỗi tầng trên thiết bị của bà nhưng theo thứ tự ngược lại. Đầu tiên, TẦNG VẬT LÝ sẽ chuyển đổi luồng bit 0 và 1 thành các khung dữ liệu được truyền đến TẦNG LIÊN KẾT DỮ LIỆU. Sau đó, TẦNG LIÊN KẾT DỮ LIỆU sẽ ghép các khung dữ liệu thành các gói tin cho TẦNG MẠNG. TẦNG MẠNG sau đó sẽ tạo các phân đoạn từ các gói tin cho TẦNG GIAO VẬN, tầng này sẽ ghép các phân đoạn này thành một dữ liệu duy nhất.
-- Dữ liệu sau đó sẽ chảy vào TẦNG PHIÊN của người nhận, tầng này sẽ chuyển dữ liệu đến TẦNG TRÌNH DIỄN và kết thúc phiên giao tiếp. TẦNG TRÌNH DIỄN sau đó sẽ loại bỏ né và chuyển dữ liệu thô lên TẦNG ỨNG DỤNG. TẦNG ỨNG DỤNG sau đó sẽ đưa dữ liệu có thể đọc được bằng con nguồi vào phần mềm email của bà Astra, cho phép cô đọc email của ông Breach trên mày hình laptop.
+## WORK FLOW Trong OSI
+- Bước 1: Thiết bị A gửi dữ liệu đến thiết bị B qua mạng bằng HTTP, một HTTP header được thêm vào tầng ứng dụng.
+- Bước 2: TCP header hoặc UDP header được thêm vào dữ liệu. Nó được đóng gói thành TCP segments ở tầng Transport. Header này chứa cổng nguồn, cổng đích và số thứ tự.
+  - Chia dữ liệu thành các segments: Dữ liệu từ tầng ứng dụng thường có kích thước lớn, việc chia nhỏ dữ liệu thành các segments giúp quản lý việc truyền tải hiệu quả hơn. Nếu một segment bị lỗi hoặc mất, chỉ cần gửi lại segment đó thay vì toàn bộ dữ liệu. Việc này phù hợp với giới hạn kích thước gói tin(MTU - Maximum Transimission Unit) mà tầng Network có thể xử lý.
+  - Gắn số cổng nguồn và cổng đích: Mỗi ứng dụng trong thiết bị gửi/nhận đều sử dụng một cổng(port) để giao tiếp. Số cổng nguồn cho biết ứng dụng nào trên thiết bị gửi tạo ra dữ liệu, số cổng đích cho biết ứng dụng nào trên thiết bị nhận xử lý dữ liệu.
+- Bước 3: Sau đó, các segments được đóng gói bằng một IP header tại tầng Network. IP header chứa địa chỉ IP nguồn và đích.
+  - Đóng gói segment: Tầng network cần thêm thông tin như địa chỉ IP nguồn và đích để định tuyến gói tin qua các mạng khác nhau(Gói hóa - encapsulation).
+  - Địa chỉ IP nguồn và đích: Xác định ví trí logic của thiết bị trên mạng. Địa chỉ này đảm bảo gói tin có thể đén đúng đích qua các mạng trung gian. IP nguồn cho biết gói tin xuất phát từ đâu để thiết bị nhận có thể phản hồi lại nếu cần. IP đích xác định thiết bị nhận, giúp các router biết các gói tin cần được chuyển đến đâu.
+- Bước 4: Tại tầng Data link, MAC header được thêm vào gói dữ liệu IP(IP datagram). MAC header chứa địa chỉ MÂC nguồn và đích. Tầng này đóng gói gói tin thành khung dữ liệu(frame).
+  - Đóng gói packet thành frame: Thêm các thông tin cần thiết để truyền dữ liệu qua mạng cục bộ(LAN), như địa chỉ MAC nguồn/đích, kiểm tra lỗi(CRC), ... Khung dữ liệu là đơn vị truyền tải cơ bản trong mạng LAN.
+  - Địa chỉ MAC xá định vật lý trong mạng LAN, không phụ thuộc vào đại chỉ IP. MAC nguồn cho biết thiết bị nào trong mạng gửi dữ liệu, MAC đích xác định thiết bị nào nhận dữ liệu. Địa chỉ MAC cần thiết để các switch hoặc thiết bị mạng định tuyến dữ liệu đến đúng thiết bị đích.
+- Bước 5: Tại tầng Physical, frame được gửi qua mạng dưới dạng luồng bit.
+- Bước 6-10: Khi thiết bị B nhận được các bit từ mạng, nó sẽ khởi tạo quy trình giải đóng gói, ngược lại với quy trình đóng gói. Các header dần được loại bỏ qua từng lớp cho đến khi thiết bị B có thể truy cập dữ liệu gốc.
