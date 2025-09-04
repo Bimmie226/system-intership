@@ -81,6 +81,9 @@
 - Các giao thức lớp ứng dụng bao gồm HTTP cũng như SMTP (Giao thức truyền thư đơn giản là một trong những giao thức cho phép liên lạc qua email ).
 
 ## WORK FLOW Trong OSI
+
+![alt text](../images/OSI_workflow.png)
+
 - Bước 1: Thiết bị A gửi dữ liệu đến thiết bị B qua mạng bằng HTTP, một HTTP header được thêm vào tầng ứng dụng.
 - Bước 2: TCP header hoặc UDP header được thêm vào dữ liệu. Nó được đóng gói thành TCP segments ở tầng Transport. Header này chứa cổng nguồn, cổng đích và số thứ tự.
   - Chia dữ liệu thành các segments: Dữ liệu từ tầng ứng dụng thường có kích thước lớn, việc chia nhỏ dữ liệu thành các segments giúp quản lý việc truyền tải hiệu quả hơn. Nếu một segment bị lỗi hoặc mất, chỉ cần gửi lại segment đó thay vì toàn bộ dữ liệu. Việc này phù hợp với giới hạn kích thước gói tin(MTU - Maximum Transimission Unit) mà tầng Network có thể xử lý.

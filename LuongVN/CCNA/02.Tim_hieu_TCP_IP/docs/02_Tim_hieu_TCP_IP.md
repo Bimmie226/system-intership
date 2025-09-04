@@ -13,10 +13,6 @@
     - [1. Điểm giống nhau giữa OSI và TCP/IP](#1-điểm-giống-nhau-giữa-osi-và-tcpip)
     - [2. Điểm khác nhau giữa OSI và TCP/IP](#2-điểm-khác-nhau-giữa-osi-và-tcpip)
   - [V. WORK FLOW Trong TCP/IP](#v-work-flow-trong-tcpip)
-  - [VI. Giao thức TCP và UDP](#vi-giao-thức-tcp-và-udp)
-    - [1. TCP(Transmission Control Protocol)](#1-tcptransmission-control-protocol)
-    - [2. UDP(User, Datagram Protocol)](#2-udpuser-datagram-protocol)
-    - [3. Khác nhau giữa giao thức TCP và UDP](#3-khác-nhau-giữa-giao-thức-tcp-và-udp)
 
 
 # TCP/IP MODEL
@@ -103,41 +99,38 @@
 
 
 ## V. WORK FLOW Trong TCP/IP
-A(Gửi dữ liệu)
-  - Tầng Application: Chuẩn bị dữ liệu và chọn giao thức ứng dụng(HTTP, SMTP).
-  - Tầng Transport: Phân chia dữ liệu, chọn giao thức(TCP/UDP).
-  - Tầng Internet: Gắn địa chỉ IP, định tuyến dữ liệu.
-  - Tầng Network Access: Truyền dữ liệu qua mạng vật lý.
-  
-B(Nhận dữ liệu)
-  - Tầng Network Access: Nhận frame từ mạng.
-  - Tầng Internet: Kiểm tra IP, định tuyến đến tầng trên.
-  - Tầng Transport: Kiểm tra lỗi, kết hợp dữ liệu.
-  - Tầngh Application: Hiển thị dữ liệu cho người dùng.
 
-## VI. Giao thức TCP và UDP
-### 1. TCP(Transmission Control Protocol)
-- Kết nối ba bước(3 - way handshake): Thiết lập kết nối trước khi truyền dữ liệu bằng ba bước: SYN -> SYN-ACK -> ACK.
-- Đảm bảo dữ liệu:
-  - Cơ chế xác nhận(ACK): Mỗi gói tin sẽ nhận từ thiết bị nhận.
-  - Tự động phát hiện và gửi lại gói tin nếu phát hiện mất dữ liệu.
-- Ứng dụng: sử dụng trong các tình huóng cần truyền tải chính xác dữ liệu như: tải file, duyệt web, gửi email.
+![alt text](../images/work_flow_tcp_ip.png)
 
-### 2. UDP(User, Datagram Protocol)
-- Không cần thiết lập kết nối: Gửi dữ liệu trực tiếp mà không cần bước thiết lập ban đầu, giúp tiết kiệm thời gian và tăng tốc độ.
-- Không đảm bảo dữ liệu:
-  - Không có cơ chế phát hiện mất dữ liệu hoặc gửi lại gói tin.
-  - Gói tin có thể đến đích không đúng thứ tự hoặc bị mất mà không thông báo.
+- Bước 1: Ở tầng Application, bên A tạo ra dữ liệu, sau đó dữ liệu sẽ được chuyển xuống các tầng thấp hơn. Ở mỗi tầng, một header(và đôi khi là trailer) sẽ được bổ sung để giúp dữ liệu được truyền đi dúng cách.
+- Bước 2: Tiếp theo, dữ liệu được chuyển xuống tầng Transport, tại đây dữ liệu có thể bị chia nhỏ thành các segment. Ở tầng này có 2 giao thức là TCP và UDP, gói tin sẽ sử dụng 1 trong 2 giao thức này:
+  - `Nếu là giao thức TCP`:
 
-### 3. Khác nhau giữa giao thức TCP và UDP
+    Thiết lập kết nối: `Bắt tay 3 bước`
 
-![alt text](../images/phan_biet_TCP_va_UDP.png)
+    ![alt text](../images/shakehand_3_steps.png)
 
-| Tiêu chí | TCP | UDP |
-|-----------|-------------|---------|
-| Kêt nối | Hướng kết nối (Connection-oriented): Cần thiết lập kết nối trước khi truyền dữ liệu (3-way handshake). | Không hướng kết nối (Connectionless): Không cần thiết lập kết nối trước khi truyền dữ liệu |
-| Độ tin cậy | Đáng tin cậy: Đảm bảo dữ liệu được gửi đầy đủ và đúng thứ tự, có cơ chế phát hiện và gửi lại dữ liệu bị mất | Không đáng tin cậy: Không đảm bảo dữ liệu đến đúng thứ tự hoặc đầy đủ |
-| Kiểm soát luồng | Có kiểm soát luồng và tắc nghẽn để điều chỉnh tốc độ truyền dữ liệu giữa các thiết bị | Không có cơ chế kiểm soát luồng |
-| Phân đoạn và ghép nối | Dữ liệu được phân đoạn (segmentation) và ghép nối (reassembly) theo thứ tự | Không có cơ chế ghép nối, dữ liệu được gửi đi dưới dạng các gói riêng lẻ |
-| Hiệu suất | Tốc độ chậm hơn do phải thực hiện các kiểm tra, xác nhận và cơ chế đảm bảo. | Tốc độ nhanh hơn do không có các bước kiểm tra, xác nhận |
-| Header | Lớn hơn (20-60 byte) | Nhỏ hơn (8 byte) |
+    - Bước 1: Máy A khởi tạo kết nối bằng cách gửi một gói tin TCP SYN đến máy B. Gói SYN này chứa số thứ tự ban đầu(Initial Sequence Number - ISN) do máy A chọn(Ví dụ: seq = 5432).
+    - Bước 2: Máy B nhận được gói SYN từ A và phản hồi bằng một gói SYN-ACK. Gói này chứa: số thứ tự của máy B, số xác nhận(ACK) của gói SYN từ A, tức là seq của A + 1.
+    - Bước 3: Máy A xác nhận phản hồi từ máy B bằng cách gửi một gói ACK. Gói này chứa: Số xác nhận ACK = seq của B + 1, xác nhận rằng A đã nhận gói SYN-ACK từ B thành công. Kết nối được thiết lập thành công.
+
+    Truyền dữ liệu:
+
+    - Sau khi kết nối được thiết lập, các thiết bị cso thể bắt đầu truyền tải dữ liệu. Dữ liệu được chia thành các phân đoạn nhỏ hơn và đánh số tuần tự. Máy A gửi các phân đoạn này đến người nhận qua kết nối đã thiết lập. Mỗi phân đoạn được đánh số thứ tự để cho phép máy B xác định và lắp ráp chúng lại theo đúng thứ tự ban đầu.
+
+    Đóng kết nối:
+
+    ![alt text](../images/osi15.png)
+
+    Khi quá trình truyền tải hoàn tất, hai thiết bị có thể đóng kết nối.
+
+    - Bước 1: Máy A gửi cho một thông điệp FIN(finish) để cho biết nó đã hoàn thành việc truyền tải dữ liệu.
+    - Bước 2: Máy B gửi một ACK để xác nhận việc thông điệp FIN và sẵn sàng đóng kết nối.
+    - Bước 3: Sau đó, Máy B sẽ gửi một thông điệp FIN để yêu cầu đóng kết nối từ phía máy A.
+    - Bước 4: Máy A sẽ gửi một ACK xác nhận việc nhận thông điệp FIN từ Máy B. Kết nối được đóng.
+- Bước 3: Dữ liệu tiếp tục được chuyển xuống tầng Network, tại đây mỗi Segment được đóng gói thành một Packet Header IP sẽ được thêm vào Packet, bao gồm địa chỉ IP nguồn và IP đích. Sau đó thiết bị thực hiện tìm next-hop(router tiếp theo) để định tuyến gói tin đi đúng hướng.
+- Bước 4: Ở tầng network access, tầng này chính là tầng datalink và tầng physical ở mô hình OSI.
+
+- Dữ liệu tiếp tục được chuyển xuống tầng Data Link. tại đây Packet sẽ được đóng gói thành Frame bằng cách thêm địa chỉ MAC nguồn (MAC của thiết bị hiện tại) và địa chỉ MAC đích (MAC của router tiếp theo). Đồng thời, Trailer (FCS - Frame Check Sequence) được thêm vào để kiểm tra lỗi trong quá trình truyền.
+
+- Cuối cùng, mỗi Frame sẽ được tầng Vật Lý chuyển thành một chuỗi bit nhị phân và được mã hóa thành tín hiệu điện, quang hoặc sóng vô tuyến để truyền đến thiết bị B qua môi trường mạng.
