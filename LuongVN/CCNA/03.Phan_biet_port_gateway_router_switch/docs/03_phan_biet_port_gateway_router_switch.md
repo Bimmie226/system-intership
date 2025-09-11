@@ -34,7 +34,7 @@
     - [2. Xây bảng chuyển mạch:](#2-xây-bảng-chuyển-mạch)
     - [3. Chuyển dữ liệu thông minh:](#3-chuyển-dữ-liệu-thông-minh)
     - [4. Cập nhật bảng liên tục:](#4-cập-nhật-bảng-liên-tục)
-- [PHÂN BIỆT PORT, GATEWAY, ROUTER VÀ SWITCH](#phân-biệt-port-gateway-router-và-switch)
+  - [4. Phân biệt switch và router](#4-phân-biệt-switch-và-router)
 
 
 # PORT
@@ -153,14 +153,20 @@
 ### 4. Cập nhật bảng liên tục:
 - Switch luôn học và cập nhật để định tuyến trong mạng LAN tối ưu.
 
-# PHÂN BIỆT PORT, GATEWAY, ROUTER VÀ SWITCH
-| Thành phần  | Là gì?                                                | Dùng để làm gì?                                                                   | Hoạt động ở tầng OSI | Điểm nổi bật                                              |
-| ----------- | ----------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------- | --------------------------------------------------------- |
-| **Port**    | Số hiệu (0–65535) trong phần mềm, không phải thiết bị | Phân biệt ứng dụng/dịch vụ trong máy hoặc trên server. Ví dụ: HTTP 80, HTTPS 443. | Tầng 4 (Transport)   | Giúp nhiều ứng dụng chia sẻ cùng một kết nối mạng qua IP. |
-| **Gateway** | “Cửa ngõ” mạng, thường là Router                      | Nối mạng nội bộ (LAN) với mạng ngoài (Internet), dịch địa chỉ (NAT).              | Tầng 3 (Network)     | Thiết bị đầu tiên nhận/gửi dữ liệu ra ngoài mạng.         |
-| **Router**  | Bộ định tuyến                                         | Kết nối nhiều mạng, tìm đường đi tối ưu cho gói tin.                              | Tầng 3 (Network)     | Chọn đường, quản lý IP, chia sẻ kết nối Internet.         |
-| **Switch**  | Bộ chuyển mạch mạng                                   | Kết nối nhiều thiết bị trong cùng LAN, gửi dữ liệu dựa vào MAC.                   | Tầng 2 (Data Link)   | Nhanh, chính xác, giảm tắc nghẽn so với Hub.              |
+## 4. Phân biệt switch và router
+- Switch trong LAN:
+  - Vai trò: Kết nối các thiết bị nội bộ trong mạng LAN(PC, máy in, server, camera, v.v.).
+  - Cách hoạt động:
+    - Nhận gói tin -> đọc địa chỉ MAC đích -> gửi gói tin chính xác đến thiết bị cần nhận thôgn qua cổng tương ứng.
+    - Không cần IP, chỉ cần MAC.
+  - Giới hạn: Switch chỉ hoạt động bên trong LAN, không ra ngoài Internet.
+  - Ví dụ: Máy A trong LAN muốn gửi file cho Máy B → switch nhìn MAC của B và chuyển tiếp gói tin đến đúng cổng của B.
 
-> NOTE: khi máy tính kết nối vào mạng thì router có tác dụng gì và switch có tác dụng gì
-
-![alt text](image.png)
+- Router trong LAN:
+  - Vai trò: Kết nối nhiều mạng khác nhau lại với nhau(ví dụ: mạng LAN với mạng Internet).
+  - Cách hoạt động:
+    - Làm việc ở tầng Network layer, dùng địa chỉ IP để định tuyến.
+    - Trong LAN, router thường cấp địa chỉ IP(DHCP) cho các thiết bị.
+    - Khi có nhiều mạng LAN con(subnet), router sẽ định tuyến gói tin từ mạng này sang mạng kia.
+  - Giới hạn: Router ít khi dùng để kết nối trực tiếp nhiều máy trong cùng 1 LAN (switch làm việc này tốt hơn).
+  -  Ví dụ: Máy A trong LAN muốn truy cập website trên Internet → router nhận gói tin, biết đích ở ngoài LAN → định tuyến gói tin ra WAN (Internet).
