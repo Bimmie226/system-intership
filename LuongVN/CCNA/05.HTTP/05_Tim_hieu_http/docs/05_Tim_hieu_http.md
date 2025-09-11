@@ -1,7 +1,7 @@
 - [HTTP(HyperText Transfer Protocol)](#httphypertext-transfer-protocol)
   - [I. Tổng Quan Về HTTP](#i-tổng-quan-về-http)
     - [1. Khái niệm HTTP](#1-khái-niệm-http)
-    - [2. Cách thức hoạt động](#2-cách-thức-hoạt-động)
+    - [2. Các thành phần chính](#2-các-thành-phần-chính)
   - [II. Kết nối liên tục và không liên tục(persistent/nonpersistent)](#ii-kết-nối-liên-tục-và-không-liên-tụcpersistentnonpersistent)
     - [1. Kết nối không liên tục(nonpersistent)](#1-kết-nối-không-liên-tụcnonpersistent)
     - [2. Kết nối liên tục(Persistent Connection)](#2-kết-nối-liên-tụcpersistent-connection)
@@ -27,7 +27,7 @@ HTTP (HyperText Transfer Protocol) là giao thức truyền tải siêu văn b�
 
 Ví dụ: Khi bạn nhập một URL (ví dụ: http://example.com), trình duyệt sẽ gửi yêu cầu HTTP tới máy chủ, và máy chủ sẽ phản hồi lại nội dung trang web.
 
-### 2. Cách thức hoạt động 
+### 2. Các thành phần chính
 ![alt text](../images/cach-thuc-hoat-dong-cua-http.png)
 
 - Máy khách (Client):
