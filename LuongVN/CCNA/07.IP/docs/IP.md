@@ -4,7 +4,7 @@
 
 IP (Internet Protocol) là một giao thức trong bộ giao thức TCP/IP, được sử dụng để định danh và truyền thông tin giữa các thiết bị trong một mạng máy tính hoặc trên internet. IP đóng vai trò quan trọng trong việc đảm bảo các gói dữ liệu được gửi đi và nhận đúng nơi.
 
-## I. IPV4
+## I. IPv4
 
 IPv4 (Internet Protocol version 4) là giao thức internet phiên bản 4. Đây là phiên bản đầu tiên của IP được sử dụng rộng rãi. Hệ thống địa chỉ này được sử dụng để định danh và liên kết các thiết bị kết nối vào mạng internet hoặc mạng nội bộ. Mỗi thiết bị kết nối vào mạng sẽ được gán một địa chỉ IPv4 duy nhất (hoặc một địa chỉ công cộng nếu kết nối trực tiếp internet)
 
