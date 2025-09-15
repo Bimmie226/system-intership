@@ -42,7 +42,7 @@ Về cơ bản có 2 loại IPv4 chính: **public** và **private**.
 |Chi phí|Thường tốn kém hơn|Thường rẻ hơn|
 |Phù hợp cho|Máy chủ web, email, game, truy cập từ xa|Thiết bị người dùng thông thường(máy tính, điện thoại)|
 
-- **Private IPv4 address**: Đây là địa chỉ được sử dụng trong mạng nội bộ(LAN), ví dụ mạng gia đình, mạng văn phòng. Chúng không được định tuyéten trực tiếp trên Internet và có thể được sử dụng lại trong các mạng LAN khác nhau.
+- **Private IPv4 address**: Đây là địa chỉ được sử dụng trong mạng nội bộ(LAN), ví dụ mạng gia đình, mạng văn phòng. Chúng không được định truyền trực tiếp trên Internet và có thể được sử dụng lại trong các mạng LAN khác nhau.
   - Dải địa chỉ private(được quy định trong RFC 1918):
     - Lớp A: 10.0.0.0 - 10.255.255.255
     - Lớp B: 172.16.0.0 - 172.31.255.255
