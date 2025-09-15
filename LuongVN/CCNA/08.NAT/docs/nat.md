@@ -1,3 +1,12 @@
+- [NAT(NETWORK ADDRESS TRANSLATION)](#natnetwork-address-translation)
+  - [I. Khái Niệm](#i-khái-niệm)
+  - [II. Nguyên Lý Hoạt Động Của NAT](#ii-nguyên-lý-hoạt-động-của-nat)
+  - [III. Phân Loại NAT](#iii-phân-loại-nat)
+  - [IV. Ưu Điểm Và Nhược Điểm Của NAT](#iv-ưu-điểm-và-nhược-điểm-của-nat)
+    - [Ưu điểm](#ưu-điểm)
+    - [Nhược điểm](#nhược-điểm)
+
+
 # NAT(NETWORK ADDRESS TRANSLATION)
 ## I. Khái Niệm
 

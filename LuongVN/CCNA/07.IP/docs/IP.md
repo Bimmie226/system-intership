@@ -1,3 +1,11 @@
+- [IP(INTERNET PROTOCOL)](#ipinternet-protocol)
+  - [I. IPV4](#i-ipv4)
+    - [Gán địa chỉ cho mỗi giao diện](#gán-địa-chỉ-cho-mỗi-giao-diện)
+    - [Các loại IPv4](#các-loại-ipv4)
+    - [Lý do chia network và host](#lý-do-chia-network-và-host)
+    - [Phân biệt các lớp IPv4](#phân-biệt-các-lớp-ipv4)
+
+
 # IP(INTERNET PROTOCOL)
 
   ![alt text](../images/Def_IP.png)
