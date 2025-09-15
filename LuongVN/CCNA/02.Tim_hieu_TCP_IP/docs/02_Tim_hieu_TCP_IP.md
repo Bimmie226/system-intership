@@ -13,6 +13,7 @@
     - [1. Điểm giống nhau giữa OSI và TCP/IP](#1-điểm-giống-nhau-giữa-osi-và-tcpip)
     - [2. Điểm khác nhau giữa OSI và TCP/IP](#2-điểm-khác-nhau-giữa-osi-và-tcpip)
   - [V. WORK FLOW Trong TCP/IP](#v-work-flow-trong-tcpip)
+  - [VI. Phân Biệt TCP và UDP](#vi-phân-biệt-tcp-và-udp)
 
 
 # TCP/IP MODEL
@@ -134,3 +135,14 @@
 - Dữ liệu tiếp tục được chuyển xuống tầng Data Link. tại đây Packet sẽ được đóng gói thành Frame bằng cách thêm địa chỉ MAC nguồn (MAC của thiết bị hiện tại) và địa chỉ MAC đích (MAC của router tiếp theo). Đồng thời, Trailer (FCS - Frame Check Sequence) được thêm vào để kiểm tra lỗi trong quá trình truyền.
 
 - Cuối cùng, mỗi Frame sẽ được tầng Vật Lý chuyển thành một chuỗi bit nhị phân và được mã hóa thành tín hiệu điện, quang hoặc sóng vô tuyến để truyền đến thiết bị B qua môi trường mạng.
+
+## VI. Phân Biệt TCP và UDP
+| **Tiêu chí**                    | **TCP (Transmission Control Protocol)**                                                          | **UDP (User Datagram Protocol)**                                                                        |
+| ------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| **Loại giao thức**              | Hướng kết nối (Connection-oriented) – cần thiết lập kết nối trước khi truyền dữ liệu.            | Không hướng kết nối (Connectionless) – không cần thiết lập kết nối trước khi truyền dữ liệu.            |
+| **Độ tin cậy**                  | Đảm bảo dữ liệu truyền đến đúng thứ tự, không mất mát nhờ cơ chế xác nhận (ACK), retransmission. | Không đảm bảo dữ liệu đến đúng thứ tự hoặc không mất mát. Không có cơ chế ACK hay retransmission.       |
+| **Kiểm soát luồng & tắc nghẽn** | Có cơ chế kiểm soát luồng (Flow Control) và kiểm soát tắc nghẽn (Congestion Control).            | Không có cơ chế kiểm soát luồng hay tắc nghẽn.                                                          |
+| **Trình tự dữ liệu**            | Dữ liệu được phân mảnh thành các segment có số thứ tự, đảm bảo sắp xếp đúng.                     | Dữ liệu gửi dưới dạng datagram, không sắp xếp lại khi đến.                                              |
+| **Tốc độ**                      | Tốc độ chậm hơn do overhead kiểm soát, đảm bảo tin cậy.                                          | Tốc độ nhanh hơn do ít overhead, không cần xác nhận.                                                    |
+| **Ứng dụng thực tế**            | Dùng cho các ứng dụng yêu cầu độ tin cậy cao như: Web (HTTP/HTTPS), Email (SMTP/IMAP/POP3), FTP… | Dùng cho ứng dụng yêu cầu tốc độ, chấp nhận mất mát như: Streaming video/audio, VoIP, game online, DNS… |                                                                  |
+| **Thiết lập kết nối**           | Cần bắt tay 3 bước (Three-way handshake).                                                        | Không cần bắt tay, gửi dữ liệu ngay.                                                                    |
