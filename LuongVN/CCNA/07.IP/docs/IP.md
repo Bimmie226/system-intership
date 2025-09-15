@@ -1,9 +1,12 @@
 - [IP(INTERNET PROTOCOL)](#ipinternet-protocol)
-  - [I. IPV4](#i-ipv4)
+  - [I. IPv4](#i-ipv4)
     - [Gán địa chỉ cho mỗi giao diện](#gán-địa-chỉ-cho-mỗi-giao-diện)
     - [Các loại IPv4](#các-loại-ipv4)
     - [Lý do chia network và host](#lý-do-chia-network-và-host)
     - [Phân biệt các lớp IPv4](#phân-biệt-các-lớp-ipv4)
+  - [II. Chia Subnet](#ii-chia-subnet)
+    - [1. Tai sao cần chia subnet?](#1-tai-sao-cần-chia-subnet)
+    - [2. Các kiểu chia subnet](#2-các-kiểu-chia-subnet)
 
 
 # IP(INTERNET PROTOCOL)
@@ -80,7 +83,7 @@ Về cơ bản có 2 loại IPv4 chính: **public** và **private**.
    
     VD: địa chỉ 0.0.0.1 với phần mạng là 0.0.0 và phần host là 1 là không hợp lệ.
 
-  - Nếu các bit phần host đồng thời bằng 0, ta cso một địa chỉ mạng.
+  - Nếu các bit phần host đồng thời bằng 0, ta có một địa chỉ mạng.
    
     VD: địa chỉ 192.168.1.1 là một địa chỉ có thể gán cho host nhưng địa chỉ 192.168.1.0 là một địa chỉ mạng, không thể gán cho host được.
 
@@ -116,3 +119,39 @@ Ví dụ:
 - 192.168.1.1 -> Octet đầu tiên là 192 (trong phạm vi 192 - 223). Đây là lớp C.
 - 224.0.0.1 -> Octet đầu tiên là 224 (trong phạm vi 224 - 239). Đây là địa chỉ multicast thuộc lớp D.
 - 240.0.0.1 -> Octet đầu tiên là 240 (trong phạm vi 240 - 255). Đây là lớp E, không sử dụng cho mạng công khai.
+
+## II. Chia Subnet
+Nguyên lý cơ bản của kỹ thuật chia subnet: Để có thể chia nhỏ một mạng lớn thành nhiều mạng con bằng nhau, người ta thực hiện mượn thêm một số bit bên phần host để làm phần mạng, các bit mượn này được gọi là các bit subnet. Tùy thuộc vào số bit subnet mà ta có được các số lượng các mạng con khác nhau với các kích cỡ khác nhau:
+
+![alt text](../images/subnet.png)
+
+### 1. Tai sao cần chia subnet?
+- Tiết kiệm địa chỉ IP
+  - Đối với IPv4, số lượng địa chỉ IP có hạn. Nếu không chia subnet, nhiều địa chỉ có thể bị lãng phí khi cấp phát cho các mạng nhỏ.
+  - Ví dụ: Một công ty chỉ có 20 thiết bị nhưng nếu sử dụng một mạng /24 (tương đương 256 địa chỉ), hơn 230 địa chỉ IP sẽ bị lãng phí.
+  - Subnetting giúp sử dụng hiệu quả hơn không gian địa chỉ bằng cách tạo ra các mạng con với số lượng địa chỉ phù hợp.
+- Giảm tắc nghẽn mạng, tăng hiệu suất
+  - Mạng nhỏ hơn giúp giảm số lượng thiết bị trên cùng một miền quảng bá (broadcast domain), từ đó giảm lưu lượng broadcast và tăng hiệu suất mạng.
+  - Subnetting giới hạn phạm vi broadcast bằng cách chia nhỏ mạng, giúp tối ưu hóa băng thông và giảm độ trễ.
+- Cải thiện bảo mật
+  - Chia subnet giúp cô lập các bộ phận khác nhau trong hệ thống mạng, hạn chế sự lan truyền của tấn công mạng hoặc lỗi hệ thống.
+  - Có thể áp dụng các chính sách bảo mật riêng cho từng subnet.
+  - Ví dụ: Một công ty có thể chia subnet riêng cho nhân viên, khách hàng, và hệ thống máy chủ để bảo vệ dữ liệu quan trọng.
+- Quản lý dễ dàng hơn
+  - Việc tổ chức mạng thành nhiều subnet giúp quản trị viên dễ dàng kiểm soát và giám sát lưu lượng mạng.
+  - Dễ dàng xác định các sự cố mạng và khoanh vùng lỗi nhanh hơn.
+
+### 2. Các kiểu chia subnet
+- Chia subnet cố định (FLSM - Fixed Length Subnet Mask)
+
+  - Trong FLSM, tất cả các subnet có cùng kích thước, sử dụng cùng một subnet mask, và mỗi subnet có số lượng host như nhau.
+  - Dễ dàng quản lý nhưng có thể gây lãng phí IP
+- Chia subnet không cố định (VLSM - Variable Length Subnet Mask)
+
+  - VLSM là phương pháp chia subnet với kích thước khác nhau để phù hợp với nhu cầu thực tế của từng bộ phận.
+  - Không gian địa chỉ được tối ưu hơn so với FLSM
+  - Mỗi subnet có một subnet mask khác nhau tùy thuộc vào số lượng thiết bị
+- Chia subnet theo CIDR (Classless Inter-Domain Routing)
+
+  - CIDR là phương pháp gộp nhiều subnet nhỏ thành một mạng lớn hơn hoặc ngược lại. CIDR không tuân theo các lớp địa chỉ IP truyền thống (A, B, C).
+  - Giảm tải bảng định tuyến bằng cách gộp nhiều subnet lại (route aggregation).
