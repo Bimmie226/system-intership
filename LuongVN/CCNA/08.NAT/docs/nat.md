@@ -5,6 +5,10 @@
   - [IV. Ưu Điểm Và Nhược Điểm Của NAT](#iv-ưu-điểm-và-nhược-điểm-của-nat)
     - [Ưu điểm](#ưu-điểm)
     - [Nhược điểm](#nhược-điểm)
+  - [V. SNAT VÀ DNAT](#v-snat-và-dnat)
+    - [1. DNAT(Source NAT)](#1-dnatsource-nat)
+    - [2. DNAT(Destination NAT)](#2-dnatdestination-nat)
+    - [Tình huống](#tình-huống)
 
 
 # NAT(NETWORK ADDRESS TRANSLATION)
@@ -100,3 +104,58 @@ NAT được phân thành ba loại chính dựa trên cách thức ánh xạ đ
 - **Tăng độ phức tạp trong cấu hình:** Để các dịch vụ yêu cầu truy cập từ bên ngoài hoạt động chính xác, cần cấu hình cẩn thận NAT tĩnh, NAT động hoặc Port Forwarding, điều này có thể phức tạp đối với người dùng không quen thuộc.
 
 - **Không tương thích với IPv6:** Network Address Translation chủ yếu được sử dụng cho địa chỉ IPv4, trong khi IPv6 có thể không cần đến Network Address Translation do có số lượng địa chỉ IP lớn hơn. Điều này có thể làm cho NAT trở nên kém cần thiết trong các mạng sử dụng IPv6.
+
+## V. SNAT VÀ DNAT
+### 1. DNAT(Source NAT)
+- Mục đích: Khi thiết bị trong mạng nộ bộ(private IP) truy cập ra ngoài Internet, router sẽ thay đổi địa chỉ nguồn từ IP nội bộ -> IP công cộng.
+- Lý do cần: Vì IP private không định tuyến được trên Internet.
+- Ví dụ: 
+  - Máy trong LAN: `192.168.1.10` -> muốn truy cập `8.8.8.8`.
+  - Gói tin gốc: Source = `192.168.1.10`, Dest = `8.8.8.8`.
+  - Router NAT: Source = `203.0.113.5`(IP public), Dest = `8.8.8.8`.
+  - Khi phản hồi về, router "dịch" ngược lại -> gửi cho máy `192.168.1.10`.
+
+👉 SNAT chủ yếu dùng cho kết nối outbound (từ trong ra ngoài).
+
+### 2. DNAT(Destination NAT)
+- Mục đích: Cho phép thiết bị ngoài Internet truy cập vào dịch vụ bên trong LAN. Router sẽ thay đổi địa chỉ đích từ IP công cộng → IP nội bộ.
+- Lý do cần: Vì Internet chỉ "thấy" IP công cộng của router, không thấy IP pỉvate bên trong.
+- Ví dụ: 
+  - Người ngoài truy cập `203.0.113.5:80` (web server).
+  - Gói tin gốc: Source = `8.8.8.8`, Dest = `203.0.113.5:80`.
+  - Router NAT: Dest = `192.168.1.100:80` (web server nội bộ).
+  - Server nội bộ nhận gói tin và phản hồi; router lại dịch ngược để trả về cho client ngoài.
+
+👉 DNAT chính là Port Forwarding cấu hình trên router để host game/server.
+
+### Tình huống
+A đang ở nhà, IP nội bộ của PC là `192.168.1.5`.
+A tự host server Minecraft trên port **25565**.
+Router của A có IP công cộng: ``203.0.113.5``.
+
+A muốn bạn bè ngoài Internet kết nối ``203.0.113.5:25565`` để chơi cùng.
+
+**NẾU CHỈ CÓ SNAT**
+- Khi A trong LAN truy cập ra ngoài Internet
+  - Source từ `192.168.1.5` -> thành `203.0.113.5`.
+  - Kết nối đi ra ngoài OK.
+- Nhưng chiều từ ngoài vào:
+  - Người ngoài gửi gói tin: Dest = `203.0.113.5:25565`.
+  - Router nhận gói nhưng không biết phải chuyển vào đâu(trong LAN có thể nhiều máy, cùng port).
+  - Kết nối thất bại.
+
+**KHI CÓ DNAT**
+CẤU hình trên router:
+```pgsql
+External: 203.0.113.5:25565 (TCP/UDP)
+→ Forward to Internal: 192.168.1.5:25565
+```
+
+- Đây chính là DNAT (Destination NAT): router thay đổi địa chỉ đích từ IP công cộng → IP nội bộ.
+- Người ngoài kết nối `203.0.113.5:25565`:
+  - Router nhận gói tin, Dest ban đầu `203.0.113.5:25565`.
+  - Router đổi Dest thành `192.168.1.5:25565` rồi gửi vào LAN.
+  - Server Minecraft trên PC nhận gói tin và trả lời.
+  - Router làm SNAT ngược chiều để trả kết quả ra Internet.
+
+👉 Lúc này bạn bè mới kết nối vào server game của A được.
