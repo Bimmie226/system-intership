@@ -51,7 +51,7 @@ Ví dụ:
 ## III. CÁCH HOẠT ĐỘNG CỦA VLAN
 Mạng VLAN hoạt động bằng cách chia một mạng vật lý thành các mạng con ảo độc lập giúp tăng cường quản lý và an ninh, cũng như cải thiện hiệu suất mạng.
 - Mỗi VLAN trên switch được xác định bằng một VLAN ID(ví dụ VLAN 10, VLAN 20).
-- Cổng switch(port) sẽ được gán một hoặc nhiều VLAN ID. Thiết bị cắm vào port nào đó sẽ tự động thuộc VLAN có ID tương ứng.
+- Cổng switch(port) sẽ được gán VLAN ID. Thiết bị cắm vào port nào đó sẽ tự động thuộc VLAN có ID tương ứng.
 - **Access Ports và Trunk Ports**: Trong mạng VLAN, có hai loại cổng quan trọng: access ports và trunk ports. Cổng Access ports được gán cho một VLAN cụ thể, trong khi cổng trunk được sử dụng để chuyển dữ liệu giữa các switch và giữa các mạng VLAN.
 
 ![alt text](../images/vlan_work.png)
