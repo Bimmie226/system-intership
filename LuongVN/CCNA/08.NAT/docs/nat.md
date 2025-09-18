@@ -6,7 +6,7 @@
     - [Ưu điểm](#ưu-điểm)
     - [Nhược điểm](#nhược-điểm)
   - [V. SNAT VÀ DNAT](#v-snat-và-dnat)
-    - [1. DNAT(Source NAT)](#1-dnatsource-nat)
+    - [1. SNAT(Source NAT)](#1-snatsource-nat)
     - [2. DNAT(Destination NAT)](#2-dnatdestination-nat)
     - [Tình huống](#tình-huống)
 
@@ -91,22 +91,14 @@ NAT được phân thành ba loại chính dựa trên cách thức ánh xạ đ
 
 - **Linh hoạt trong việc đổi địa chỉ IP:** NAT cho phép thay đổi cấu trúc địa chỉ IP bên trong mạng nội bộ mà không cần thông báo hoặc thay đổi cấu hình của các thiết bị bên ngoài.
 
-- **Hỗ trợ nhiều thiết bị cùng truy cập internet:** Với NAT Overload (PAT), nhiều thiết bị trong mạng nội bộ có thể chia sẻ một địa chỉ IP công cộng duy nhất, tạo điều kiện cho việc truy cập internet mà không cần nhiều địa chỉ IP công cộng.
-
-- **Giảm chi phí ISP:** Việc chỉ cần một vài địa chỉ IP công cộng thay vì phải mua nhiều địa chỉ từ nhà cung cấp dịch vụ (ISP) giúp tiết kiệm chi phí.
-
 ### Nhược điểm
 
 - **Giảm hiệu suất kết nối:** Quá trình chuyển đổi địa chỉ IP và cổng qua NAT có thể tạo thêm độ trễ (latency) và làm giảm hiệu suất kết nối mạng, đặc biệt là khi có quá nhiều thiết bị chia sẻ một địa chỉ IP công cộng.
 - **Khó khăn trong việc thiết lập kết nối từ ngoài vào mạng nội bộ:** Các dịch vụ yêu cầu kết nối từ internet vào thiết bị bên trong mạng nội bộ (ví dụ: máy chủ web hoặc máy chủ trò chơi) có thể gặp khó khăn trong việc cấu hình và hoạt động do NAT không cho phép truy cập trực tiếp.
-- **Vấn đề với một số giao thức:** Một số giao thức mạng, như SIP (Session Initiation Protocol) và IPSec, có thể gặp khó khăn trong việc hoạt động qua Network Address Translation vì các vấn đề liên quan đến việc thay đổi địa chỉ và cổng.
 
-- **Tăng độ phức tạp trong cấu hình:** Để các dịch vụ yêu cầu truy cập từ bên ngoài hoạt động chính xác, cần cấu hình cẩn thận NAT tĩnh, NAT động hoặc Port Forwarding, điều này có thể phức tạp đối với người dùng không quen thuộc.
-
-- **Không tương thích với IPv6:** Network Address Translation chủ yếu được sử dụng cho địa chỉ IPv4, trong khi IPv6 có thể không cần đến Network Address Translation do có số lượng địa chỉ IP lớn hơn. Điều này có thể làm cho NAT trở nên kém cần thiết trong các mạng sử dụng IPv6.
 
 ## V. SNAT VÀ DNAT
-### 1. DNAT(Source NAT)
+### 1. SNAT(Source NAT)
 - Mục đích: Khi thiết bị trong mạng nộ bộ(private IP) truy cập ra ngoài Internet, router sẽ thay đổi địa chỉ nguồn từ IP nội bộ -> IP công cộng.
 - Lý do cần: Vì IP private không định tuyến được trên Internet.
 - Ví dụ: 

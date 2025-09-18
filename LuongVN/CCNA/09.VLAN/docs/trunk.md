@@ -19,7 +19,7 @@
 
 # TRUNK
 ## Đường Trunk Là Gì?
-Đường Trunk hay Trunking là một kỹ thuật kết nối các thiết bị mạng với nhau để tạo thành một mạng lớn hơn, đặc biệt trong các mạng LAN (Local Area Network) hoặc các mạng VLAN (Virtual Local Area Network).
+Đường Trunk hay Trunking là một kỹ thuật kết nối các thiết bị mạng với nhau để tạo thành một mạng lớn hơn, đặc biệt trong mạng VLAN (Virtual Local Area Network).
 
 Đường trunk cho phép chuyển gói dữ liệu từ một VLAN này sang một VLAN khác trên cùng một đường truyền vật lý, điều này giúp tối ưu hóa việc sử dụng băng thông và giảm độ trễ trong mạng.
 
@@ -96,7 +96,9 @@ TAG bao gồm 4 thành phần ta quan tâm đến 2 thành phần chính là:
 - Trên sw1 khi add/delete VLAN thì toàn bộ sw còn lại sẽ thay đổi theo.
 
 Bước 1: Tạo sự thay đổi VLAN.
+
 Bước 2: Lan truyền sự thay đổi.
+
 Bước 3: Các sw nằm dưỡi sẽ đồng bộ với sự thay đổi gần nhất.
 
 #### Các Mode hoạt động
@@ -122,7 +124,7 @@ Bước 3: Các sw nằm dưỡi sẽ đồng bộ với sự thay đổi gần 
 
 ![alt text](../images/vtp_rev_num.png)
 
-- VTP gửi thông điệp như multicast frame trong 1 VTP domain.
+- VTP gửi thông điệp trong 1 VTP domain.
 - VTP server và client được đồng bộ theo số revision cao nhất.
 - Chỉ các sw thuộc cùng VTP domain hoặc password mới có thể trao đổi với nhau:
   - Cấu hình trên các sw tên miền bằng cách khai báo cho các con sw 1 VTP domain, có thể đặt thêm password để đảm bảo cơ chế bảo mật.
