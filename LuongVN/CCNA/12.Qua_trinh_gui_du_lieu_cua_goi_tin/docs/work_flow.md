@@ -62,8 +62,12 @@ Google nhận được, xử lý, trả về nộ dung HTML:
 
 Trình duyệt render trang Google.
 
-# Các giao thức tham gia vào quá trình flow 
--  DNS: Dịch tên miền thành IP trước khi mở kết nối.
--  HTTP: Dùng để trao dổi dữ liệu web giữa trình duyệt và server.
--  TCP: Dùng để tạo kết nối tin cậy.
--  IP(NAT chỉnh sửa).
+# Quá trình data trong TCP/IP
+
+| **Tầng**                            | **Client – Bạn (đi xuống các tầng)**                                                                                                                                       | **Server Google (đi lên các tầng)**                                                                                                |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **Application (HTTP)**              | Trình duyệt của bạn gửi **HTTP GET /** tới `google.com` (port 80).                                                                                                         | Web server Google nhận HTTP GET `/`, chuyển cho ứng dụng xử lý trang chủ.                                                          |
+| **Transport (TCP)**                 | Máy bạn tạo kết nối TCP (SYN → SYN-ACK → ACK) tới IP của Google. **(Trước khi ra Internet, router NAT sẽ đổi source port và IP thành IP công cộng.)**                      | Server Google nhận SYN từ **IP công cộng** (router của bạn), trả SYN-ACK về IP công cộng đó, sau đó nhận ACK và thiết lập kết nối. |
+| **Internet (IP)**                   | Gắn **source IP private** (192.168.x.x) và **dest IP Google** (142.250.x.x) → gửi ra router. **Router NAT đổi source IP thành IP công cộng** của bạn (ví dụ 123.45.67.89). | Nhận IP packet có dest IP = IP Google và source IP = IP công cộng của bạn. Bóc IP header, đưa TCP segment lên tầng Transport.      |
+| **Network Access (Ethernet/Wi-Fi)** | Đóng khung Ethernet/Wi-Fi: MAC nguồn = MAC máy bạn, MAC đích = MAC router. Router bóc, đổi IP/port, rồi đóng khung mới để gửi ra Internet.                                 | Server Google nhận khung Ethernet (MAC đích = MAC server), bóc MAC header lấy IP packet.                                           |
+| **Physical (Cáp/Sóng)**             | Tín hiệu điện/ánh sáng/sóng Wi-Fi chứa yêu cầu HTTP GET được truyền từ máy bạn → router → ISP → Internet → Google.                                                         | Server Google nhận tín hiệu qua cáp quang, chuyển thành khung Ethernet, rồi lên IP/TCP/HTTP.                                       |
