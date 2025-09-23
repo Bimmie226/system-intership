@@ -40,15 +40,15 @@ Giao thức giải quyết địa chỉ (ARP - Address Resolution Protocol) là 
 ## Cách hoạt động của ARP
 1) Máy A kiểm tra ARP cache
 - Nếu đã có IP <-> MAC trong bảng ARP, dùng luôn, không hỏi nữa.
-- 
-2) Nếu chưa có, gửi ARP Request(Broadcast)
+
+1) Nếu chưa có, gửi ARP Request(Broadcast)
 - A gửi gói ARP Request đến FF:FF:FF:FF:FF:FF(broadcast MAC):
     "Ai có IP 192.168.1.5 thì cho xin MAC"
 
-3) Máy B(IP 192.168.1.5) nhận được ARP Request
+1) Máy B(IP 192.168.1.5) nhận được ARP Request
 - B gửi ARP Reply về cho riêng A:
     "MAC của tôi là 00:11:22:33:44:55"
 
-4) Máy A nhận được ARP Reply
+1) Máy A nhận được ARP Reply
 - Lưu IP <-> MAC vào bảng ARP cache.
 - Dùng MAC vừa nhận để chuyển dữ liệu.

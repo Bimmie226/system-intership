@@ -71,4 +71,4 @@ Kịch bản quá trình cấp phát IP trong giao thức DHCP:
 
 4) Server nhận bản tin REQUEST (Đối với các Server không được nhận OFFER thì sẽ bỏ qua gói tin này)
 - Server xử lí gói tin REQUEST: Kiểm tra xem IP này còn sử dụng được không.
-- Nếu còn sử dụng được thì nó ghi lại thông tin và gửi lại gói tin ACK cho Client. Nếu không thì sẽ gửi lại PNAK để quay lại bước 1.
+- Nếu còn sử dụng được thì nó ghi lại thông tin và gửi lại gói tin ACK cho Client. Nếu không thì sẽ gửi lại NAK để quay lại bước 1.
