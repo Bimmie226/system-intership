@@ -5,7 +5,7 @@ Khi lên trình duyệt, truy cập `google.com` thì flow chi tiết qua các g
 # Flow 
 
 ## 1. Thiết bị gửi yêu cầu(PC / lap top / điện thoại) 
-- Thiết bị có IP Private do router cấp qua DHCP (ví dụ: `192.168.1.10/24`).
+- Thiết bị có IP Private `192.168.1.10/24`.
 - DNS server: `8.8.8.8`
 
 Khi gõ `google.com`, trình duyệt:
