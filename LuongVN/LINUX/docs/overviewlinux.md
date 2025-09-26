@@ -33,8 +33,15 @@ User Space (Không gian người dùng) – Ứng dụng và Chương trình:
 
 ### 3. Cấu trúc file trong linux
 
-Đối với Linux, tất cả đều là file. Từ file thông thường, thư mục, đĩa cho đến thiết bị ngoại vi, mọi thứ đều được hệ điều hành linux coi là các file trong hệ thống. Tất cả các "file" này được tổ chức theo cấu trúc dạng cây phân cấp(FHS - File Hierachy Structure) trong đó cao nhát là thư mục gốc " /
-"(gọi là root).
+Linux được xây dựng trên một nền tảng riêng với cộng đồng phát triển độc lập, không dựa vào mã gốc của Windows. 
+
+Vì vậy, bạn sẽ không thấy các thư mục quen thuộc như My Documents hay Program Files, cũng như không có khái niệm ổ đĩa C: hay D:. 
+
+Thay vào đó, toàn bộ hệ thống được tổ chức theo dạng cây thư mục duy nhất, trong đó các ổ đĩa, thư mục home và desktop đều nằm trong cấu trúc đó. 
+
+Điều này có nghĩa là bạn cần làm quen với một kiến trúc hệ thống tệp hoàn toàn mới. 
+
+Tuy nhiên, thực tế việc thích nghi không quá khó dù sự khác biệt khá rõ ràng.
 
 ![alt text](../images/struct_file.png)
 
@@ -100,7 +107,7 @@ Distro Linux(bản phân phối linux) là một hệ điều hành được t�
 ![alt text](../images/linux_distribution.png)
 
 **Lớp lõi(Core)** - Trung tâm của hệ thống:
-- **Kernel**: Nhân hệ điều hành, quản lý tài nguyên hệ thống vào giao tiếp với phần cứng.
+- **Kernel**: Nhân hệ điều hành, quản lý tài nguyên hệ thống và giao tiếp với phần cứng.
 
 **Lớp hệ thống(System Layer)** - Cung cấp công cụ cơ bản:
 - **Shell**: Giao diện dòng lệnh(CLI) giúp người dùng giao tiếp với hệ thống.
