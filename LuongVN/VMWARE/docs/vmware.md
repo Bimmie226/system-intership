@@ -43,3 +43,94 @@ Ví dụ:
 
 ![alt text](../images/mode_host-only.png)
 
+Khi cấu hình máy ảo sử dụng host-only networking, máy ảo sẽ được kết nối với máy thật trong một mạng riêng thông qua Switch ảo VMnet1. Địa chỉ của máy ảo và máy thật trong mạng host-only có thể được cấp bởi DHCP ảo gắn liền với Switch ảo Vmnet1 hoặc có thể đặt địa chỉ IP tĩnh cùng dải để kết nối với nhau.
+
+Cách hoạt động:
+
+1) VMware tạo một mạng ảo riêng biệt (VMnet1)
+- VMnet1 là một mạng nội bộ chỉ có giữa máy host và các máy ảo host-only.
+- Máy host có một Host Virtual Adapter để giao tiếp với mạng VMnet1.
+- Không có kết nối với card mạng vật lý của máy host, nên máy ảo không thể ra Internet hoặc truy cập mạng LAN bên ngoài.
+
+1) Luồng dữ liệu khi máy ảo giao tiếp:
+- Khi máy ảo gửi gói tin, nó đi qua Virtual Ethernet Adapter → VMnet1 → máy host hoặc máy ảo khác trong cùng VMnet1.
+- Nếu máy host chạy một dịch vụ (VD: SSH, HTTP), máy ảo có thể kết nối đến dịch vụ đó thông qua IP của Host Virtual Adapter.
+
+## Sử dụng chế độ mạng NAT để truy cập Internet
+
+### `Bước 1`: Cấu hình NAT trên VMware workstation
+
+1) Nhấp Edit virtual machine setting
+
+![alt text](../images/NAT_setting_01.png)
+
+2) Chọn Network Adapter → Chọn NAT (Share the host’s IP address).
+
+![alt text](../images/NAT_setting_02.png)
+
+3) Nhấn OK để lưu lại cấu hình.
+
+### `Bước 2`: Kiểm tra và kết nối Internet
+
+Ping kiểm tra kết nối Internet.
+
+> Ping google.com
+
+![alt text](../images/NAT_setting_03.png)
+
+## Sử dụng 1 card Bridge để từ máy ảo ping ra máy laptop cá nhân
+
+### `Bước 1`: Cấu hình Bridged trên VMware workstation
+
+1) Nhấp Edit virtual machine setting
+
+![alt text](../images/NAT_setting_01.png)
+
+1) Chọn Network Adapter → Chọn Chọn Bridged (Directly connect to the physical network)
+
+![alt text](../images/Bridged_setting_01.png)
+
+3) Nhấn OK để lưu lại cấu hình.
+
+### `Bước 2`: Kiểm tra 
+
+Địa chỉ IP máy lap 
+
+![alt text](../images/Bridged_setting_02.png)
+
+Địa chỉ IP máy Ubuntu:
+
+![alt text](../images/Bridged_setting_03.png)
+
+Ping giữa 2 máy
+
+![alt text](../images/Bridged_setting_04.png)
+
+## Cài đặt địa chỉ IP tĩnh cho Linux
+
+### Trên Ubuntu
+
+Địa chỉ IP ban đầu trên Ubuntu:
+
+![alt text](../images/static_IP.png)
+
+Để cài đặt IP tĩnh, chỉnh sửa file .yaml trong thư mục /etc/netplan
+
+![alt text](../images/static_IP_01.png)
+
+```pgsql
+sudo vi /etc/netplan/01-netcfg.yaml
+```
+
+![alt text](../images/static_IP_02.png)
+
+Chạy lệnh netplan apply để áp dụng:
+
+```pgsql
+netplan apply
+```
+
+Địa chỉ IP sau khi cấu hình IP tĩnh là:
+
+![alt text](../images/static_IP_03.png)
+
