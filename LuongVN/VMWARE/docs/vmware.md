@@ -78,6 +78,20 @@ Ping kiểm tra kết nối Internet.
 
 ![alt text](../images/NAT_setting_03.png)
 
+## Sử dụng chế độ card Host-only để 2 máy ảo kết nối với nhau
+
+Địa chỉ IP máy Windows:
+
+![alt text](../images/Host_only_setting_01.png)
+
+Địa chỉ IP máy Ubuntu:
+
+![alt text](../images/Host_only_setting_02.png)
+
+Ping giữa 2 máy:
+
+![alt text](../images/Host_only_setting_03.png)
+
 ## Sử dụng 1 card Bridge để từ máy ảo ping ra máy laptop cá nhân
 
 ### `Bước 1`: Cấu hình Bridged trên VMware workstation
