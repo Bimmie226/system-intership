@@ -112,24 +112,10 @@ Khi chạy script, shell sẽ hiển thị tất cả các lệnh thực thi và
 
 ![alt text](../images/C_shell_01.png)
 
-C shell (csh) là một Unix shell được viết ra nhằm thay thế Bourne shell (sh) với nhiều cải tiến, đồng thời mang cú pháp gần giống ngôn ngữ lập trình C, nên được đặt tên là C shell.
+C Shell (csh) là một loại shell trong hệ điều hành Unix có cú pháp và tính năng tương tự ngôn ngữ lập trình C. Dưới đây là một số đặc điểm của C Shell:
 
-#### Đặc điểm:
-- Ngôn ngữ script giống C.
-- Có cấu trúc điều kiện (if, switch) và vòng lặp (foreach, while) gần giống C.
-- Giúp người quen lập trình C dễ viết script hơn.
-- Quản lý biến:
-  - Biến shell: dùng `set`.
-  
-  ```csh
-    set name = "Bim"
-  ```
-
-  - Biến môi trường: dùng `setenv`.
-
-  ```csh
-    setenv PATH /usr/bin
-  ```
+- Cú pháp giống ngon ngữ C: C Shell được thiết kế với cú pháp tương tự ngôn ngữ lập trình C. Điều này cho phép người dùng sử dụng các cấu trúc điều khiển như if-else, for, while và switch-case trong các tập lệnh shell. 
+- Lịch sử lệnh phổ biến: Loại Shell này hỗ trợ lịch sử lệnh, cho phép người dùng truy cập và sử dụng lại các lệnh đã được thực thi trước đó. Bằng cách sử dụng các phím tắt và biến chằng hạn như !, !!, !N, người dùng có thể thao tác dễ dàng với lịch sử lệnh để tìm kiếm, sửa đổi và thực thi lại các lệnh trước.
 
 ### 3. Sh Shell
 
@@ -139,5 +125,18 @@ C shell (csh) là một Unix shell được viết ra nhằm thay thế Bourne s
 - Tên “sh” thường dùng để chỉ Bourne shell gốc.
 
 #### Đặc điểm
-- Ngôn ngữ script mạnh mẽ
-- Hỗ trợ biến, vòng lặp, điều kiện(`if`, `case`, `for`, `while`, `until`).
+- Cung cấp giao diện dòng lệnh để chạy lệnh, chương trình, quản lý file, process…
+
+- Có ngôn ngữ kịch bản (shell script) giúp tự động hóa công việc.
+
+- Hỗ trợ:
+
+  - Biến (variables)
+
+  - Cấu trúc điều khiển (if, for, while, case)
+
+  - Redirect I/O (>, <, >>)
+
+  - Pipes (|)
+
+- Nhẹ, ổn định, nhưng không thân thiện bằng các shell hiện đại (không có lệnh history, autocompletion…).
