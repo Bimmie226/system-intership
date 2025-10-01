@@ -130,13 +130,9 @@ C Shell (csh) là một loại shell trong hệ điều hành Unix có cú pháp
 - Có ngôn ngữ kịch bản (shell script) giúp tự động hóa công việc.
 
 - Hỗ trợ:
-
   - Biến (variables)
-
   - Cấu trúc điều khiển (if, for, while, case)
-
   - Redirect I/O (>, <, >>)
-
   - Pipes (|)
 
 - Nhẹ, ổn định, nhưng không thân thiện bằng các shell hiện đại (không có lệnh history, autocompletion…).
