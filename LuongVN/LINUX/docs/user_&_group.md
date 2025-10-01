@@ -61,21 +61,91 @@ Có 2 loại User:
 |Cột 3|mã nhóm(gid)|
 |Cột 4|danh sách các user thuộc nhóm|
 
-# Mối quan hệ giữa User và Group trong quản lý quyền
-- Quyền sở hữu tệp và thư mục: Mỗi tệp và thư mục trong Linux đều có thông tin về owner(chủ sở hữu) (là một user) và group owner(nhóm sở hữu) (là một group).
-- Quyền truy cập: Hệ thống Linux sử dụng ba loại quyền truy cập cơ bản cho mỗi tệp và thư mục, áp dụng cho ba đối tượng:
-  - Owner: User sở hữu tệp/thư mục.
-  - Group: Group sở hữu tệp/thư mục.
-  - Others: Tất cả các user khác không phải là owner và không thuộc group sở hữu.
-- Các loại quyền:
-  - Read(r): Cho phép xem nội dung của tệp hoặc nội dung của thư mục.
-  - Write(w): Cho phép sửa đổi nội dung của tệp hoặc tạo, xóa, đổi tên tệp trong thư mục.
-  - Execute(x): Cho phép chạy tệp (nếu là một chương trình) hoặc truy cập vào thư mục (để truy cập các tệp bên trong).
-
-- Lệnh `chmod`: Được sử dụng để thay đổi quyền truy cập của tệp và thư mục.
-
-- Lệnh `chown`: Được sử dụng để thay đổi owner của tệp và thư mục.
-
-- Lệnh `chgrp`: Được sử dụng để thay đổi group owner của tệp và thư mục.
-
 # Các lệnh thực thi
+## Tạo User -> Đặt password sau khi add
+- Cú pháp: `# useradd [option] <username>`
+
+```bash
+-c: Thông tin người dùng
+-d: Thư mục cá nhân
+-g: nhóm của người dùng
+```
+
+- Ví dụ:
+```bash
+useradd -c "Nguyen van A - Server Admin" -g server_admin vanA`
+# Tạo user tên "vanA" thuộc group "server_admin" và có thông tin là "Nguyen van A - Server Admin"
+```
+
+## Thay đổi thông tin cá nhân 
+- Cú pháp: `# usermod [option] <username>`
+
+```bash
+-c: Thông tin người dùng
+-d: Thư mục cá nhân
+-g: nhóm của người dùng
+```
+
+- Ví dụ:
+```bash
+usermod -g kinhdoanh vanA
+# chuyển vanA từ nhóm server_admin sang nhóm kinhdoanh
+```
+
+## Xóa người dùng
+- Cú pháp: `# userdel [option] <username>`
+
+```bash
+-r: xóa cả home directory của user
+-f: xóa user ngay cả khi user đang đăng nhập, đang được dùng bởi process nào đó. -> Nguy hiểm nên cẩn thận.
+```
+
+- Ví dụ: 
+
+```bash
+sudo userdel -r Bim
+# Xóa user Bim, đồng thời xóa thư mục /home/Bim.
+```
+
+## Khóa/Mở khóa người dùng
+- Khóa: `passwd -l <username>` hoặc `usermod -L <usernanme>`
+- Mở khóa: `passwd -u <username>` hoặc `usermod -U <username>`
+
+## Tạo nhóm
+- Cú pháp: `# groupadd [option] <groupname>`
+
+```bash
+-g GID: Chỉ định group ID cho nhóm mới(thay vì để hệ thống tự chọn)
+-r: Tạo system group(nhóm hệ thống). GID sẽ được lấy trong phạm vi dành cho nhóm hệ thống (thường < 1000).
+-f: Nếu group đã tồn tại: không báo lỗi. Nếu GID đã dùng: chọn GID khác.
+```
+
+- Ví dụ: 
+```bash
+sudo groupadd -g 1500 developers
+# Tạo group developers với GID = 1500.
+```
+
+## Xóa nhóm
+- Cú pháp: `# groupdel <groupname>`
+- Ví dụ: 
+```bash
+sudo groupdel deverlopers
+# Xóa group deverlopers
+```
+
+## Thay đổi thông tin nhóm
+- Cú pháp: `# groupmod [option] <group_name>`
+
+```bash
+-g GID: Đặt lại group ID mới cho group.
+-n new_name: Đổi tên group.
+```
+
+- Ví dụ:
+```bash
+sudo groupmod -g 1501 developers
+# đổi GID của group developers thành 1501.
+sudo groupmod -n devteam developers
+# đổi tên group developers thành devteam.
+```

@@ -114,6 +114,8 @@ Khi chạy script, shell sẽ hiển thị tất cả các lệnh thực thi và
 
 C Shell (csh) là một loại shell trong hệ điều hành Unix có cú pháp và tính năng tương tự ngôn ngữ lập trình C. Dưới đây là một số đặc điểm của C Shell:
 
+#### Đặc điểm
+
 - Cú pháp giống ngon ngữ C: C Shell được thiết kế với cú pháp tương tự ngôn ngữ lập trình C. Điều này cho phép người dùng sử dụng các cấu trúc điều khiển như if-else, for, while và switch-case trong các tập lệnh shell. 
 - Lịch sử lệnh phổ biến: Loại Shell này hỗ trợ lịch sử lệnh, cho phép người dùng truy cập và sử dụng lại các lệnh đã được thực thi trước đó. Bằng cách sử dụng các phím tắt và biến chằng hạn như !, !!, !N, người dùng có thể thao tác dễ dàng với lịch sử lệnh để tìm kiếm, sửa đổi và thực thi lại các lệnh trước.
 
