@@ -25,7 +25,7 @@ Cách hoạt động:
 
 ![alt text](../images/mod_bridge.png)
 
-Card mạng của máy ảo sẽ được gắn trực tiếp với card mạng của máy thật (sử dụng switch ảo VMnet0). Lúc này, máy ảo sẽ đóng vai trò như một máy trong mạng thật, có thể nhận DHCP từ mạng ngoài, hoặc đặt IP tĩnh cùng dải với mạng ngoài để giao tiếp với các máy ngoài mạng hoặc lên Internet.
+Lúc này, máy ảo sẽ đóng vai trò như một máy trong mạng thật, có thể nhận DHCP từ mạng ngoài, hoặc đặt IP tĩnh cùng dải với mạng ngoài để giao tiếp với các máy ngoài mạng hoặc lên Internet.
 
 Cách hoạt đông:
 
@@ -43,18 +43,16 @@ Ví dụ:
 
 ![alt text](../images/mode_host-only.png)
 
-Khi cấu hình máy ảo sử dụng host-only networking, máy ảo sẽ được kết nối với máy thật trong một mạng riêng thông qua Switch ảo VMnet1. Địa chỉ của máy ảo và máy thật trong mạng host-only có thể được cấp bởi DHCP ảo gắn liền với Switch ảo Vmnet1 hoặc có thể đặt địa chỉ IP tĩnh cùng dải để kết nối với nhau.
+- Host-only nghĩa là máy ảo (VM) chỉ có thể kết nối với máy thật (host) và các máy ảo khác trong cùng chế độ host-only.
+
+- Không có đường ra Internet (trừ khi bạn cấu hình thêm NAT hoặc bridging kèm theo
 
 Cách hoạt động:
+- Host (máy thật) đóng vai trò như một “router” nội bộ hoặc một máy tính trong mạng LAN đó.
+- VM được gán một IP nội bộ (thường dạng 192.168.x.x) trong dải riêng của host-only network.
+- Các VM trong cùng dải này có thể ping và giao tiếp với nhau.
+- Các VM cũng có thể ping tới host (vì host nằm trong mạng host-only).
 
-1) VMware tạo một mạng ảo riêng biệt (VMnet1)
-- VMnet1 là một mạng nội bộ chỉ có giữa máy host và các máy ảo host-only.
-- Máy host có một Host Virtual Adapter để giao tiếp với mạng VMnet1.
-- Không có kết nối với card mạng vật lý của máy host, nên máy ảo không thể ra Internet hoặc truy cập mạng LAN bên ngoài.
-
-1) Luồng dữ liệu khi máy ảo giao tiếp:
-- Khi máy ảo gửi gói tin, nó đi qua Virtual Ethernet Adapter → VMnet1 → máy host hoặc máy ảo khác trong cùng VMnet1.
-- Nếu máy host chạy một dịch vụ (VD: SSH, HTTP), máy ảo có thể kết nối đến dịch vụ đó thông qua IP của Host Virtual Adapter.
 
 ## Sử dụng chế độ mạng NAT để truy cập Internet
 
