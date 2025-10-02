@@ -186,3 +186,23 @@ sudo groupmod -n deverlopers thuki # option -n: thay đổi name của thuki th�
 check lại file /etc/group:
 
 ![alt text](../images/lab_group_07.png)
+
+
+Em xin phép gửi báo cáo ạ:
+TASK: Tìm hiểu shell, user & group trong linux
+
+Đã hoàn thành:
+- Tìm hiểu về shell, bash shell, c shell, sh shell
+
+- Cách sử dụng bash shell
+
+- Đặc điểm của user, group. Các file chứa thông tin của user, group.
+
+- Các lệnh thực thi của user & group
+
+- Lab tạo, xóa, liệt kê user, group, thêm user vào group và thay đổi thông tin user và group
+
+Đang tìm hiểu:
+
+- Permission trong linux
+- Lab về permission
