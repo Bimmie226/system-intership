@@ -126,3 +126,36 @@ Kiểm tra lại:
 ### 3.7. `dpkg -P` -> Gỡ hoàn toàn
 
 ![alt text](../images/lpic_2_18.png)
+
+## 4. `apt` - advanced package tool
+### 4.1. `apt update` -> cập nhật lại danh sách gói từ csc kho lưu trữ trong `/etc/apt/sources.list`
+
+### 4.2. `apt upgrade` -> nâng cấp tất cả các gói đã cài đặt lên phiên bản mới nhất
+
+### 4.3. `apt install <gói>` -> cài đặt gói mới
+
+![alt text](../images/lpic_2_19.png)
+
+### 4.4. `apt remove <gói>` -> gỡ cài đặt gói nhưng dữ lại file cấu hình
+
+### 4.5. `apt purge <gói>` -> gỡ hoàn toàn cả gói và file cấu hình
+
+### 4.6. `apt autoremove` -> gỡ các gói được cài đặt tự động làm phụ thuộc nhưng giờ không cần nữa
+
+### 4.7. `apt show <gói>` -> hiển thị thông tin chi tiết về một gói
+
+![alt text](../images/lpic_2_20.png)
+
+### 4.8. `apt list --installed` -> liệt kê tất cả các gói đã cài trong hệ thống
+
+### 4.9. `apt search <keyword>` -> tìm gói có tên hoặc mô tả chưa từ khóa
+
+Ví dụ:
+
+```bash
+apt search python
+```
+
+-> Kết quả: Liệt kê các gói như `python`, `python3-pip`, `python3-venv`, ...
+
+### 4.10. `
