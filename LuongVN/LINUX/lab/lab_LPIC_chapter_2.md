@@ -158,4 +158,53 @@ apt search python
 
 -> Kết quả: Liệt kê các gói như `python`, `python3-pip`, `python3-venv`, ...
 
-### 4.10. `
+## 5. `ps` - process status
+### 5.1. `ps` -> xem tiến trình đang chạy trong cùng terminal
+
+![alt text](../images/lpic_2_21.png)
+
+### 5.2. `ps -e` hoặc `ps -A` -> hiển thị tất cả tiến trình đang chạy trong hệ thống
+
+### 5.3. `ps -ef` -> hiển thị đầy đủ thông tin của tất cả tiến trình
+
+![alt text](../images/lpic_2_22.png)
+
+| Cột   | Ý nghĩa                    |
+| ----- | -------------------------- |
+| `UID`   | Tên user chạy tiến trình   |
+| `PID`   | Mã tiến trình              |
+| `PPID`  | Mã tiến trình cha          |
+| `C`     | % CPU sử dụng              |
+| `STIME` | Thời gian bắt đầu          |
+| `TTY`   | Terminal                   |
+| `TIME`  | Tổng thời gian CPU đã dùng |
+| `CMD`   | Lệnh khởi chạy tiến trình  |
+
+**NOTE**: Thường kết hợp với `grep` để tìm tiến trình cụ thể
+
+![alt text](../images/lpic_2_23.png)
+
+### 5.4. `ps -u <username>` -> xem tiến trình của 1 user cụ thể
+
+![alt text](../images/lpic_2_24.png)
+
+### 5.5. `ps -p <PID>` -> hiển thị thông tin của 1 tiến trình cụ thể
+
+![alt text](../images/lpic_2_25.png)
+
+**NOTE**: Thêm `-f` để xem chi tiết
+
+![alt text](../images/lpic_2_26.png)
+
+### 5.6. `ps --sort` -> sắp xếp danh sách tiến trình theo cột nhất định
+
+```bash
+ps -eo pid,comm,%mem,%cpu --sort=-%mem | head
+```
+
+- `-e` : tất cả process
+- `-o` : chỉ định cột hiển thị
+- `--sort=-%mem` : sxep giảm dần them %MEM
+- `head` : chỉ lấy 10 dòng đầu
+
+![alt text](../images/lpic_2_27.png)
