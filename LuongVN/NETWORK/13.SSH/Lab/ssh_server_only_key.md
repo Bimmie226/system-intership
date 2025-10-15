@@ -21,6 +21,7 @@ Chạy lệnh sau từ máy client:
 ```bash
 ssh-copy-id user@server_ip
 ```
+-> Sao chép nội dung của `~/.ssh/id_rsa.pub` vào `~/.ssh/authorized_keys` của user trên server.
 
 ![alt text](./images/cau_hinh_ssh_05.png)
 
