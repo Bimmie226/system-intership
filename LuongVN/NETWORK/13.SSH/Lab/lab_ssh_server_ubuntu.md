@@ -71,7 +71,9 @@ ssh luongvn@192.168.174.136
     scp <user>@<IP_ubuntu>:/đường/dẫn/tập_tin /đích/trên/rocky
     ```
   - Trên máy ubuntu có file nằm ở `/home/luongvn` có nội dung như sau:
+  
     ![alt text](./images/lab_ssh_ubuntu_11.png)
+
   - Tải file này về `/home/luongvn` ở rocky:
     - Trên rocky nhập lệnh:
       ```bash
@@ -87,7 +89,9 @@ ssh luongvn@192.168.174.136
     scp /đường/dẫn/tập_tin <user>@<IP_ubuntu>:/đường/dẫn/đích/trên/ubuntu
     ```
   - Trên máy rocky có file nằm ở `/home/luongvn` có nội dung như sau:
+
     ![alt text](./images/lab_ssh_ubuntu_13.png)
+    
   - Upload file này lên `/home/luongvn` ở ubuntu:
     - Trên rocky nhập lênh:
       ```bash
