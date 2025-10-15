@@ -25,6 +25,10 @@ ssh-copy-id user@server_ip
 
 ![alt text](./images/cau_hinh_ssh_05.png)
 
+- Mở file `~/.ssh/authorized_keys` trên ubuntu để kiểm tra:
+
+![alt text](./images/cau_hinh_ssh_09.png)
+
 ## 3. Cấu hình SSH server để chỉ dùng key
 - Trên máy ubuntu server, mở file cấu hình
 ```bash
