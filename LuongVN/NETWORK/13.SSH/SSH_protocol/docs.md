@@ -29,14 +29,14 @@
 - Thường dùng các thuật toán trao đổi khóa như Diffie-Hellman(DH)
 
 4) Giai đoạn 4: Authentication
-- qua trình xác thực giữa client và server nhờ cặp khóa SSH key
+- qua trình xác thực giữa client và server nhờ password hoặc cặp khóa SSH key
 - Xác thực đúng -> kết nối client và server thành công
 
 ## VI. Cách thực hoạt động của SSH key
 ### 1. Quy trình tạo và sử dụng SSH key
 (1) Tạo cặp khóa trên máy client
 ```bash
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t rsa -b 4096 -C
 ```
 
 Kết quả:
