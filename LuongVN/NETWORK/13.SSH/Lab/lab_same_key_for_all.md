@@ -34,7 +34,7 @@ $scp -P 2222 luongvn@192.168.174.135:/home/luongvn/.ssh/id_rsa.pub C:\Users\Admi
 
 - Kết luận: Có thể SSH được với tên folder và tên của file key mặc định
 
-## TH2: Trên máy Windows lưu thôgn tin về key với tên khác và lưu ở folder khác
+## TH2: Trên máy Windows lưu thông tin về key với tên khác và lưu ở folder khác
 
 - Ta tạo thư mục tên là `.ssh_test` và 2 file lần lượt là `id_rsa_test` và `id_rsa_test.pub` với nội dung giống với `id_rsa` và `id_rsa.pub` của Rocky9.
 
