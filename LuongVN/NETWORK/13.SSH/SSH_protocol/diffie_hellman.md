@@ -20,13 +20,13 @@
 2) Alice chọn một số nguyên bí mật `a = 6`, và gửi cho Bob giá trị `A = g ^ a mod p`
 - A = 5 ^ 6 mod 23
 - A = 8
-1) Bob chọn một số nguyên bí mật `b = 15`, và gửi cho Alice giá trị `B = g ^ b mod p`
+3) Bob chọn một số nguyên bí mật `b = 15`, và gửi cho Alice giá trị `B = g ^ b mod p`
 - B = 5 ^ 15 mod 23
 - B = 19
-1) Alice tính `s = B ^ a mod p`
+4) Alice tính `s = B ^ a mod p`
 - s = 19 ^ 6 mod 23
 - s = 2
-1) Bob tính `s = A ^ b mod p`
+5) Bob tính `s = A ^ b mod p`
 s = 8 ^ 15 mod 23
 s = 2
 
