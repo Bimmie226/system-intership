@@ -27,7 +27,10 @@
 3) Giai đoạn 3: Key Change
 - Tạo ra được `session key`
 - Thường dùng các thuật toán trao đổi khóa như Diffie-Hellman(DH)
-- Các bước cơ bản (ví dụ sử dụng Diffie-Hellman (DH)):
+
+### Diffie-Hellman 
+- Diffie–Hellman (DH) dựa trên toán học modulo số nguyên để tính toán khóa chung.
+- Các bước cơ bản:
   - Cả hai bên chọn một cặp số chung: `g` (generator), `p` (số nguyên tố lớn).
   - Mỗi bên chọn một số bí mật: client chọn `a`, server chọn `b`.
   - Tính public value: Client tính `A = g^a mod p`, Server tính `B = g^b mod p`.
