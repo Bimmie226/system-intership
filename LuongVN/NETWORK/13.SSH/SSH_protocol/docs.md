@@ -27,8 +27,22 @@
 3) Giai đoạn 3: Key Change
 - Tạo ra được `session key`
 - Thường dùng các thuật toán trao đổi khóa như Diffie-Hellman(DH)
+- Các bước cơ bản (ví dụ sử dụng Diffie-Hellman (DH)):
+  - Cả hai bên chọn một cặp số chung: `g` (generator), `p` (số nguyên tố lớn).
+  - Mỗi bên chọn một số bí mật: client chọn `a`, server chọn `b`.
+  - Tính public value: Client tính `A = g^a mod p`, Server tính `B = g^b mod p`.
+  - Client gửi `A` cho server, và server gửi `B` cho client.
+  - Client tính `K = B^a mod p`; Server tính `K = A^b mod p`.
+  - `Session key = K + random + session ID`.
+- Ví dụ:
+  - Giả sử `g = 5`, `p = 23`
+  - Client chọn `a = 6` → `A = 5^6 mod 23 = 8`
+  - Server chọn `b = 15` → `B = 5^15 mod 23 = 2`
+  - Client nhận `B = 2` → tính `K = 2^6 mod 23 = 18`
+  - Server nhận `A = 8` → tính `K = 8^15 mod 23 = 18`
+  - Kết quả: cùng shared secret `K = 18` 
 
-4) Giai đoạn 4: Authentication
+1) Giai đoạn 4: Authentication
 - qua trình xác thực giữa client và server nhờ password hoặc cặp khóa SSH key
 - Xác thực đúng -> kết nối client và server thành công
 
