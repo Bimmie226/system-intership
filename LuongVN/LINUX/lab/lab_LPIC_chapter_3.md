@@ -116,3 +116,96 @@ lsblk -o NAME,SIZE,TYPE,MOUNTPOINT
   - `15ad`: Vendor ID(mã nhà sản xuất)
   - `0405`: Device ID(mã sản phẩm cụ thể)
 
+## 4. `df: disk free` - hiển thị dung lượng đĩa còn trống trên các fs 
+
+  ![alt text](../images/lpic_3_11.png)
+
+  | Cột            | Ý nghĩa                                                                                                   | Ví dụ trong ảnh                                                              |
+  | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+  | **Filesystem** | Tên **hệ thống tệp (file system)** hay **thiết bị lưu trữ** được mount.                                   | `/dev/mapper/ubuntu--vg-ubuntu--lv`, `/dev/sda2`, `tmpfs`, `/dev/loop0`, ... |
+  | **1K-blocks**  | Tổng **dung lượng của hệ thống tệp**, tính theo **khối 1 KB** (1 block = 1024 byte).                      | `18631360` nghĩa là ~18.6 GB                                                 |
+  | **Used**       | **Dung lượng đã sử dụng** (tính bằng 1K-blocks).                                                          | `8111872` (~8.1 GB)                                                          |
+  | **Available**  | **Dung lượng còn trống có thể sử dụng**.                                                                  | `9547172` (~9.5 GB)                                                          |
+  | **Use%**       | **Tỷ lệ phần trăm dung lượng đã dùng** (`Used / (Used + Available)`).                                     | `46%`                                                                        |
+  | **Mounted on** | **Thư mục nơi hệ thống tệp được mount**. Đây là nơi bạn truy cập nội dung của phân vùng hoặc thiết bị đó. | `/`, `/boot`, `/dev`, `/run`, `/snap/...`                                    |
+
+### 4.1. `df -h` - hiển thị dung lượng theo KB, MB, GB, ...
+
+- `-h`: human readable
+
+  ![alt text](../images/lpic_3_12.png)
+
+  | Cột            | Ý nghĩa                                       |
+  | -------------- | --------------------------------------------- |
+  | **Filesystem** | Tên thiết bị hoặc phân vùng (vd: `/dev/sda1`) |
+  | **Size**       | Tổng dung lượng của hệ thống tệp              |
+  | **Used**       | Dung lượng đã sử dụng                         |
+  | **Avail**      | Dung lượng còn trống                          |
+  | **Use%**       | Tỷ lệ phần trăm dung lượng đã dùng            |
+  | **Mounted on** | Thư mục nơi hệ thống tệp được mount           |
+
+### 4.2. `df -T` - hiển thị loại hệ thống tệp ext4, swap, ...
+
+  ![alt text](../images/lpic_3_13.png)
+
+### 4.3. `df -i` - hiển thị thông tin inode
+
+  ![alt text](../images/lpic_3_14.png)
+
+- `IUse% = 100%` -> hết inode -> ko thể tạo thêm file mới
+
+### 4.4. `df + PATH` - hiển thị thông tin phân vùng chứa thư mục
+
+  ![alt text](../images/lpic_3_15.png)
+
+### 4.5. `df --total` - thêm dòng tổng kết toàn bộ dung lượng cuối bảng
+
+  ![alt text](../images/lpic_3_16.png)
+
+### 4.6. `df -x <fstype>` - loại trừ các hệ thống tệp có kiểu nhất định
+
+  ![alt text](../images/lpic_3_17.png)
+
+- có thể dùng nhiều option `-x` trong 1 câu lệnh: `df -x squashfs -x tmpfs ...`
+- `-x: exclude`
+
+## 5. `du: disk usage` - xem dung lượng đã sử dụng bởi các thư mục hoặc tập tin cụ thể
+
+  ![alt text](../images/lpic_3_18.png)
+
+- Cú pháp: `du + [option] + [path]`
+- Nếu không có path, mặc định là đường dẫn tới thư mục hiện tại
+
+- Ý nghĩa:
+
+  | Cột                      | Ý nghĩa                                                             | Ví dụ                                            |
+  | ------------------------ | ------------------------------------------------------------------- | ------------------------------------------------ |
+  | **Cột trái (số)**        | Dung lượng thư mục (hoặc file) tính bằng **block 1 KB** (mặc định). | Ví dụ: `468` nghĩa là 468 KB, `4` nghĩa là 4 KB. |
+  | **Cột phải (đường dẫn)** | Tên hoặc đường dẫn tương đối của thư mục/file.                      | Ví dụ: `./.config`, `./folder1`, `./dir1`...     |
+
+- Dòng cuối cùng: 
+  - `1308`: Tổng dung lượng(KB) của toàn bộ thư mục(bao gồm cả thư mục con)
+  - `.`: thư mục hiện tại
+
+### 5.1. `du -h` - hiển thị thông tin dưới dạng dễ đọc
+
+  ![alt text](../images/lpic_3_19.png)
+
+### 5.2. `du -s` - hiển thị tổng dung lượng của thư mục hiện tại
+
+  ![alt text](../images/lpic_3_20.png)
+
+- `-s: sumarize`
+
+### 5.3. `du --max-depth=n` - hiển thị dung lượng thư mục con (cấp n) trong thư mục hiện tại
+
+  ![alt text](../images/lpic_3_21.png)
+
+### 5.4. `du -ah` - xem dung lượng chi tiết từng file, thư mục
+
+  ![alt text](../images/lpic_3_22.png)
+
+### 5.5. `du --exclude=<dir_name>` - bỏ qua thư mục nào đó
+
+  ![alt text](../images/lpic_3_23.png)
+
