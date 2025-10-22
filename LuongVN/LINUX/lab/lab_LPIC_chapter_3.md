@@ -1,4 +1,4 @@
-# Lab các command Chapter 2
+# Lab các command Chapter 3
 ## 1. `lsdev` - hiển thị thông tin các thiết bị phần cứng được cài đặt trên system
 
 ![alt text](../images/lpic_3_01.png)
