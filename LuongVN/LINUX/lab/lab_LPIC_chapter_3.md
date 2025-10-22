@@ -115,3 +115,4 @@ lsblk -o NAME,SIZE,TYPE,MOUNTPOINT
 - `[15ad:0405]`: 
   - `15ad`: Vendor ID(mã nhà sản xuất)
   - `0405`: Device ID(mã sản phẩm cụ thể)
+
