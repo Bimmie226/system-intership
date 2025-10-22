@@ -120,7 +120,7 @@ lsblk -o NAME,SIZE,TYPE,MOUNTPOINT
 
   ![alt text](../images/lpic_3_11.png)
 
-  | Cột            | Ý nghĩa                                                                                                   | Ví dụ trong ảnh                                                              |
+  | Cột            | Ý nghĩa                                                                                                   | Ví dụ                                                          |
   | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
   | **Filesystem** | Tên **hệ thống tệp (file system)** hay **thiết bị lưu trữ** được mount.                                   | `/dev/mapper/ubuntu--vg-ubuntu--lv`, `/dev/sda2`, `tmpfs`, `/dev/loop0`, ... |
   | **1K-blocks**  | Tổng **dung lượng của hệ thống tệp**, tính theo **khối 1 KB** (1 block = 1024 byte).                      | `18631360` nghĩa là ~18.6 GB                                                 |
