@@ -2,13 +2,13 @@
 
 - Chọn 1 ổ đĩa trên máy tính sau đó tạo thư mục
 
-![alt text](./images/01.png)
+  ![alt text](./images/01.png)
 
 - Ở đây ta chọn ổ `D:`
 
   ![alt text](./images/02.png)
 
-- Đặt tên cho thư mục: Ví dụ: `OOP`
+- Click chuột phải sau đó chọn `new folder`, Đặt tên cho thư mục: Ví dụ: `OOP`
 
   ![alt text](./images/03.png)
 
