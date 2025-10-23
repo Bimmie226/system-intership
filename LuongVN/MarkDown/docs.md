@@ -1,6 +1,6 @@
 # Hướng dẫn note tài liệu bằng Markdown
 
-`B1`: Chọn 1 ổ đĩa trên máy tính sau đó tạo thư mục
+- Chọn 1 ổ đĩa trên máy tính sau đó tạo thư mục
 
 ![alt text](./images/01.png)
 
