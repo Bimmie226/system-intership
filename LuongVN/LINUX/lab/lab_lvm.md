@@ -251,3 +251,23 @@
   ```
 
   ![alt text](../images/lab_lvm_22.png)
+
+# Khi nào thì nên dùng `LVM`, khi nào nên dùng `Partition` và khi nào thì `mount trực tiếp ổ đĩa`
+
+## 1. mount trực tiếp ổ đĩa
+- Ưu điểm:
+  - Nhanh và đơn giản
+  - Hợp với ổ đĩa rời
+- Nhược điểm:
+  - Không thể chia nhỏ ổ thành nhiều phần riêng biệt
+  - Không thể mở rộng hoặc gộp với ổ khác
+- Nên dùng:
+  - Khi chỉ cần ổ đĩa phụ, dữ liệu tạm thời, không quan tâm đến mở rộng
+  - Ví dụ: Ổ backup ngoài, ổ USB
+
+## 2. Partition
+- Chia ổ vật lý thành nhiều vùng độc lập, mỗi vùng cho mục đích riêng
+- Ưu điểm:
+  - Tách biệt vùng dữ liệu(ví dụ `/`, `/boot`)
+- Nhược điểm:
+  - Khó resize
