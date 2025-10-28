@@ -318,4 +318,17 @@ grep -l "hello" file*.txt
 
 
 ## 9. `sort` 
-### 
+
+
+| Mục đích                         | Option |
+| -------------------------------- | ------ |
+| Sắp theo số                      | `-n`   |
+| Giảm dần                         | `-r`   |
+| Sắp theo cột                     | `-k`   |
+| Đặt dấu phân cách                | `-t`   |
+| Bỏ trùng                         | `-u`   |
+| Không phân biệt hoa/thường       | `-f`   |
+| Theo version (v1, v2, v10)       | `-V`   |
+| Theo tháng                       | `-M`   |
+| Kiểm tra đã sort chưa            | `-c`   |
+| Theo dung lượng “human readable” | `-h`   |

@@ -209,3 +209,30 @@ lsblk -o NAME,SIZE,TYPE,MOUNTPOINT
 
   ![alt text](../images/lpic_3_23.png)
 
+## 6. Một số yêu cầu ví dụ
+### 6.1. Muốn debug thư mục nào chiếm nhiều dung lượng nhất trong ổ `root`, cụ thể là chiếm bao nhiêu?
+
+  ![alt text](../images/lpic_3_24.png)
+
+- Giải thích:
+  - `-s`: summarize -> chỉ hiển thị tổng dung lượng của thư mục con cấp 1, không hiển thị đệ quy
+  - `-h`: human readable -> hiển thị thông tin người dễ đọc
+  - `*`: file hoặc thư mục con cấp 1
+  - **NOTE**: Nếu chỉ dùng `du -h *` nó sẽ đệ quy hết thư mục con mặc dù `*` chỉ đại diện cho thư mục con cấp 1 vì bản chất `du` có đệ quy đến hết các thư mục con của 1 thư mục
+  - `-r`: reverse -> sắp xếp theo thứ tự ngược lại
+
+### 6.2. Hãy liệt kê tất cả các file lớn hơn 50MB trong hệ thống, sắp xếp theo kích thước giảm dần, và xuất ra top 10 file lớn nhất.
+
+  ![alt text](../images/lpic_3_25.png)
+
+- Giải thích:
+  - `find /`: tìm bắt đầu từ thư mục `/`
+  - `-type f`: chỉ tìm file
+  - `-size +50M`: chỉ lấy file lớn hơn 50M
+  - `exec du -h {} +`:
+    - `exec: execute: thực thi`
+    - Với mỗi file tìm được chạy `du -h` để xem dung lượng thực tế trên đĩa
+    - `{}`: đại diện cho file tìm thấy hiện tại
+    - `+`: gom nhiều file tìm được thay vì chạy từng file bằng `/;`
+
+
