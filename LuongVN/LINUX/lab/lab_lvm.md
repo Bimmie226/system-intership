@@ -255,19 +255,50 @@
 # Khi nào thì nên dùng `LVM`, khi nào nên dùng `Partition` và khi nào thì `mount trực tiếp ổ đĩa`
 
 ## 1. mount trực tiếp ổ đĩa
-- Ưu điểm:
-  - Nhanh và đơn giản
-  - Hợp với ổ đĩa rời
-- Nhược điểm:
-  - Không thể chia nhỏ ổ thành nhiều phần riêng biệt
-  - Không thể mở rộng hoặc gộp với ổ khác
-- Nên dùng:
-  - Khi chỉ cần ổ đĩa phụ, dữ liệu tạm thời, không quan tâm đến mở rộng
-  - Ví dụ: Ổ backup ngoài, ổ USB
+Ví dụ: `/dev/sdb` -> mount thẳng vào `/mnt/data`
+
+- Dùng khi: 
+  - Thí nghiệm, test lab, ổ USB, ổ test tạm thời.
+  - Muốn mount nhanh, không quan tâm phân vùng
+- Không nên dùng khi:
+  - Muốn chia ổ thành nhiều phần(ví dụ: `/home`, `/var`)
+  - Muốn resize linh hoạt
 
 ## 2. Partition
-- Chia ổ vật lý thành nhiều vùng độc lập, mỗi vùng cho mục đích riêng
-- Ưu điểm:
-  - Tách biệt vùng dữ liệu(ví dụ `/`, `/boot`)
-- Nhược điểm:
-  - Khó resize
+Ví dụ:
+
+```bash
+/dev/sda1  →  /
+/dev/sda2  →  /home
+```
+
+- Dùng khi:
+  - Ổ đĩa có dung lượng cố đinh, không thay đổi nhiều
+  - Muốn tách biệt dữ liệu hệ thống và người dùng
+- Đặc điểm:
+  - Khó resize khi đầy(phải umount, resize thủ công)
+
+## 3. LVM
+Ví dụ:
+
+```bash
+/dev/sda1 → PV (Physical Volume)
+PV → VG (Volume Group)
+VG → LV (Logical Volume)
+LV → mount /home
+```
+
+- Dùng khi: 
+  - Cần linh hoạt thay đổi dung lượng ổ mà không phải format lại.
+  - Dùng cho server, database, VM host, nơi dung lượng cần thay đổi linh hoạt.
+  - Muốn gộp nhiều ổ thành một khối logic (VD: sda + sdb = 1 volume lớn).
+  - Muốn mở rộng dễ dàng (thêm ổ mới → extend VG → extend LV).
+  
+## Ví dụ thực tế:
+- Giả sử có 2 ổ cứng:
+  - `/dev/sda` -> chứa hệ điều hành
+  - `/dev/sdb` -> dùng lưu dữ liệu
+- Ta có thể chọn:
+  - Nếu dữ liệu cố định (VD: ảnh, video): tạo 1 partition `/dev/sdb1` và mount `/mnt/data`
+  - Nếu dữ liệu có thể tăng (VD: log server, database): tạo LVM trên `/dev/sdb`, đặt tên VG `vg_data`, LV `lv_logs`, mount `/var/log`
+  - Nếu chỉ muốn test nhanh: mount trực tiếp `/dev/sdb` vào `/mnt/test`
