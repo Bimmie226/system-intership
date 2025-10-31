@@ -112,4 +112,78 @@
 
   ![alt text](../images/log_12.png)
 
+
+- `B7`: Ta kiểm tra với các priority khác nhau
+
+  - `err`: `user.err     @@192.168.174.135:514`
+
+    ![alt text](../images/log_17.png)
+
+    ![alt text](../images/log_18.png)
+
 # Logrotate
+## Tạo 1 file lưu log riêng trên hệ thống, cấu hình logrotate và kiểm tra thử
+
+`B1`: Tạo 1 file lưu log riêng `testLog.log` trong `/var/log`
+
+  ```bash
+  touch /var/log/testLog.log
+  ```
+
+`B2`: cấu hình logrotate của testLog trong `/etc/logrotate.d`
+
+  ```bash
+  sudo vi /etc/logrotate.d/testLog
+  ``` 
+
+  ![alt text](../images/log_13.png)
+
+  - `daily`: Xoay log mỗi ngày
+  - `rotate 3`: giữ lại 3 bản cũ 
+  - `compress`: nén file cũ (.gz)
+
+`B3`: Ta có thể xoay thủ công bằng option `-f, --force` của logrotate
+
+  ```bash
+  sudo logrotate -f /etc/logrotate.conf
+  ```
+
+  - Sau đó kiểm tra trong `/var/log`
+
+  ![alt text](../images/log_14.png)
+
+  - Ta thấy đã tạo ra 1 rotate của `testLog.log` là `testLog.log.1.gz`
+
+`B4`: Ta cấu hình `rsyslog.conf` 
+
+  ```bash
+  sudo vi /etc/rsyslog.d/50-default.conf
+  ```
+
+  - Thêm dòng `user.debug   /var/log/testLog.log` mục đích để chuyển các log có priority là `user.debug` vào `/var/log/testLog.log`
+
+    ![alt text](../images/log_15.png)
+
+`B5`: Khởi động lại dịch vụ `rsyslog`
+
+  ```bash
+  sudo systemctl restart rsyslog.service
+  ```
+
+- **NOTE**: Mặc dù ta đã cấu hình `rsyslog` để chuyển những log dạng `user.debug` vào `testLog.log` nhưng ta cần chỉnh sửa lại quyền vì user ghi log là user hệ thống `syslog` chứ không phải root hay user nào khác.
+
+  ```bash
+  sudo chown syslog:adm /var/log/testLog.log
+  ```
+
+`B6`: Tạo 1 log dạng `user.debug` và kiểm tra thử
+
+  ```bash
+  logger -p user.debug "this is a message to test testLog.log"
+  ```
+
+  - `-p: priority`
+
+  - Ta xem thử file ghi log `/var/log/testLog.log`
+
+    ![alt text](../images/log_16.png)
