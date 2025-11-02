@@ -81,3 +81,4 @@ Chọn `Begin installation` để cài đặt
 Kiểm tra:
 
 ![alt text](../images/rocky_16.png)
+
