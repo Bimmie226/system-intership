@@ -71,4 +71,3 @@
   ![alt text](images/ssh_agent_07.png)
 
   -> Ta bắt buộc phải nhập passphrase để ssh vào server!!
-  
