@@ -90,3 +90,8 @@
 - Hypervisor nhận các hypercall này, thực thi các tác vụ đặc quyền
 
 ### Hardware Assisted Virtualization
+- Xây dựng một CPU mode mới dành riêng cho virtualization layer gọi là root mode -> VMM sẽ nằm ở root mode này.
+
+    -> Các OS request từ guest OS sẽ được tự động chuyển qua virtualization layer và cũng ko cần binary translation vì guest OS đang ở Ring 0
+
+- Trạng thái của guest OS sẽ được lưu trong Virtual machine control structure(VT-x) hoặc Virtual machine control block(AMD-v)
