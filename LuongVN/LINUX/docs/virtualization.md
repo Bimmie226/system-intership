@@ -72,10 +72,7 @@
   - Hypervisor dùng Binary Translation để xử lý.
 - Cụ thể:
   - Guest OS chạy nguyên bản, không biết rằng nó đang bị ảo hóa.
-  - Khi gặp lệnh đặc quyền, VMM dùng binary translation để:
-    - phát hiện lệnh này trong mã này
-    - dịch chúng sang các lệnh an toàn tương đương
-    - sau đó thực thi chúng trong môi trường được kiểm soát
+  - Khi gặp lệnh đặc quyền, VMM dùng binary translation để dịch và thực thi lệnh
 - Kết quả:
   - Ứng dụng người dùng chạy bình thường, trực tiếp trong Ring 3
   - Guest OS tưởng rằng nó đang ở Ring 0, nhưng thật ra nó đang làm việc với VMM không phải làm việc với phần cứng, các lệnh đặc thù được VMM xử lý.
