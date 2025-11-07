@@ -155,3 +155,113 @@ Ví dụ:
 
   ![alt text](../images/ls-S.png)
 
+## 5. Lệnh `mkdir` (make directory - tạo thư mục)
+### 5.1. Một số thông tin
+- `mkdir --version`: Hiển thị thông tin phiên bản, giấy phép, tác giả.
+
+  ![alt text](../images/mkdir_01.png)
+
+- `mkdir --help`: các option của `mkdir`
+
+  ![alt text](../images/mkdir_02.png)
+
+### 5.2. `mkdir <tên_thư_mục>`
+- Tạo thư mục mới tại thư mục hiên tại
+- Có thể tạo nhiều thư mục cùng lúc
+
+  ```bash
+  luongvn@dev-server:~$ mkdir folder_1 folder_2 folder_3 ...
+  ```
+
+### 5.3. `mkdir -v <tên_thư_mục>`
+- Tạo thư mục với hiển thị thông báo
+
+  ![alt text](../images/mkdir_03.png)
+
+### 5.4. `mkdir -p`
+- Tạo thư mục kèm thư mục cha khi cần thiết
+
+  ![alt text](../images/mkdir_04.png)
+
+### 5.5. `mkdir -m`
+- Tạo thư mục đi kèm với cấp permission 
+
+  ![alt text](../images/mkdir_05.png)
+
+## 6. Lệnh `rmdir`(remove directory - xóa thư mục)
+### 6.1. `rmdir + <tên_thư_mục>`
+- Xóa thư mục rỗng
+
+  ![alt text](../images/rmdir_06.png)
+
+- Khi dùng lệnh này với thư mục không rỗng sẽ tạo ra lỗi
+
+  ![alt text](../images/rmdir_01.png)
+
+### 6.2. `rmdir -p <ten_thu_muc>`
+- Xóa đệ quy cho tới khi gặp thư mục không rỗng
+
+  ![alt text](../images/rmdir_02.png)
+
+  ![alt text](../images/rmdir_03.png)
+
+  ![alt text](../images/rmdir_07.png)
+
+### 6.3. `rmdir -v <ten_thu_muc>`
+- Hiển thị thông báo khi xóa lên màn hình
+
+  ![alt text](../images/rmdir_08.png)
+
+## 7. Lệnh `file`
+
+- Cú pháp:
+
+  ```bash
+  file [OPTION] [file_name]
+  ```
+
+- Lệnh `file` được sừ dụng để xác định loại tệp
+
+  ![alt text](../images/file_01.png)
+
+- Lệnh `file` sử dụng tệp `magic` nằm ở `/usr/share/file/magic` chứa các mẫu để nhận dạng các loại tệp. 
+
+### 7.1. `file -b: brief` - tóm tắt
+- Hiển thị kiểu file 1 cách ngắn gọn dễ hiểu
+
+  ![alt text](../images/file_02.png)
+
+### 7.2. `file *`
+- Hiển thị tất cả các file trong thư mục đang đứng
+
+  ![alt text](../images/file_03.png)
+
+- Hiển thị tất cả các loại file trong thư mục nào đó
+
+  ![alt text](../images/file_04.png)
+
+### 7.3. `file [range]*`
+- Hiển thị kiểu file của các file trong khoảng nào đó
+
+  ![alt text](../images/file_05.png)
+
+### 7.4. `file -s`
+- Hiển thị các loại tệp của tệp đặc biệt như các tệp trong `/dev`
+
+  ![alt text](../images/file_06.png)
+
+### 7.5. `file -f -`
+- Kiểm tra kiểu file của nhiều file. Mỗi file gõ trên 1 dòng
+
+  ![alt text](../images/file_07.png)
+
+### 7.6. `file <file_name_1> <file_name_2> ...`
+- Hiển thị loại tệp của nhiều tệp
+
+  ![alt text](../images/file_08.png)
+
+### 7.7. `file -z <file_nén>`
+
+- Lệnh này sẽ cố gắng nhìn vào bên trong file nén
+
+  ![alt text](../images/file_09.png)
