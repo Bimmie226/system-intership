@@ -265,3 +265,154 @@ Ví dụ:
 - Lệnh này sẽ cố gắng nhìn vào bên trong file nén
 
   ![alt text](../images/file_09.png)
+
+## 8. Lệnh `touch`
+- Là 1 cách đơn giản để tạo 1 file trống hoặc thay đổi thời gian (timestamps) của file
+- timestamps của file:
+  - accesstime
+  - modifytime
+  - changetime
+
+### 8.1. Tạo file trống
+- Tạo 1 file:
+  
+  ```bash
+  touch <filename>
+  ```
+
+  ![alt text](../images/touch_01.png)
+
+- Tạo nhiều file:
+
+  ```bash
+  touch <filename_1> <filename_2> ...
+  ```
+
+  ![alt text](../images/touch_02.png)
+
+### 8.2. `touch -a <file_name>`
+- Thay đổi thời gian lần cuối truy cập vào file bằng thời gian hiện tại
+
+  ![alt text](../images/touch_03.png)
+
+- `touch -m`: thay đổi thời gian sửa đổi(modifytime)
+
+### 8.3. `touch -c <file_name>`
+- Khi dùng option này với 1 file chưa có sẵn -> không tạo file mới 
+- Dùng để thay đổi tất cả timestamps thành thời gian hiện tại
+
+  ![alt text](../images/touch_04.png)
+
+### 8.4. `touch -t YYYYMMDDHHMM <file_name>`
+
+- Tạo 1 tệp tin với thời gian được chỉ định sẵn
+- Có thể dùng để thay đổi thời gian của 1 tệp có sẵn
+
+  ![alt text](../images/touch_05.png)
+
+## 9. Lệnh `rm` - remove
+- Dùng để xóa file hoặc thư mục
+
+### 9.1. `rm <file_name>`
+
+  ![alt text](../images/rm_01.png)
+
+- Xóa nhiều file cùng lúc:
+
+  ```bash
+  rm <filename_1> <filename_2> ...
+  ```
+
+### 9.2. `rm -i`
+- Xóa file hiện xác nhận trước khi xóa
+
+  ![alt text](../images/rm_02.png)
+
+### 9.3. `rm -f`
+- Xóa file không xác nhận
+
+  ![alt text](../images/rm_03.png)
+
+### 9.4. `rm -I file*`
+- Xóa hàng loạt file có tên gần giống nhau
+
+  ![alt text](../images/rm_04.png)
+
+### 9.5. `rm -d <folder_name>`
+- Xóa thư mục rỗng
+- Nếu thư mục không rỗng ta không thể xóa!!
+
+  ![alt text](../images/rm_05.png)
+
+### 9.6. `rm -r <folder_name>`
+- Nếu gặp thư mục, sẽ xóa tất cả file và thư mục con bên trong nó, rồi xóa luôn chính thư mục đó.
+
+  ![alt text](../images/rm_06.png)
+
+### 9.7. `rm -v`
+- Hiển thị thông báo khi xóa
+
+  ![alt text](../images/rm_07.png)
+
+## 10. Lệnh `cp`
+- Dùng để sao chép file hoặc thư mục
+
+### 10.1. Copy nội dung 1 file vào 1 file khác
+
+- Sao chép nội dung 1 file vào 1 file khác. Nếu file đích đó chưa tồn tại thì sẽ tạo ra file đó với nội dung giống hệt file nguồn.
+
+  ```bash
+  $ cp <file_nguồn> <file_đích>
+  ```
+
+  ![alt text](../images/cp_01.png)
+
+### 10.2. Copy file vào thư mục khác
+
+  ```bash
+  $ cp <file_1> <file_2> ... <thư mục đích>
+  ```
+
+  ![alt text](../images/cp_02.png)
+
+### 10.3. `cp -r/-R <thư_mục_nguồn> <thư_mục_đích>`
+- Copy 1 thư mục vào thư mục khác, `-r: recursion`
+
+  ![alt text](../images/cp_03.png)
+
+### 10.4. `cp -i`
+- `-i: interactive`
+
+- Hỏi người dùng có muốn ghi đè không khi mà có 1 file có tên trùng với file đích 
+
+  ![alt text](../images/cp_04.png)
+
+### 10.5. `cp -b`
+- `-b: backup`
+- Tạo bản sao lưu cho 1 file trong cùng thư mục, nếu tên của bản sao lưu trùng với tên 1 file nào đó nó sẽ tự động thêm `~` vào cuối tên file
+
+  ![alt text](../images/cp_05.png)
+
+### 10.6. `cp -f`
+- `-f: force`: ép buộc
+- Khi hệ thống không thể mở tệp đích để thực hiện thao tác ghi vì người dùng không có quyền ghi cho tệp này thì ta sử dụng tùy chọn `-f`. Khi này, tệp đích sẽ bị xóa trước rồi sau đó copy nội dung từ tệp nguồn tới tệp đích. Nó thay đổi luôn cả quyền của tệp đích.
+
+  ![alt text](../images/cp_06.png)
+
+### 10.7. `cp -p`
+- `-p: preserve`: bảo quản
+- Khi sử dụng `-p`, lệnh cp sẽ bảo toàn các đặc điểm sau của tệp nguồn: timestamp, quyền sở hữu (owner, chỉ khi nó có quyền) và permission.
+
+  ![alt text](../images/cp_07.png)
+
+### 10.8. `cp -n`
+- `-n: no clobber`: 
+- không ghi đè lên tệp đã có sẵn
+
+  ![alt text](../images/cp_08.png)
+
+### 10.9. `cp -v`
+- `-v: verbose`
+- Hiển thị thông báo quá trình
+
+  ![alt text](../images/cp_09.png)
