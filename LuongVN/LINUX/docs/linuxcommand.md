@@ -416,3 +416,115 @@ Ví dụ:
 - Hiển thị thông báo quá trình
 
   ![alt text](../images/cp_09.png)
+
+## 11. Lệnh `mv`
+- `mv - move(rename) file`: được sử dụng để di chuyển 1 hoặc nhiều tệp hoặc thư mục từ nơi này sang nơi khác
+- Nó có 2 chức năng riêng biệt:
+  - Đổi tên file hoặc thư mục
+  - Di chuyển 1 nhóm các tệp tin vào thư mục khác.
+
+### 11.1. Đổi tên file, thư mục
+
+```bash
+$ mv <old_name> <new_name> 
+```
+
+![alt text](../images/mv_01.png)
+
+### 11.2. `mv -i`
+- `-i: interactive`: tương tác
+- Xác nhận di chuyển và ghi đè lên 1 tệp tin có sẵn
+
+  ![alt text](../images/mv_02.png)
+
+### 11.3. `mv -f`
+- `-f: force`: ép buộc
+- Khi dùng lệnh này để ghi đè với các file không có quyền ghi lên. `-f` sẽ cho ta ghi đè lên tệp mới và xóa tệp ban đầu
+
+  ![alt text](../images/mv_03.png)
+
+
+### 11.4 `mv -n`
+- `-n: no clobber`: không cho ghi đè lên 1 tệp có sẵn
+
+  ![alt text](../images/mv_04.png)
+
+
+### 11.5. `mv -b`
+- `-b: backup`: tạo 1 bản sao lưu tệp tin sẽ bị ghi đè
+
+  ![alt text](../images/mv_05.png)
+
+### 11.6. Di chuyển tệp tin, thư mục
+- Chuyển tệp tin tới 1 thư mục khác
+
+  ![alt text](../images/mv_06.png)
+
+- Chuyển thư mục tới thư mục khác
+
+  ![alt text](../images/mv_07.png)
+
+## 12. Lệnh `rename`
+
+- Thường dùng để đổi tên hàng loạt các file có tên cấu trúc gần giống nhau.
+
+  ```bash
+  $ rename [OPTION] expression replacement file...
+  ```
+
+### 12.1. Đổi tên nhiều file 
+
+- Đổi đuôi tệp:
+
+  ![alt text](../images/rename_01.png)
+
+- Đổi chữ hoa/thường:
+
+  ![alt text](../images/rename_02.png)
+
+### 12.2. `rename -v`
+- `-v: verbose`: hiển thị quá trình
+
+  ![alt text](../images/rename_03.png)
+
+## 13. Lệnh `head`
+- Dùng để in phần đầu của tệp tin 
+
+### 13.1. `head <file_name>`
+- Mặc định in ra 10 dòng đầu file
+
+  ![alt text](../images/head_01.png)
+
+- Có thể dùng cho nhiều file 
+
+  ![alt text](../images/head_02.png)
+
+### 13.2. `head -n number`
+- `-n: number`: in ra số dòng theo yêu cầu!!
+
+  ![alt text](../images/head_03.png)
+
+### 13.3. `head -c number`
+- In ra `number` byte đầu tiên!!
+- Mỗi kí tự = 1 byte, dòng mới = 1 byte
+
+  ![alt text](../images/head_04.png)
+
+### 13.4. `head -q`
+- `-q: quiet --silent`: Khi in ra nhiều tệp cùng lúc không có dòng tên tệp hiện ra
+
+  ![alt text](../images/head_05.png)
+
+### 13.5. `head -v`
+- `-v: verbose`: luôn in ra tên tệp khi in ra
+
+  ![alt text](../images/head_06.png)
+
+### 13.6. Ứng dụng của `head`
+- Khi ta muốn in ra những dòng giữa của file. Ví dụ từ `k -> o` của file `list.txt`
+
+  ![alt text](../images/head_07.png)
+
+- Khi ta sử dụng các lệnh có thông tin in ra màn hình ta có thể dùng `|` sau đó kết hợp `head` hoặc 1 số lệnh khác để in ra thông tin mình muốn!!
+
+  ![alt text](../images/head_08.png)
