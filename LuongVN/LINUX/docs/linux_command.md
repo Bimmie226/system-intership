@@ -528,3 +528,136 @@ $ mv <old_name> <new_name>
 - Khi ta sử dụng các lệnh có thông tin in ra màn hình ta có thể dùng `|` sau đó kết hợp `head` hoặc 1 số lệnh khác để in ra thông tin mình muốn!!
 
   ![alt text](../images/head_08.png)
+
+## 14. Lệnh `tail`
+- In những dòng cuối cùng của file
+
+### 14.1. `tail <file_name>`
+- Mặc định in 10 dòng cuối của file
+
+  ![alt text](../images/tail_01.png)
+
+- Áp dụng với nhiều file
+
+  ![alt text](../images/tail_02.png)
+
+### 14.2. `tail -n number`
+- In ra số dòng xác định cuối cùng của file
+
+  ![alt text](../images/tail_03.png)
+
+- Có thể không cần kí tự `n`:
+
+  ![alt text](../images/tail_04.png)
+
+- Hoặc dùng `+` để in từ dòng `number` đến cuối file:
+
+  ![alt text](../images/tail_05.png)
+
+### 14.3. `tail -c number`
+- In ra số byte cuối cùng của tệp
+
+  ![alt text](../images/tail_06.png)
+
+- Dùng `+` để bỏ qua `number` byte đầu tiên:
+
+  ![alt text](../images/tail_07.png)
+
+### 14.4. `tail -q`
+
+- Không in kèm theo tên file. Sử dụng khi áp dụng với nhiều file
+
+  ![alt text](../images/tail_08.png)
+
+### 14.5. `tail -f`
+- `-f: follow`: dùng để theo dõi sự thay đổi của file(thường là file log)
+- Tùy chọn này sẽ in ra 10 dòng cuối cùng của tệp và cập nhật liên tục
+
+  ![alt text](../images/tail_09.png)
+
+### 14.6. `tail -v`
+- In ra luôn đi kèm tên file
+
+  ![alt text](../images/tail_10.png)
+
+## 15. Lệnh `cat`
+- `cat: concatenate`: nối tiếp
+- Lệnh này dùng để tạo, xem, nối nội dung cac file với nhau
+
+  ![alt text](../images/cat_01.png)
+
+### 15.1. `cat file_name_1 file_name_2 ...`
+- Xem nội dung của 1 tệp:
+
+  ![alt text](../images/cat_02.png)
+
+- Nối nội dung của nhiều tệp và in ra màn hình:
+
+  ![alt text](../images/cat_03.png)
+
+### 15.2. `cat -n file_name`
+- `-n: number`
+- Xem nội dung của file và đánh số dòng
+
+  ![alt text](../images/cat_04.png)
+
+- Nhiều file:
+
+  ![alt text](../images/cat_05.png)
+
+### 15.3. `cat > new_file`
+- Tạo file:
+
+  ![alt text](../images/cat_06.png)
+
+### 15.4. `cat file_nguồn > file_đích`
+- Sao chép file:
+
+  ![alt text](../images/cat_07.png)
+
+### 15.5. `cat -s`
+- `-s: squeeze-blank`: bỏ những dòng trôgns ở đầu file
+
+  ![alt text](../images/cat_08.png)
+
+### 15.6. `cat file1 >> file2`
+- Nối nội dung `file1` vào cuối `file2`
+
+  ![alt text](../images/cat_09.png)
+
+### 15.7. `cat -E file`
+- `-E: show ends`: Thêm kí tự `$` vào cuối mỗi dòng
+
+  ![alt text](../images/cat_10.png)
+
+## 16. Lệnh `tac`
+- Dùng để nối và in nội dung file ngược lại. Ngược với lệnh `cat`
+
+  ![alt text](../images/tac_01.png)
+
+### 16.1. `tac file1 file2`
+- Nối ngược nhiều tệp rồi in ra
+
+  ![alt text](../images/tac_02.png)
+
+### 16.2. `tac -b file_name`
+- `-b: before`: Tạo dòng trắng để ngăn cách trước mỗi file
+
+  ![alt text](../images/tac_03.png)
+
+### 16.3. `tac -r`
+- `-r: regex`: Lệnh này cho phép sử dụng regex
+
+  ![alt text](../images/tac_04.png)
+
+### 16.4. `tac -s string`
+- `-s: seperator`: cho phép chỉ định ký tự hoặc chuỗi phân tách giữa các bản ghi thay vì theo từng dòng mặc định
+
+- Ví dụ:
+  - Đảo ngược theo dấu `.`:
+
+    ![alt text](../images/tac_05.png)
+
+  - Đảo ngược theo chuỗi dài hơn:
+
+    ![alt text](../images/tac_06.png)
