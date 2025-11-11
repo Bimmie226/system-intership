@@ -189,3 +189,101 @@
 - Ta cần một phương pháp nào đó để phân giải tên. Có thể thực hiện với DNS. Cũng có thể nhanh chóng thêm ba tên vào tệp `/etc/hosts`.
 
   ![alt text](../images/apache_27.png)
+
+
+### Reload and Verify
+
+  ![alt text](../images/apache_28.png)
+
+## Password Protected Website on Rocky
+- Bạn có thể bảo vệ file và thư mục trong website với 1 file `.htaccess` tham chiếu đến 1 file `.htpasswd`.
+- Lệnh `htpasswd` có tạo 1 file `.htpasswd` chứa 1 userid và 1 password
+
+  ![alt text](../images/apache_29.png)
+
+  - Tạo user bim kèm pw
+
+  ![alt text](../images/apache_30.png)
+
+  - user mie cũng muốn truy cập, ta có thể thêm vào tệp
+
+- Sau đó ta tạo tệp `.htaccess` ở DocumentRoot của web mà mình muốn bảo vệ
+
+  ![alt text](../images/apache_31.png)
+
+- Vì `choochoo` nằm trong thư mục gốc mặc định của apache là `/var/www/html` nên khi ta muốn dùng file `.htaccess` Apache phải được cho phép sử dụng file đó.
+- Quyền này được điều khiển bời dòng `AllowOverride` trong file cấu hình `/etc/httpd/conf/httpd.conf`
+
+  ![alt text](../images/apache_32.png)
+
+- Restart lại dịch vụ và thử lại:
+
+  ![alt text](../images/apache_33.png)
+
+## Aliases and Redirects
+- Apache hỗ trợ aliases cho thư mục
+
+  ```bash
+  Alias /choochoo/ "/var/www/html/choochoo/"
+  ```
+
+- 1 nội dung có thể được chuyển hướng đến 1 trang web hoặc 1 máy chủ web khác
+
+  ```bash
+  Redirect permanent /foo http://www.foo.com/bar
+  ```
+
+## Self Signed Cert 
+- Chuyển website HTTP sang HTTPs
+- Để truy cập website qua giao thức HTTPS (tức là `https://<ip-server>`), cần kích hoạt SSL/TLS trên máy chủ web (Apache hoặc Nginx), cài chứng chỉ số SSL, và cấu hình máy chủ sử dụng chứng chỉ đó.
+
+### Lab trên máy ubuntu 
+#### Bước 1: Tạo chứng chỉ SSL self-signed(dùng cho nội bộ, không cần mua)
+- Cài đặt module SSL cho apache:
+
+  ![alt text](../images/apache_34.png)
+
+- Kích hoạt module ssl:
+
+  ```bash
+  sudo a2enmod ssl
+  ```
+
+#### Bước 2: Tạo chứng chỉ SSL tự ký
+
+  ![alt text](../images/apache_35.png)
+
+- `-x509`: Tạo chứng chỉ X.509 (chuẩn SSL).
+- `-nodes`: Không mã hóa file key.
+- `-days 365`: Chứng chỉ có hiệu lực 1 năm.
+- `rsa:2048`: Sử dụng khóa RSA 2048-bit
+- `-keyout`: Chỉ định đường dẫn lưu tệp tin khóa riêng.
+- `-out`: Chỉ định đường dẫn lưu tệp tin chứng chỉ.
+- Trong quá trình tạo, có thể thêm thông tin như quốc gia, tỉnh, tổ chức,... hoặc bỏ trống.
+
+#### Bước 3: Tạo file config VirtualHost cho HTTPs
+- Tạo file mới:
+
+  ```bash
+  sudo vim /etc/apache2/sites-available/lampsite-ssl.conf
+  ```
+
+- Gán nội dung:
+
+  ![alt text](../images/apache_36.png)
+
+#### Bước 4: Kích hoạt site HTTPS và khởi động lại Apache
+
+```bash
+sudo a2ensite lampsite-ssl.conf
+sudo systemctl restart apache2
+```
+
+#### Bước 5: Cho phép cổng HTTPS (443) trên firewall
+```bash
+sudo ufw allow 443
+```
+
+#### Bước 6: Truy cập vào website
+
+  ![alt text](../images/apache_37.png)
