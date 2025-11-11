@@ -92,3 +92,9 @@
     -> Các OS request từ guest OS sẽ được tự động chuyển qua virtualization layer và cũng ko cần binary translation vì guest OS đang ở Ring 0
 
 - Trạng thái của guest OS sẽ được lưu trong Virtual machine control structure(VT-x) hoặc Virtual machine control block(AMD-v)
+
+### Ứng dụng thực tế:
+- Hypervisor dùng Paravirtualization:
+  - Xen(Project Xen): Lúc Xen ra đời (2003), CPU chưa hỗ trợ ảo hóa phần cứng -> không thể full virtualization
+- Hypervisor dùng Fullvirtualization:
+  - VMware workstation: 
