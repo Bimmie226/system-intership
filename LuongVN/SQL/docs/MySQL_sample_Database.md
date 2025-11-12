@@ -2,26 +2,6 @@
 - Ta sử dụng `classicmodels` database làm csdl mẫu MySQL 
 - `classimodels` là một csdl mẫu mô phỏng một cửa hàng bán mô hình xe cổ. Nó chứa dữ liệu điển hình của 1 doanh nghiệp 
 
-## Download MySQL Sample Database
-- Tải file zip chứa database
-
-  ```bash
-  wget https://www.mysqltutorial.org/wp-content/uploads/2023/10/mysqlsampledatabase.zip -O sampledatabase.zip
-  ```
-
-  ![alt text](../images/install_db_01.png)
-
-- Giải nén file ZIP:
-
-  ```bash
-  unzip sampledatabase.zip -d ~/classimodels
-  ``` 
-
-  - `-d ~/classicmodels` sẽ giải nén vào thư mục `classicmodels` trong home.
-
-
-  ![alt text](../images/install_db_02.png)
-
 ## MySQL Sample Databse Schema
 
 | **Bảng**         | **Chức năng / Nội dung**                                                            |
