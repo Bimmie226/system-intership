@@ -661,3 +661,107 @@ $ mv <old_name> <new_name>
   - Đảo ngược theo chuỗi dài hơn:
 
     ![alt text](../images/tac_06.png)
+
+## 17. Lệnh `more` và `less`
+### 17.1. Lệnh `more`
+- Dùng để xem các tệp lớn trong 1 màn hình, có thể cuộn chuột để xem
+- Dùng phím Enter để xem tiếp các dòng.
+- Ở đây ta xem file `data.log`
+
+  ```bash
+  $ more /var/log/syslog
+  ```
+
+  ![alt text](../images/more_01.png)
+
+- `-p`: Xóa màn hình rồi hiển thị nội dung của file
+- `+/<string>`: Tìm kiếm trong file và hiển thị ra
+
+  ![alt text](../images/more_02.png)
+
+- `+number`: hiển thị từ dòng `number` của file
+
+  ![alt text](../images/more_03.png)
+
+- Dùng để đọc đầu ra với nội dung dài:
+
+  ```bash
+  $ cat filename | more
+  ```
+
+### 17.2. Lệnh `less`
+- Truy cập từng trang của file tài liệu dài:
+  - `less -N`: đánh số dòng
+
+    ![alt text](../images/less_01.png)
+
+  - `less -p "string"`: Tìm vị trí có `string`
+
+    ```bash
+    $ dmesg | less -p "disable"
+    ```
+
+    ![alt text](../images/less_02.png)
+
+## 18. Lệnh `strings`
+- In ra các chuỗi kí tự có thể in trong tệp. Hiển thị các chuỗi ASCII có thể đọc được trong file nhị phân.
+
+- Ví dụ xem file nhị phân của lệnh ls:
+
+  ![alt text](../images/strings_01.png)
+
+### 18.1. `strings -f`
+- Hiển thị tên file trước mỗi dòng
+
+  ![alt text](../images/strings_02.png)
+
+## 19. Lệnh `echo`
+- Dùng để hiện thị dòng văn bản được truyền vào. Nó được sử dụng chủ yếu trong các tập lệnh shell hay xuất văn bản ra màn hình hoặc tạo file.
+
+### 19.1. `echo <string>`
+- In ra màn hình chuỗi `string`
+
+  ![alt text](../images/echo_01.png)
+
+### 19.2. `echo -e \(mini_option)`
+- `-e: escape` cho phép ta xác định sự liên tục của văn bản đầu vào
+
+#### 19.2.1. `\b`
+- `b: backspace`: Xóa 1 kí tự trước nó
+
+  ![alt text](../images/echo_02.png)
+
+#### 19.2.2. `\c`
+- Ngắt văn bản và không xuống dòng
+
+  ![alt text](../images/echo_03.png)
+
+#### 19.2.3. `\n`
+- `n: new line`: Xuống dòng
+
+  ![alt text](../images/echo_04.png)
+
+#### 19.2.4. `\t`
+- `t: tab`: Tạo khoảng dấu tab
+
+  ![alt text](../images/echo_05.png)
+
+#### 19.2.5. `\r`
+- Trả về văn bản sau nó
+
+  ![alt text](../images/echo_06.png)
+
+#### 19.2.6. `\v`
+- `v: vertical tab`: tab đầu dòng
+
+  ![alt text](../images/echo_07.png)
+
+### 19.3. `echo *`
+- Giống như lệnh `ls`
+
+  ![alt text](../images/echo_08.png)
+
+### 19.4. `echo -n`
+- Ngăn không xuống dòng. Con trỏ sẽ ở vị trí cuối văn bản.
+
+  ![alt text](../images/echo_09.png)

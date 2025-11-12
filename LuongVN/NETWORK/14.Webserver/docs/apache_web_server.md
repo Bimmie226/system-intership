@@ -287,3 +287,86 @@ sudo ufw allow 443
 #### Bước 6: Truy cập vào website
 
   ![alt text](../images/apache_37.png)
+
+### Tự kí chứng chỉ SSL và làm cho hệ thống tin cậy(Trusted)
+- Khi tạo chứng chỉ SSL tự ký để dùng cho Apache, trình duyệt thường thông báo "Not secure / Certificate not trusted"
+- Muốn hết cảnh báo này ta phải thêm chứng chỉ gốc(root certificate) vào danh sách(Trusted Root CAs) trong OS
+
+#### Bước 1: Tạo root CA (chứng chỉ gốc tự kí)
+```bash
+# Tạo khóa riêng cho CA
+openssl genrsa -out myCA.key 2048
+
+# Tạo chứng chỉ gốc tự ký (Root CA)
+openssl req -x509 -new -nodes -key myCA.key -sha256 -days 3650 -out myCA.crt
+```
+
+  - File myCA.crt sẽ là chứng chỉ bạn cần thêm vào hệ thống để trusted.
+
+#### Bước 2: Dùng CA này ký chứng chỉ cho website 
+- Website: `choochoo.local`
+
+  ```bash
+  # Tạo private key cho website
+  openssl genrsa -out choochoo.local.key 2048
+
+  # Tạo file yêu cầu ký chứng chỉ (CSR)
+  openssl req -new -key choochoo.local.key -out choochoo.local.csr
+  ```
+
+- Tạo file cấu hình `v3.ext`
+
+  ```bash
+  authorityKeyIdentifier=keyid,issuer
+  basicConstraints=CA:FALSE
+  subjectAltName = @alt_names
+
+  [alt_names]
+  DNS.1 = choochoo.local
+  ```
+
+- Ký chứng chỉ bằng CA:
+
+  ```bash
+  openssl x509 -req -in choochoo.local.csr -CA myCA.crt -CAkey myCA.key -CAcreateserial \
+  -out choochoo.local.crt -days 825 -sha256 -extfile v3.ext
+  ```
+
+  ![alt text](../images/apache_38.png)
+
+- Giờ ta đã có:
+
+  ```lua
+  myCA.crt         ← CA gốc (dùng để tin cậy)
+  choochoo.local.crt
+  choochoo.local.key
+  ```
+
+#### Bước 3: Cấu hình Apache
+- `/etc/apache2/sites-available/choochoo.conf`
+
+  ```vim
+  <VirtualHost *:443>
+      ServerName choochoo.local
+      DocumentRoot /var/www/choochoo
+
+      SSLEngine on
+      SSLCertificateFile /etc/ssl/choochoo.local.crt
+      SSLCertificateKeyFile /etc/ssl/choochoo.local.key
+  </VirtualHost>
+  ```
+
+- Chuyển `choochoo.conf` sang `enable`: 
+
+  ```bash
+  a2ensite choochoo.conf
+  ```
+
+### Bước 4: Thêm chứng chỉ CA vào hệ thống để `trusted`
+
+```bash
+sudo cp myCA.crt /usr/local/share/ca-certificates/myCA.crt
+sudo update-ca-certificates
+```
+
+![alt text](../images/apache_39.png)
