@@ -1,4 +1,22 @@
 # Linux command
+
+## Summary
+
+|1 - 10|11 - 20|21 - 30|31 - 40|41 - 50|
+|---|---|---|---|---|
+|[1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)|[11.mv](#11-lệnh-mv)|  |  |  |
+|[2.pwd](#2-lệnh-pwd-print-working-directory)|[12.rename](#12-lệnh-rename)|  |  |  |
+|[3.cd](#3-lệnh-cdchange-directory)|[13.head](#13-lệnh-head)|   |   |   |
+|[4.ls](#4-lệnh-lslist)|[14.tail](#14-lệnh-tail)|   |   |   |
+|[5.mkdir](#5-lệnh-mkdir-make-directory---tạo-thư-mục)|[15.cat](#15-lệnh-cat)|   |   |   |
+|[6.rmdir](#6-lệnh-rmdirremove-directory---xóa-thư-mục)|[16.tac](#16-lệnh-tac)|   |   |   |
+|[7.file](#7-lệnh-file)|[17.more & less](#17-lệnh-more-và-less)|   |   |   |
+|[8.touch](#8-lệnh-touch)|[18.strings](#18-lệnh-strings)|   |   |   |
+|[9.rm](#9-lệnh-rm---remove)|[19.echo](#19-lệnh-echo)|  |   |   |
+|[10.cp](#10-lệnh-cp)|  |   |   |   |
+
+
+
 ## 1. Lệnh `man`(manual - hướng dẫn sử dụng)
 ### 1.1 `man $command`
 - Xem thông tin của 1 lệnh nào đó: công dụng, options, ...
