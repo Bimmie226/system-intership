@@ -4,8 +4,8 @@
 
 |1 - 10|11 - 20|21 - 30|31 - 40|41 - 50|
 |---|---|---|---|---|
-|[1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)|[11.mv](#11-lệnh-mv)|  |  |  |
-|[2.pwd](#2-lệnh-pwd-print-working-directory)|[12.rename](#12-lệnh-rename)|  |  |  |
+|[1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)|[11.mv](#11-lệnh-mv)|[21.alias](#21-lệnh-alias)|  |  |
+|[2.pwd](#2-lệnh-pwd-print-working-directory)|[12.rename](#12-lệnh-rename)|[22.tee](#22-lệnh-tee)|  |  |
 |[3.cd](#3-lệnh-cdchange-directory)|[13.head](#13-lệnh-head)|   |   |   |
 |[4.ls](#4-lệnh-lslist)|[14.tail](#14-lệnh-tail)|   |   |   |
 |[5.mkdir](#5-lệnh-mkdir-make-directory---tạo-thư-mục)|[15.cat](#15-lệnh-cat)|   |   |   |
@@ -13,7 +13,7 @@
 |[7.file](#7-lệnh-file)|[17.more & less](#17-lệnh-more-và-less)|   |   |   |
 |[8.touch](#8-lệnh-touch)|[18.strings](#18-lệnh-strings)|   |   |   |
 |[9.rm](#9-lệnh-rm---remove)|[19.echo](#19-lệnh-echo)|  |   |   |
-|[10.cp](#10-lệnh-cp)|  |   |   |   |
+|[10.cp](#10-lệnh-cp)|[20.type & which](#20-lệnh-type-và-which)|   |   |   |
 
 
 
@@ -783,3 +783,81 @@ $ mv <old_name> <new_name>
 - Ngăn không xuống dòng. Con trỏ sẽ ở vị trí cuối văn bản.
 
   ![alt text](../images/echo_09.png)
+
+## 20. Lệnh `type` và `which`
+- Khi muốn xem 1 lệnh cung cấp cho shell sẽ được thực thi như 1 lệnh bên ngoài shell hay 1 lệnh dựng sẵn:
+  - `alias`: nếu lệnh là bí danh trong shell
+  - `keyword`: nếu lệnh là 1 từ dành riêng shell
+  - `builtin`: nếu lệnh là 1 shell dựng sẵn
+  - `function`: nếu lệnh là 1 hàm shell
+  - `file`: nếu lệnh là 1 tệp disk
+
+
+    ![alt text](../images/type_01.png)
+
+### 20.1. `type -a`
+- Được sử dụng để tìm hiểu xem đó là bí danh, từ khóa hay hàm và nó cũng hiển thị đường dẫn của 1 tệp thực thi nếu có.
+
+  ![alt text](../images/type_02.png)
+
+### 20.2. `type -t`
+- Hiển thị 1 từ duy nhất ở đầu ra
+
+  ![alt text](../images/type_03.png)
+
+### 20.3. `which`
+- Dùng để định vị tệp thực thi được liên kết với lệnh đã cho. Nó có 3 trạng thái trả về sau:
+  - `0`: Nếu tất cả các lệnh được tìm thấy và thực thi
+  - `1`: Nếu 1 hoặc nhiều lệnh được chỉ định không tồn tại hoặc không thể thực thi
+  - `2`: Nếu 1 tùy chọn không hợp lệ được chỉ định
+
+    ![alt text](../images/which_01.png)
+
+## 21. Lệnh `alias`
+- Cho phép shell thay thế 1 chuỗi string bằng 1 chuỗi string khác khi thực hiện các lệnh
+- Dễ hiểu là nó giống như đặt bí danh cho 1 lệnh
+
+### 21.1. Tạo 1 `alias`
+
+```bash
+alias name="value"
+```
+
+![alt text](../images/alias_01.png)
+
+### 21.2. Xem các `alias` hiện có
+- Tất cả alias: `alias`
+
+  ![alt text](../images/alias_02.png)
+
+- Xem alias chỉ định: `alias name1 name2 ...`
+
+  ![alt text](../images/alias_03.png)
+
+### 21.3. Xóa `alias`
+
+```bash
+unalias name
+```
+
+![alt text](../images/alias_04.png)
+
+## 22. Lệnh `tee`
+
+- Lệnh `tee` đọc đầu vào tiêu chuẩn và ghi nó vào cả đầu ra tiêu chuẩn của một hoặc nhiều tệp
+
+### 22.1. `tee`
+- Ghi đè tên tệp
+
+  ![alt text](../images/tee_01.png)
+
+### 22.1. `tee -a`
+- `-a: append`: không ghi đè tệp mà viết thêm vào tệp
+
+  - Đầu vào từ `cat a`
+
+    ![alt text](../images/tee_02.png)
+
+  - Đầu vào từ `echo`
+
+    ![alt text](../images/tee_03.png)
