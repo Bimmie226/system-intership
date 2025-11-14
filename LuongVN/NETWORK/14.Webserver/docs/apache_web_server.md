@@ -289,29 +289,56 @@ sudo ufw allow 443
   ![alt text](../images/apache_37.png)
 
 ### Tự kí chứng chỉ SSL và làm cho hệ thống tin cậy(Trusted)
-- Xin chứng chỉ SSL: Trong thực tế, ta sẽ xin CA chứng chỉ SSL và sẽ được cấp 2 file Certificate và Key để chứng thực:
+- lab: Tự kí ssl cho website: `bimmie.com`
+
+- Ta tạo 2 file `bimmie.key` và `bimmie.crt` cho website này ở trong `/etc/ssl/private` -> cho key và `/etc/ssl/certs` -> cho `certificate`
 
   ```bash
-  openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nk2000.key -out /etc/ssl/certs/nk2000.crt
+  sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout /etc/ssl/private/bimmie.key \
+  -out /etc/ssl/certs/bimmie.crt \
+  -subj "/CN=bimmie.com"
   ```
 
-  ![alt text](../images/apache_40.png)
+  ![alt text](../images/apache_50.png)
 
-  ![alt text](../images/apache_41.png)
+- Sau đó ta import CA vào nơi lưu CA của server, trên ubuntu: `/usr/local/share/ca-certificates/` và update lại:
 
-- Nếu tất cả website trên server sử dụng cùng chứng chỉ, ta đặt cấu hình trong `/etc/apache2/sites-available/default-ssl.conf`
+  ```bash
+  cp /etc/ssl/certs/bimmie.crt /usr/local/share/ca-certificates/
+  update-ca-certificates
+  ```
 
-  ![alt text](../images/apache_42.png)
+  ![alt text](../images/apache_51.png)
 
-  - Sửa DocumentRoot thành `/var/www/choochoo`
+- Tạo DocumentRoot cho `bimmie.com`
 
-  ![alt text](../images/apache_43.png)
+  ![alt text](../images/apache_52.png)
 
-  - Đảm bảo `SSLengine` đã ON 
-  - Đảm bảo 2 file `nk2000.crt` và `nk2000.key` chính xác 
-  
-  ![alt text](../images/apache_44.png)
+- Tạo và config file `/etc/apache2/sites-available/bimmie.conf`
 
-- Áp dụng cấu hình:
+  ![alt text](../images/apache_53.png)
 
-  ![alt text](../images/apache_45.png)
+  - Các chường trình tô đỏ trên cần lưu ý:
+    - `DocumentRoot`: đúng với website `bimmie.com`
+    - `SSLEngine`: on
+    - `SSLCertificateFile`: đúng đường dẫn của file certificate
+    - `SSLCertificateKeyFile`: đúng đường dẫn của file key
+- enable file config và khởi động lại dịch vụ apache2
+
+  ```bash
+  sudo a2ensite bimmie.conf
+  sudo systemctl restart apache2
+  ```
+
+  ![alt text](../images/apache_54.png)
+
+- Chỉnh sửa file `/etc/hosts` để ta có thể truy cập website bằng ServerName `bimmie.com`
+
+  ![alt text](../images/apache_55.png)
+
+- Dùng `wget` để kiểm tra xem đã có thể tải nội dung website mà hệ thống `trusted` chưa:
+
+  ![alt text](../images/apache_56.png)
+
+-> Hệ thống đã `trusted`
