@@ -48,3 +48,4 @@ Có thể cắt:
 Sau đó cài đặt và login 
 
 ![alt text](../../LINUX/images/image-6.png)
+
