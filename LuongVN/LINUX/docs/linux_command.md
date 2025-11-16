@@ -6,9 +6,9 @@
 |---|---|---|---|---|
 |[1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)|[11.mv](#11-lệnh-mv)|[21.alias](#21-lệnh-alias)|  |  |
 |[2.pwd](#2-lệnh-pwd-print-working-directory)|[12.rename](#12-lệnh-rename)|[22.tee](#22-lệnh-tee)|  |  |
-|[3.cd](#3-lệnh-cdchange-directory)|[13.head](#13-lệnh-head)|   |   |   |
-|[4.ls](#4-lệnh-lslist)|[14.tail](#14-lệnh-tail)|   |   |   |
-|[5.mkdir](#5-lệnh-mkdir-make-directory---tạo-thư-mục)|[15.cat](#15-lệnh-cat)|   |   |   |
+|[3.cd](#3-lệnh-cdchange-directory)|[13.head](#13-lệnh-head)|[23.grep](#23-lệnh-grep)|   |   |
+|[4.ls](#4-lệnh-lslist)|[14.tail](#14-lệnh-tail)|[24.cut](#24-lệnh-cut)|   |   |
+|[5.mkdir](#5-lệnh-mkdir-make-directory---tạo-thư-mục)|[15.cat](#15-lệnh-cat)|[25.tr](#25-lệnh-tr)|   |   |
 |[6.rmdir](#6-lệnh-rmdirremove-directory---xóa-thư-mục)|[16.tac](#16-lệnh-tac)|   |   |   |
 |[7.file](#7-lệnh-file)|[17.more & less](#17-lệnh-more-và-less)|   |   |   |
 |[8.touch](#8-lệnh-touch)|[18.strings](#18-lệnh-strings)|   |   |   |
@@ -861,3 +861,127 @@ unalias name
   - Đầu vào từ `echo`
 
     ![alt text](../images/tee_03.png)
+
+## 23. Lệnh `grep`
+- Là 1 bộ lọc để tìm kiếm trong tệp theo từ khóa và in các dòng chưa từ khóa đó ra.
+- Cú pháp:
+
+  ```bash
+  grep [OPTION] pattern [FILE]
+  ```
+
+### 23.1. `grep`
+- In ra dòng chứa từ khóa, tính cả dạng chuỗi con. Có phân biệt hoa thường
+
+  ![alt text](../images/grep_01.png)
+
+### 23.2. `grep -i`
+- `-i: ignore case`: không phân biệt chữ hoa, thường
+
+  ![alt text](../images/grep_02.png)
+
+### 23.3. `grep -c`
+- `-c: -count`: đếm số dòng có kết quả tìm kiếm
+
+  ![alt text](../images/grep_03.png)
+
+### 23.4. `grep -l`
+- Tìm kiếm và in ra tên file có từ khóa
+
+  ![alt text](../images/grep_04.png)
+
+### 23.5. `grep -w`
+- `-w: word regexp`: chỉ hiển thị khi nó là từ, bỏ qua chuỗi con 
+
+  ![alt text](../images/grep_05.png)
+
+### 23.6. `grep -o`
+- `-o: only matching`: chỉ hiển thị từ khóa cần tìm
+
+  ![alt text](../images/grep_06.png)
+
+### 23.7. `grep -n`
+- `-n: line number`: in kết quả kèm số dòng của nó
+
+  ![alt text](../images/grep_07.png)
+
+### 23.8. `grep -v`
+- In các dòng không chứa từ khóa
+
+  ![alt text](../images/grep_08.png)
+
+### 23.9. `grep ^string`
+
+- Tìm các dòng bắt đầu bằng từ khóa
+
+  ![alt text](../images/grep_09.png)
+  
+### 23.10. `grep string$`
+- Tìm các dòng kết thúc bằng từ khóa
+
+  ![alt text](../images/grep_10.png)
+
+## 24. Lệnh `cut`
+- Dùng để cắt các phần tử mỗi dòng của tệp và ghi kết quả ra đầu ra tiêu chuẩn
+- Lệnh `cut` bắt buộc phải đi cùng option. Nếu không sẽ gây ra lỗi
+
+  ![alt text](../images/cut_01.png)
+
+### 24.1. `cut -b`
+- `-b: byte`: dùng để chọn các vị trí byte cần in ra. Dùng dấu `,` để phân tách các vị trí byte. Có thể dùng dấu `-` để biểu thị liên tục các chuỗi
+
+  ![alt text](../images/cut_02.png)
+
+### 24.2. `cut -c`
+- `-c: character`: lấy ra các kí tự theo vị trí
+
+  ![alt text](../images/cut_03.png)
+
+### 24.3. `cut -f`
+- Cắt nội dung theo trường, xác định bởi dấu phân cách `space`
+
+#### 24.3.1 `cut -f`
+- Khi không dùng `-d` thì mặc định dấu phân cách được định là dấu `tab`
+- Ví dụ, không sử dụng dấu `tab` nên nó sẽ in ra cả dòng trong file dưới đây:
+
+  ![alt text](../images/cut_04.png)
+
+#### 24.3.2 `cut -d "delimiter" -f (field number)`
+- Xác định dấu phân cách bằng `-d`
+
+  ![alt text](../images/cut_05.png)
+
+## 25. Lệnh `tr`
+- `tr: translate`: dùng đẻ dịch hoặc xóa các kí tự
+- cú pháp:
+
+  ```bash
+  tr [OPTION] SET1 [SET2]
+  ```
+
+### 25.1. `tr`
+- Đổi chữ hoa - thường:
+
+  ![alt text](../images/tr_01.png)
+
+- Đổi khoảng trắng thành `tab`:
+
+  ![alt text](../images/tr_02.png)
+
+- Đổi kiểu ngoặc:
+
+  ![alt text](../images/tr_03.png)
+
+### 25.2. `tr -s`
+- `-s: squeeze repeat`: loại bỏ sự lặp lại
+
+  ![alt text](../images/tr_04.png)
+
+### 25.3. `tr -d`
+- `-d: delete`: Xóa bỏ kí tự được chỉ định
+
+  ![alt text](../images/tr_05.png)
+
+- Xóa bỏ chữ số khỏi văn bản:
+
+  ![alt text](../images/tr_06.png)
