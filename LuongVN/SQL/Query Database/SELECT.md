@@ -46,3 +46,5 @@
     ```sql
     SELECT CONCAT('Bim',' ','Mie') AS 'Full name';
     ```
+
+    ![alt text](../images/select_03.png)
