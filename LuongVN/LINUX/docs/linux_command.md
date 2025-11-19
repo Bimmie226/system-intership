@@ -9,9 +9,9 @@
 |[3.cd](#3-lệnh-cdchange-directory)|[13.head](#13-lệnh-head)|[23.grep](#23-lệnh-grep)|   |   |
 |[4.ls](#4-lệnh-lslist)|[14.tail](#14-lệnh-tail)|[24.cut](#24-lệnh-cut)|   |   |
 |[5.mkdir](#5-lệnh-mkdir-make-directory---tạo-thư-mục)|[15.cat](#15-lệnh-cat)|[25.tr](#25-lệnh-tr)|   |   |
-|[6.rmdir](#6-lệnh-rmdirremove-directory---xóa-thư-mục)|[16.tac](#16-lệnh-tac)|   |   |   |
-|[7.file](#7-lệnh-file)|[17.more & less](#17-lệnh-more-và-less)|   |   |   |
-|[8.touch](#8-lệnh-touch)|[18.strings](#18-lệnh-strings)|   |   |   |
+|[6.rmdir](#6-lệnh-rmdirremove-directory---xóa-thư-mục)|[16.tac](#16-lệnh-tac)|[26.wc](#26-lệnh-wc)|   |   |
+|[7.file](#7-lệnh-file)|[17.more & less](#17-lệnh-more-và-less)|[27.sort](#27-lệnh-sort)|   |   |
+|[8.touch](#8-lệnh-touch)|[18.strings](#18-lệnh-strings)|[28.uniq](#28-lệnh-uniq)|   |   |
 |[9.rm](#9-lệnh-rm---remove)|[19.echo](#19-lệnh-echo)|  |   |   |
 |[10.cp](#10-lệnh-cp)|[20.type & which](#20-lệnh-type-và-which)|   |   |   |
 
@@ -985,3 +985,111 @@ unalias name
 - Xóa bỏ chữ số khỏi văn bản:
 
   ![alt text](../images/tr_06.png)
+
+## 26. Lệnh `wc`
+- Đếm số dòng, số từ, số ký tự có trong tệp. 3 giá trị được hiển thị lần lượt trên 3 cột
+
+  ```bash
+  wc [OPTION] [file_name1] [file_name2] ...
+  ```
+
+  ![alt text](../images/wc_01.png)
+
+### 26.1. `wc -l`
+- Chỉ đếm số dòng
+
+### 26.2. `wc -w`
+- Chỉ đếm số từ
+
+### 26.3. `wc -c`
+- Chỉ đếm số byte
+
+### 26.4. `wc -m`
+- Chỉ đếm số ký tự
+
+![alt text](../images/wc_02.png)
+
+### 26.5. `wc -L`
+- In ra chiều dài kí tự của dòng dài nhất trong file
+
+  ![alt text](../images/wc_03.png)
+
+## 27. Lệnh `sort`
+- Dùng để sắp xếp các dòng từ tất cả các file đầu vào rồi cho xuất ra đầu ra tiêu chuẩn
+
+  ```bash
+  sort [OPTION] [file1] [file2] ...
+  ```
+
+- Thứ tự ưu tiên:
+
+  1. Bắt đầu bằng `space`
+  2. Bắt đầu bằng số (0 - 9)
+  3. Bắt đầu bằng chữ(a-A,b-B,...,z-Z)
+
+
+### 27.1. `sort file_name`
+
+  ![alt text](../images/sort_01.png)
+
+### 27.2. `sort -r`
+- `-r: reverse`: đảo ngược thứ tự sắp xếp
+
+  ![alt text](../images/sort_02.png)
+
+### 27.3. `sort -k`
+- `-k: key`: sắp xếp theo 1 cột chỉ định
+
+  ![alt text](../images/sort_03.png)
+
+### 27.4. `sort -c`
+- `-c: check`: kiểm tra file. In ra dòng đầu tiên sai vị trí sắp xếp
+
+  ![alt text](../images/sort_04.png)
+
+### 27.5. `sort -u`
+- `-u: unique`: loại bỏ các dòng trùng lặp
+
+  ![alt text](../images/sort_05.png)
+
+### 27.6. `sort -M`
+- `-M: month`: sắp xếp theo tháng
+
+  ![alt text](../images/sort_06.png)
+
+## 28. Lệnh `uniq`
+- Dùng để report hoặc bỏ qua những dòng lặp lại liền kề nhau
+
+### 28.1. `uniq <file_name>`
+
+![alt text](../images/uniq_01.png)
+
+### 28.2. `uniq -c`
+- Đếm số lần 1 dòng được lặp lại
+
+  ![alt text](../images/uniq_02.png)
+
+### 28.3. `uniq -d`
+- Chỉ in ra các dòng bị lặp lại
+
+  ![alt text](../images/uniq_03.png)
+
+### 28.4. `uniq -u`
+- `-u: unique`: chỉ ra những dòng ko bị lặp
+
+  ![alt text](../images/uniq_04.png)
+
+### 28.5. `uniq -f N`
+- `-f: field`: chọn cột để thực hiện `uniq`
+
+  ![alt text](../images/uniq_05.png)
+
+### 28.6. `uniq -s N`
+- Bỏ qua N kí tự đầu tiên để thực hiện uniq
+
+  ![alt text](../images/uniq_06.png)
+
+### 28.7. `uniq -w N`
+- Giới hạn kí tự so sánh
+
+  ![alt text](../images/uniq_07.png)
