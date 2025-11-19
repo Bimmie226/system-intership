@@ -9,3 +9,4 @@
 | 5   | [SELECT DISTINCT](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/SELECT_DISTINCT.md) |
 | 6   | [LIMIT](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/LIMIT.md)                     |
 | 7   | [ALIAS](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/ALIASES.md)                   |
+| 8   | [Join](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/Join.md)                       |
