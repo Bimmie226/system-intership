@@ -1093,3 +1093,41 @@ unalias name
 - Giới hạn kí tự so sánh
 
   ![alt text](../images/uniq_07.png)
+
+## 29. Lệnh `comm`
+- `comm: compare`: So sánh 2 tệp đã được sắp xếp theo từng dòng
+
+  ![alt text](../images/comm_01.png)
+
+  - `Cột 1`: chứa các từ chỉ có trong file u1
+  - `Cột 2`: chứa các từ chỉ có trong file u2
+  - `Cột 3`: Chứa tên chung cho cả 2 tệp
+
+### 29.1. `comm -1/2/3`
+- Bỏ qua cột 1, 2 hoặc 3
+
+  ![alt text](../images/comm_02.png)
+
+### 29.2. `comm --check-order`
+- Kiểm tra xem các tệp đầu vào có được sắp xếp hay không. Nếu có file không được sắp xếp thì sẽ thông báo lỗi
+
+### 29.3. `comm --nocheck-order`
+- Bỏ qua kiểm tra sắp xếp các file
+
+## 30. Lệnh `od`
+- Đổi định dạng từ đầu vào thành dạng bát phân(mặc định)
+
+  ![alt text](../images/od_01.png)
+
+### 30.1. `od -c`
+- Hiển thị nội dung đầu vào dưới dạng kí tự. Ngoài ra, còn bỏ qua các kí tự đặc biệt.
+
+  ![alt text](../images/od_02.png)
+
+### 30.2. `od -`
+- đọc dữ liệu từ `stdin` và hiển thị nó bằng `od`.
+- Dùng `CTRL + D` để kết thúc input
+- Có thể dùng kèm `echo` hoặc `cat`
+
+  ![alt text](../images/od_03.png)
+
