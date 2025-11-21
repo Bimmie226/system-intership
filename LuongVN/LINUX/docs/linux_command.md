@@ -1131,3 +1131,46 @@ unalias name
 
   ![alt text](../images/od_03.png)
 
+## 31. Lệnh `sed`
+- Là 1 trình chỉnh sửa văn bản mạnh mẽ, cho phép tìm kiếm, thay thế, chèn và xóa văn bản.
+
+  ```bash
+  sed [OPTION] [SCRIPT] [INPUTFILE...] 
+  ```
+
+### 31.1. `sed s/<từ_cần_thay>/<từ_thay_thế> file`
+- Lệnh sed thường được dùng để thay thế văn bản trong file.
+
+  ![alt text](../images/sed_01.png)
+
+  - thay thế ubuntu thành rocky
+
+- Để thay thế từ thứ n của 1 dòng, ta thêm `/n`
+
+  ![alt text](../images/sed_02.png)
+
+- Thay tất cả các từ trên dòng: `/g`
+
+  ![alt text](../images/sed_03.png)
+
+### 31.2. `sed -n/<từ_cần_thay>/<từ_thay_thế>/p`
+- Chỉ in ra các dòng được thay thế
+
+  ![alt text](../images/sed_04.png)
+
+### 31.3. Xóa dòng từ 1 file cụ thể
+1) Xóa 1 dòng thứ n cụ thể: `sed 'nd' file`
+
+    ![alt text](../images/sed_05.png)
+
+2) Xóa dòng cuối: `$d`
+
+3) Xóa theo range: `x,yd`(từ x -> y)
+
+4) Xóa dòng có chứa mẫu cho trước: `sed '/pattern/d' file_name`
+
+
+    ![alt text](../images/sed_06.png)
+
+### Tham khảo thêm `sed`
+- [Tại đây](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/LINUX/lab/lab_LPIC_chapter_1.md#7-sed---stream-editor)
