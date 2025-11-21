@@ -4,7 +4,7 @@
 
 |1 - 10|11 - 20|21 - 30|31 - 40|41 - 50|
 |---|---|---|---|---|
-|[1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)|[11.mv](#11-lệnh-mv)|[21.alias](#21-lệnh-alias)|  |  |
+|[1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)|[11.mv](#11-lệnh-mv)|[21.alias](#21-lệnh-alias)|[31.sed](#31-lệnh-sed)|  |
 |[2.pwd](#2-lệnh-pwd-print-working-directory)|[12.rename](#12-lệnh-rename)|[22.tee](#22-lệnh-tee)|  |  |
 |[3.cd](#3-lệnh-cdchange-directory)|[13.head](#13-lệnh-head)|[23.grep](#23-lệnh-grep)|   |   |
 |[4.ls](#4-lệnh-lslist)|[14.tail](#14-lệnh-tail)|[24.cut](#24-lệnh-cut)|   |   |
@@ -12,8 +12,8 @@
 |[6.rmdir](#6-lệnh-rmdirremove-directory---xóa-thư-mục)|[16.tac](#16-lệnh-tac)|[26.wc](#26-lệnh-wc)|   |   |
 |[7.file](#7-lệnh-file)|[17.more & less](#17-lệnh-more-và-less)|[27.sort](#27-lệnh-sort)|   |   |
 |[8.touch](#8-lệnh-touch)|[18.strings](#18-lệnh-strings)|[28.uniq](#28-lệnh-uniq)|   |   |
-|[9.rm](#9-lệnh-rm---remove)|[19.echo](#19-lệnh-echo)|  |   |   |
-|[10.cp](#10-lệnh-cp)|[20.type & which](#20-lệnh-type-và-which)|   |   |   |
+|[9.rm](#9-lệnh-rm---remove)|[19.echo](#19-lệnh-echo)|[29.comm](#29-lệnh-comm)|   |   |
+|[10.cp](#10-lệnh-cp)|[20.type & which](#20-lệnh-type-và-which)|[30.od](#30-lệnh-od)|   |   |
 
 
 
