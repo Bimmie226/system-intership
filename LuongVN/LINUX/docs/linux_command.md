@@ -5,9 +5,9 @@
 |1 - 10|11 - 20|21 - 30|31 - 40|41 - 50|
 |---|---|---|---|---|
 |[1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)|[11.mv](#11-lệnh-mv)|[21.alias](#21-lệnh-alias)|[31.sed](#31-lệnh-sed)|  |
-|[2.pwd](#2-lệnh-pwd-print-working-directory)|[12.rename](#12-lệnh-rename)|[22.tee](#22-lệnh-tee)|  |  |
-|[3.cd](#3-lệnh-cdchange-directory)|[13.head](#13-lệnh-head)|[23.grep](#23-lệnh-grep)|   |   |
-|[4.ls](#4-lệnh-lslist)|[14.tail](#14-lệnh-tail)|[24.cut](#24-lệnh-cut)|   |   |
+|[2.pwd](#2-lệnh-pwd-print-working-directory)|[12.rename](#12-lệnh-rename)|[22.tee](#22-lệnh-tee)|[32.find](#32-lệnh-find)|  |
+|[3.cd](#3-lệnh-cdchange-directory)|[13.head](#13-lệnh-head)|[23.grep](#23-lệnh-grep)|[33.locate](#33-lệnh-locate)|   |
+|[4.ls](#4-lệnh-lslist)|[14.tail](#14-lệnh-tail)|[24.cut](#24-lệnh-cut)|[34.date](#34-lệnh-date)|   |
 |[5.mkdir](#5-lệnh-mkdir-make-directory---tạo-thư-mục)|[15.cat](#15-lệnh-cat)|[25.tr](#25-lệnh-tr)|   |   |
 |[6.rmdir](#6-lệnh-rmdirremove-directory---xóa-thư-mục)|[16.tac](#16-lệnh-tac)|[26.wc](#26-lệnh-wc)|   |   |
 |[7.file](#7-lệnh-file)|[17.more & less](#17-lệnh-more-và-less)|[27.sort](#27-lệnh-sort)|   |   |
@@ -1174,3 +1174,119 @@ unalias name
 
 ### Tham khảo thêm `sed`
 - [Tại đây](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/LINUX/lab/lab_LPIC_chapter_1.md#7-sed---stream-editor)
+
+## 32. Lệnh `find`
+- Dùng để tìm kiếm đường dẫn tập tin trong 1 phân cấp thư mục
+- Nó hỗ trợ tìm kiếm theo tệp, thư mục, ngày tạo, ngày sửa đổi, chủ sở hữu và permission
+- Cú pháp:
+
+  ```bash
+  find [nơi để bắt đầu tìm kiếm] [biểu thức xác định những gì cần tìm] [-options] [những gì cần tìm]
+  ```
+
+### 32.1. Tìm file với tên cụ thể
+
+```bash
+find /root -name index.html
+```
+
+![alt text](../images/find_01.png)
+
+### 32.2. Tìm các tập tin và thư mục rỗng
+
+
+```bash
+find /root -empty
+```
+
+![alt text](../images/find_02.png)
+
+### 32.3. Tìm theo permission
+
+```bash
+find /root/ -perm 755
+```
+
+![alt text](../images/find_03.png)
+
+### 32.4. Tìm văn bản trong nhiều file
+
+```bash
+find ./ -type f -name "*" -exec grep 'Bimbeso' {} \;
+```
+
+![alt text](../images/find_04.png)
+
+### 32.5. Tìm theo kích thước file
+
+- `-size +1M` -> tìm file lớn hơn 1 MB
+- `-size -1M` -> tìm file nhỏ hơn 1 MB
+
+## 33. Lệnh `locate`
+- dùng để tìm kiếm tệp theo tên:
+
+  ```bash
+  locate [OPTION] PATTERN
+  ```
+
+### 33.1. `locate file_name`
+
+![alt text](../images/locate_01.png)
+
+### 33.2. `locate -n (number) file_name`
+- Giới hạn số kết quả:
+
+  ![alt text](../images/locate_02.png)
+
+### 33.3. `locate -c file`
+
+- Đếm số lượng kết quả:
+
+  ![alt text](../images/locate_03.png)
+
+### 33.4. `locate -i file`
+- không phân biệt hoa thường
+
+  ![alt text](../images/locate_04.png)
+
+## 34. Lệnh `date`
+- In ra hoặc set kiểu ngày tháng và thời gian của hệ thống.
+
+### 34.1. `date`
+- In ra ngày tháng và thời gian của hệ thống
+
+  ![alt text](../images/date_01.png)
+
+### 34.2. `date --date=""`
+
+- Ngày giờ 2 năm trước:
+
+  ![alt text](../images/date_02.png)
+
+- Ngày giờ 5 giây trước:
+
+  ![alt text](../images/date_03.png)
+
+- Ngày giờ ngày hôm trước:
+
+  ![alt text](../images/date_04.png)
+
+- Ngày giờ 2 tháng trước:
+
+  ![alt text](../images/date_05.png)
+
+- Ngày giờ 6 ngày trước:
+
+  ![alt text](../images/date_06.png)
+
+### 34.3. `date -s`
+- Đặt thời gian hệ thống:
+
+  ```bash
+  date --set="Sa Nov 22 21:36:36 2025"
+  ```
+
+### 34.4. `date -r`
+- Sử dụng để hiển thị dấu thời gian được sửa đổi lần cuối của tệp dữ liệu.
+
+  ![alt text](../images/date_07.png)
