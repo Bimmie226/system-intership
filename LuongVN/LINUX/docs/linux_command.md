@@ -1290,3 +1290,11 @@ find ./ -type f -name "*" -exec grep 'Bimbeso' {} \;
 - Sử dụng để hiển thị dấu thời gian được sửa đổi lần cuối của tệp dữ liệu.
 
   ![alt text](../images/date_07.png)
+
+## 35. Lệnh `cal`
+- Hiển thị lịch hệ thống
+
+### 35.1. `cal`
+- Hiển thị lịch của tháng hiện tại
+
+  
