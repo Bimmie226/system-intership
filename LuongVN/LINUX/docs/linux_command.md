@@ -1297,4 +1297,36 @@ find ./ -type f -name "*" -exec grep 'Bimbeso' {} \;
 ### 35.1. `cal`
 - Hiển thị lịch của tháng hiện tại
 
-  
+  ![alt text](../images/cal_01.png)
+
+### 35.2. `cal [month] [year]`
+- Hiển thị lịch của 1 tháng chỉ định
+
+  ![alt text](../images/cal_02.png)
+
+### 35.3. `cal [year]`
+- Hiển thị lịch 12 tháng của 1 năm chỉ định
+
+  ![alt text](../images/cal_03.png)
+
+## 36. Lệnh `sleep`
+- Trì hoãn 1 thời gian xác định (s, m, h, d)
+- Mặc định theo giây(s)
+
+  ```bash
+  sleep 10
+  sleep 10s
+  ```
+
+- Theo phút:
+
+  ```bash
+  sleep 30m
+  ```
+
+## 37. Lệnh `time`
+- Dùng để thực thi 1 lệnh và hiển thị thời gian thực, thời gian CPU của hệ thống và user để thực thi lệnh đó.
+
+  ![alt text](../images/time_01.png)
+
+## 38. Lệnh `gzip - gunzip`
