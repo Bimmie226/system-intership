@@ -4,16 +4,16 @@
 
 |1 - 10|11 - 20|21 - 30|31 - 40|41 - 50|
 |---|---|---|---|---|
-|[1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)|[11.mv](#11-lệnh-mv)|[21.alias](#21-lệnh-alias)|[31.sed](#31-lệnh-sed)|  |
+|[1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)|[11.mv](#11-lệnh-mv)|[21.alias](#21-lệnh-alias)|[31.sed](#31-lệnh-sed)|[41.bzcat & bzmore](#41-lệnh-bzcat---bzmore)|
 |[2.pwd](#2-lệnh-pwd-print-working-directory)|[12.rename](#12-lệnh-rename)|[22.tee](#22-lệnh-tee)|[32.find](#32-lệnh-find)|  |
 |[3.cd](#3-lệnh-cdchange-directory)|[13.head](#13-lệnh-head)|[23.grep](#23-lệnh-grep)|[33.locate](#33-lệnh-locate)|   |
 |[4.ls](#4-lệnh-lslist)|[14.tail](#14-lệnh-tail)|[24.cut](#24-lệnh-cut)|[34.date](#34-lệnh-date)|   |
-|[5.mkdir](#5-lệnh-mkdir-make-directory---tạo-thư-mục)|[15.cat](#15-lệnh-cat)|[25.tr](#25-lệnh-tr)|   |   |
-|[6.rmdir](#6-lệnh-rmdirremove-directory---xóa-thư-mục)|[16.tac](#16-lệnh-tac)|[26.wc](#26-lệnh-wc)|   |   |
-|[7.file](#7-lệnh-file)|[17.more & less](#17-lệnh-more-và-less)|[27.sort](#27-lệnh-sort)|   |   |
-|[8.touch](#8-lệnh-touch)|[18.strings](#18-lệnh-strings)|[28.uniq](#28-lệnh-uniq)|   |   |
-|[9.rm](#9-lệnh-rm---remove)|[19.echo](#19-lệnh-echo)|[29.comm](#29-lệnh-comm)|   |   |
-|[10.cp](#10-lệnh-cp)|[20.type & which](#20-lệnh-type-và-which)|[30.od](#30-lệnh-od)|   |   |
+|[5.mkdir](#5-lệnh-mkdir-make-directory---tạo-thư-mục)|[15.cat](#15-lệnh-cat)|[25.tr](#25-lệnh-tr)|[35.cal](#35-lệnh-cal)|   |
+|[6.rmdir](#6-lệnh-rmdirremove-directory---xóa-thư-mục)|[16.tac](#16-lệnh-tac)|[26.wc](#26-lệnh-wc)|[36.sleep](#36-lệnh-sleep)|   |
+|[7.file](#7-lệnh-file)|[17.more & less](#17-lệnh-more-và-less)|[27.sort](#27-lệnh-sort)|[37.time](#37-lệnh-time)|   |
+|[8.touch](#8-lệnh-touch)|[18.strings](#18-lệnh-strings)|[28.uniq](#28-lệnh-uniq)|[38.gzip & gunzip](#38-lệnh-gzip---gunzip)|   |
+|[9.rm](#9-lệnh-rm---remove)|[19.echo](#19-lệnh-echo)|[29.comm](#29-lệnh-comm)|[39.zcat & zmore](#39-lệnh-zcat---zmore)|   |
+|[10.cp](#10-lệnh-cp)|[20.type & which](#20-lệnh-type-và-which)|[30.od](#30-lệnh-od)|[40.bzip2 & bunzip2](#40-lệnh-bzip2---bunzip2)|   |
 
 
 
@@ -1330,3 +1330,93 @@ find ./ -type f -name "*" -exec grep 'Bimbeso' {} \;
   ![alt text](../images/time_01.png)
 
 ## 38. Lệnh `gzip - gunzip`
+- Nén và giải nén file. Mỗi file được nén thành 1 file duy nhất
+
+### 38.1. `gzip`
+- Nén file thành file có tên `.gz` và xoá file ban đầu
+
+  ![alt text](../images/gzip_01.png)
+
+#### 38.1.1 `gzip -f`
+- `-f: force`: ép buộc nén 1 file dù đã có 1 tệp trùng tên với tệp sau khi nén
+
+  ![alt text](../images/gzip_02.png)
+
+#### 38.1.2. `gzip -r folder_name`
+- Nén từng file trong thư mục
+
+  ![alt text](../images/gzip_03.png)
+
+#### 38.1.3. `gzip -[1-9]`
+- Chọn mức độ nén file:
+  - 1: Nén tối đa nhưng tốc độ chậm
+
+  ...
+
+  - 9: Nén tối thiểu nhưng tốc độ nhanh nhất
+
+#### 38.1.4. `gzip -v`
+- Hiển thị quá trình nén:
+
+  ![alt text](../images/gzip_04.png)
+
+#### 38.1.5 `gzip -d`
+- Giải nén file
+
+  ![alt text](../images/gzip_05.png)
+
+### 38.2. `gunzip`
+- Dùng để giải nén file, sau khi giải nén xong sẽ xoá file nén
+
+  ![alt text](../images/gunzip_01.png)
+
+#### 38.2.1. `gunzip -c`
+- Xem nội dung file nén mà không cần giải nén file đó
+
+  ![alt text](../images/gunzip_02.png)
+
+#### 38.2.2. `gunzip -f`
+- `-f: force`
+
+  ![alt text](../images/gunzip_03.png)
+
+#### 38.2.3. `gunzip -r`
+- Giải nén tất cả file trong 1 thư mục
+
+  ![alt text](../images/gunzip_04.png)
+
+#### 38.2.4. `gunzip -v`
+- `-v: verbose`
+
+  ![alt text](../images/gunzip_05.png)
+
+## 39. Lệnh `zcat - zmore`
+- Dùng để đọc những file nén bằng gzip
+
+- zcat:
+
+  ![alt text](../images/zcat_01.png)
+
+- zmore:
+
+  ![alt text](../images/zmore_01.png)
+
+## 40. Lệnh `bzip2 - bunzip2`
+- Nén file nhưng tốt hơn gzip. Muốn sử dụng bzip2 thì phải cài đặt gói hỗ trợ bzip2
+
+  ```bash
+  apt install bzip2
+  ```
+
+  ![alt text](../images/bzip2_01.png)
+
+### 40.1. `bzip2 -v`
+- `-v: verbose`
+
+  ![alt text](../images/bzip2_02.png)
+
+
+## 41. Lệnh `bzcat - bzmore`
+- Đọc file nén bằng bzip2
+
+  ![alt text](../images/bzcat_bzmore.png)
