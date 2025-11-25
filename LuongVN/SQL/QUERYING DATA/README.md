@@ -19,3 +19,6 @@
 | 15  | [HAVING](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/HAVING.md)                   |
 | 16  | [HAVING COUNT](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/HAVING_COUNT.md)       |
 | 17  | [Subquery](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/Subquery.md)               |
+| 18  | [EXISTS](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/QUERYING%20DATA/EXISTS.md)                    |
+| 19  | [EXCEPT](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/QUERYING%20DATA/EXCEPT.md)                    |
+| 20  | [INTERSECT](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/QUERYING%20DATA/INTERSECT.md)              |
