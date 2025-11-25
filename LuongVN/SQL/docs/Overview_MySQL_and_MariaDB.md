@@ -7,7 +7,7 @@
 ## SQL - the language of the relational database
 - SQL (Structured Query Language) là ngôn ngữ truy vấn có cấu trúc, được tiêu chuẩn hóa và dùng để truy cập, làm việc với cơ sở dữ liệu.
 - SQL bao gồm 3 phần:
-  - Data Definition Language(DDL) - Dùng để định nghĩa cấu trúc csdl và các đối tượng như bảng, view, trigger, stored proceduce, ...
+  - Data Definition Language(DDL) - Dùng để định nghĩa cấu trúc csdl và các đối tượng như bảng
   - Data Manipulation Language(DML) - Dùng để truy vấn và cập nhật dữ liệu
   - Data Control Language(DCL) - Dùng để cấp quyền truy cập dữ liệu cho người dùng
 
