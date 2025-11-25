@@ -9,3 +9,4 @@
 | 5   | [Load Sample Db into MySQL server](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/docs/Load_Sample_Database.md) |
 | 6   | [QUERYING DATA](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/QUERYING%20DATA)                                 |
 | 7   | [MANAGING DATABASES](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/MANAGING%20DATABASES)                       |
+| 8   | [MANAGING TABLES](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/MANAGING%20TABLES)                             |
