@@ -2,18 +2,18 @@
 
 ## Summary
 
-|1 - 10|11 - 20|21 - 30|31 - 40|41 - 50|
-|---|---|---|---|---|
-|[1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)|[11.mv](#11-lệnh-mv)|[21.alias](#21-lệnh-alias)|[31.sed](#31-lệnh-sed)|[41.bzcat & bzmore](#41-lệnh-bzcat---bzmore)|
-|[2.pwd](#2-lệnh-pwd-print-working-directory)|[12.rename](#12-lệnh-rename)|[22.tee](#22-lệnh-tee)|[32.find](#32-lệnh-find)|  |
-|[3.cd](#3-lệnh-cdchange-directory)|[13.head](#13-lệnh-head)|[23.grep](#23-lệnh-grep)|[33.locate](#33-lệnh-locate)|   |
-|[4.ls](#4-lệnh-lslist)|[14.tail](#14-lệnh-tail)|[24.cut](#24-lệnh-cut)|[34.date](#34-lệnh-date)|   |
-|[5.mkdir](#5-lệnh-mkdir-make-directory---tạo-thư-mục)|[15.cat](#15-lệnh-cat)|[25.tr](#25-lệnh-tr)|[35.cal](#35-lệnh-cal)|   |
-|[6.rmdir](#6-lệnh-rmdirremove-directory---xóa-thư-mục)|[16.tac](#16-lệnh-tac)|[26.wc](#26-lệnh-wc)|[36.sleep](#36-lệnh-sleep)|   |
-|[7.file](#7-lệnh-file)|[17.more & less](#17-lệnh-more-và-less)|[27.sort](#27-lệnh-sort)|[37.time](#37-lệnh-time)|   |
-|[8.touch](#8-lệnh-touch)|[18.strings](#18-lệnh-strings)|[28.uniq](#28-lệnh-uniq)|[38.gzip & gunzip](#38-lệnh-gzip---gunzip)|   |
-|[9.rm](#9-lệnh-rm---remove)|[19.echo](#19-lệnh-echo)|[29.comm](#29-lệnh-comm)|[39.zcat & zmore](#39-lệnh-zcat---zmore)|   |
-|[10.cp](#10-lệnh-cp)|[20.type & which](#20-lệnh-type-và-which)|[30.od](#30-lệnh-od)|[40.bzip2 & bunzip2](#40-lệnh-bzip2---bunzip2)|   |
+| 1 - 10                                                 | 11 - 20                                   | 21 - 30                    | 31 - 40                                        | 41 - 50                                      |
+| ------------------------------------------------------ | ----------------------------------------- | -------------------------- | ---------------------------------------------- | -------------------------------------------- |
+| [1.man](#1-lệnh-manmanual---hướng-dẫn-sử-dụng)         | [11.mv](#11-lệnh-mv)                      | [21.alias](#21-lệnh-alias) | [31.sed](#31-lệnh-sed)                         | [41.bzcat & bzmore](#41-lệnh-bzcat---bzmore) |
+| [2.pwd](#2-lệnh-pwd-print-working-directory)           | [12.rename](#12-lệnh-rename)              | [22.tee](#22-lệnh-tee)     | [32.find](#32-lệnh-find)                       | [42.who](#42-lệnh-who)                       |
+| [3.cd](#3-lệnh-cdchange-directory)                     | [13.head](#13-lệnh-head)                  | [23.grep](#23-lệnh-grep)   | [33.locate](#33-lệnh-locate)                   | [43.su](#43-lệnh-su)                         |
+| [4.ls](#4-lệnh-lslist)                                 | [14.tail](#14-lệnh-tail)                  | [24.cut](#24-lệnh-cut)     | [34.date](#34-lệnh-date)                       | [44.useradd](#44-lệnh-useradd)               |
+| [5.mkdir](#5-lệnh-mkdir-make-directory---tạo-thư-mục)  | [15.cat](#15-lệnh-cat)                    | [25.tr](#25-lệnh-tr)       | [35.cal](#35-lệnh-cal)                         | [45.userdel](#45-lệnh-userdel)               |
+| [6.rmdir](#6-lệnh-rmdirremove-directory---xóa-thư-mục) | [16.tac](#16-lệnh-tac)                    | [26.wc](#26-lệnh-wc)       | [36.sleep](#36-lệnh-sleep)                     | [46.usermod](#46-lệnh-usermod)               |
+| [7.file](#7-lệnh-file)                                 | [17.more & less](#17-lệnh-more-và-less)   | [27.sort](#27-lệnh-sort)   | [37.time](#37-lệnh-time)                       | [47.passwd](#47-lệnh-passwd)                 |
+| [8.touch](#8-lệnh-touch)                               | [18.strings](#18-lệnh-strings)            | [28.uniq](#28-lệnh-uniq)   | [38.gzip & gunzip](#38-lệnh-gzip---gunzip)     | [48.groupmod](#48-lệnh-groupmod)             |
+| [9.rm](#9-lệnh-rm---remove)                            | [19.echo](#19-lệnh-echo)                  | [29.comm](#29-lệnh-comm)   | [39.zcat & zmore](#39-lệnh-zcat---zmore)       | [49.groupdel](#49-lệnh-groupdel)             |
+| [10.cp](#10-lệnh-cp)                                   | [20.type & which](#20-lệnh-type-và-which) | [30.od](#30-lệnh-od)       | [40.bzip2 & bunzip2](#40-lệnh-bzip2---bunzip2) | [50.vigr](#50-lệnh-vigr)                     |
 
 
 
@@ -1420,3 +1420,154 @@ find ./ -type f -name "*" -exec grep 'Bimbeso' {} \;
 - Đọc file nén bằng bzip2
 
   ![alt text](../images/bzcat_bzmore.png)
+
+## 42. Lệnh `who`
+### 42.1. `whoami`
+- Hiển thị tên user đang thực thi
+
+  ![alt text](../images/who_01.png)
+
+### 42.2. `who`
+- Cung cấp thông tin về người dùng đăng nhập vào hệ thống
+
+  ![alt text](../images/who_02.png)
+
+### 42.3. `who am i`
+- Hiển thị dòng trỏ đến phiên hiện tại
+
+  ![alt text](../images/who_03.png)
+
+### 42.4. `w`
+- Cho biết ai đã đăng nhập và đang làm gì
+
+  ![alt text](../images/who_04.png)
+
+### 42.5. `id`
+- Cung cấp id user, group
+
+  ![alt text](../images/who_05.png)
+
+## 43. Lệnh `su`
+- Cho phép người dùng chạy shell như 1 người dùng khác
+
+  ```bash
+  su <user_name>
+  ```
+
+### 43.1. `su root`
+- Sử dụng với quyền user root
+
+## 44. Lệnh `useradd`
+- Thêm user:
+
+  ![alt text](../images/useradd_01.png)
+
+### 44.1. `useradd -m`
+- Taoj user cùng thư mục tại `/home`
+
+  ![alt text](../images/useradd_02.png)
+
+### 44.2. `useradd -d`
+- Tạo thư mục của user tại thư mục chỉ định
+
+  ![alt text](../images/useradd_03.png)
+
+### 44.3. `useradd -e`
+- Tạo user với ngày hết hạn xác định
+
+  ![alt text](../images/useradd_04.png)
+
+- Để xem ngày hết hạn của user, ta dùng lệnh `chage`
+
+  ![alt text](../images/useradd_05.png)
+
+## 45. Lệnh `userdel`
+- Dùng để xóa user và các mục liên quan đến user
+
+### 45.1. `userdel <tên_user>`
+- Xóa user
+
+  ![alt text](../images/userdel_01.png)
+
+### 45.2. `userdel -r <tên_user>`
+- Xóa user và cả thư mục home của nó
+
+  ![alt text](../images/userdel_02.png)
+
+## 46. Lệnh `usermod`
+- Được sử dụng để sửa đổi hoặc thay đổi bất kỳ thuộc tính nào của tài khoản người dùng
+
+### 46.1. `usermod -c`
+- Đặt mô tả ngắn gọn về user
+
+  ![alt text](../images/usermod_01.png)
+
+### 46.2. `usermod -d`
+- Thay đổi thư mục home của user
+
+  ![alt text](../images/usermod_02.png)
+
+### 46.3. `usermod -g`
+- Thay đổi group của user
+
+  ![alt text](../images/usermod_03.png)
+
+### 46.4. `usermod -G`
+- Thêm group vào user
+
+  ![alt text](../images/usermod_04.png)
+
+### 46.5. `usermod -a -G`
+- Thêm group primary (group chính) cho user
+
+  ![alt text](../images/usermod_05.png)
+
+### 46.6. `usermod -u uid`
+- Thay đổi uid của user
+
+  ![alt text](../images/usermod_06.png)
+
+### 46.7. `usermod -g gid`
+- Thay đổi gid của group
+
+## 47. Lệnh `passwd`
+- Dùng để thay đổi mật khẩu của user hiện tại
+
+  ![alt text](../images/passwd_01.png)
+
+### 47.1. `passwd <user_name>`
+- Thay đổi mật khẩu của user chỉ định. Cần thực hiện ở quyền root
+  
+  ![alt text](../images/passwd_02.png)
+
+### 47.2. `passwd -d <user_name>`
+- Xóa mật khẩu của 1 tài khoản. Thực hiện ở quyền root
+
+  ![alt text](../images/passwd_03.png)
+
+## 48. Lệnh `groupmod`
+- Dùng để thay đổi hoặc sửa đổi nhóm hiện có trên hệ thống
+
+### 48.1. `groupmod -g`
+- Thay đổi GID của group
+
+  ![alt text](../images/groupmod_01.png)
+
+### 48.2. `groupmod -n`
+- Đổi tên group: `groupmod -n new_group_name old_group_name`
+
+  ![alt text](../images/groupmod_02.png)
+
+## 49. Lệnh `groupdel`
+- Xóa group:
+
+  ![alt text](../images/groupdel_01.png)
+
+## Tìm hiểu thêm về `user` và `group`
+
+- [user & group](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/LINUX/lab/lab_user_group.md)
+
+## 50. Lệnh `vigr`
+- Dùng để thay đổi file chứa tên và GID của các group (`/etc/group`)
+
+  ![alt text](../images/vigr_01.png)
