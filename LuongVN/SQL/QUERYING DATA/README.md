@@ -14,8 +14,8 @@
 | 10  | [LEFT JOIN](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/LEFT_JOIN.md)             |
 | 11  | [RIGHT JOIN](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/RIGHT_JOIN.md)           |
 | 12  | [Self Join](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/Self_Join.md)             |
-|13|[CROSS JOIN](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/CROSS_JOIN.md)|
-|14|[GROUP BY](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/GROUP_BY.md)|
-|15|[HAVING](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/HAVING.md)|
-|16|[HAVING COUNT](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/HAVING_COUNT.md)|
-|17|[Subquery](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/Subquery.md)|
+| 13  | [CROSS JOIN](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/CROSS_JOIN.md)           |
+| 14  | [GROUP BY](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/GROUP_BY.md)               |
+| 15  | [HAVING](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/HAVING.md)                   |
+| 16  | [HAVING COUNT](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/HAVING_COUNT.md)       |
+| 17  | [Subquery](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/SQL/Query%20Database/Subquery.md)               |
