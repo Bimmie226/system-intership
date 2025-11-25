@@ -32,21 +32,3 @@
 | **Cộng đồng phát triển** | Do Oracle quản lý – mã nguồn không hoàn toàn mở.                                              | Được **cộng đồng mã nguồn mở hỗ trợ mạnh mẽ** và phát triển độc lập.                                              |
 
 
-```sql
-SELECT customerName
-FROM 
-  (
-  SELECT 
-      customerNumber,
-      SUM(quantityOrdered * priceEach) as total
-  FROM 
-      orders
-      INNER JOIN orderdetails USING(orderNumber)
-  GROUP BY 
-      orderNumber
-  HAVING 
-      SUM(quantityOrdered * priceEach) > 60000
-  ) as A,
-  customers
-WHERE customers.customerNumber = A.customerNumber;
-```
