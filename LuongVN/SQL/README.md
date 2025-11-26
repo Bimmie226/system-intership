@@ -11,3 +11,4 @@
 | 7   | [MANAGING DATABASES](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/MANAGING%20DATABASES)                       |
 | 8   | [MANAGING TABLES](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/MANAGING%20TABLES)                             |
 | 9   | [MySQL CONSTRAINTS](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/MySQL%20CONSTRAINTS)                         |
+| 10  | [INSERT DATA](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/INSERT%20DATA)                                     |
