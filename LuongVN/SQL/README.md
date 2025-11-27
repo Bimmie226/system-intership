@@ -14,3 +14,4 @@
 | 10  | [INSERT DATA](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/INSERT%20DATA)                                     |
 | 11  | [UPDATE DATA](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/UPDATE%20DATA)                                     |
 | 12  | [DELETE DATA](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/DELETE%20DATA)                                     |
+| 13  | [DATA TYPES](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/SQL/DATA%20TYPE)                                        |
