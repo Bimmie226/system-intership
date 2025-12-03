@@ -112,4 +112,4 @@
 
     ![alt text](../images/update_09.png)
 
-> Wordpress đã update lên phiên bản 5.4 thành công và không bị mất dữ liệu.
+> Wordpress đã update lên phiên bản 6.8.3 thành công và không bị mất dữ liệu.
