@@ -91,3 +91,32 @@ Ví dụ:
 ```perl
 CustomLog "|/usr/bin/rotatelogs /var/log/apache2/access_log.%Y-%m-%d 86400" custom
 ```
+
+## Configuring `logrotate` for Apache Logs
+Ta tạo file cấu hình logrotate trong `/etc/logrotate.d/apache2`. File này định nghĩa cách và thời điểm log được xoay vòng
+
+Ví dụ:
+
+```bash
+/var/log/testLog.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 0640 root adm
+}
+```
+
+Giải thích các tùy chọn:
+- `/var/log/testLog.log`: chỉ định file log cần xoay vòng, ta có thể tùy chỉnh nhiều file bằng `regex`
+- `daily`: Xoay vòng log hàng ngày
+- `rotate 7`: Giữ lại 7 bản log cũ trước khi xóa
+- `compress`: Nén các log đã xoay vòng để tiết kiệm dung lượng.
+- `delaycompress`: Trì hoãn việc nén log cho đến chu kỳ xoay vòng kế tiếp
+- `missingok`: bỏ qua lỗi nếu log không tồn tại
+- `notifempty`: Không xoay vòng nếu log rỗng.
+- `create 0640 root adm`: Thiết lập quyền (permission) cho log mới, cùng với user và group.
+
+
