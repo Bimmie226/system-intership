@@ -208,12 +208,12 @@ Nó ra đời để giúp phân phối trình duyệt web Mozilla. MPL yêu cầ
 
 ### BẢNG: YÊU CẦU CÔNG KHAI MÃ NGUỒN KHI SỬ DỤNG / SỬA ĐỔI
 
-| Giấy phép                                                    | Khi **sử dụng** (chỉ dùng hoặc liên kết)                                               | Khi **sửa đổi** (thay đổi mã nguồn)                                        |
-| ------------------------------------------------------------ | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| **MIT**                                                      | ❌ Không cần công khai mã nguồn                                                         | ❌ Không cần công khai mã nguồn (chỉ cần giữ copyright + license)           |
-| **BSD 2-Clause**                                             | ❌ Không cần công khai                                                                  | ❌ Không cần công khai                                                      |
-| **BSD 3-Clause**                                             | ❌ Không cần công khai                                                                  | ❌ Không cần công khai                                                      |
-| **Apache 2.0**                                               | ❌ Không cần công khai                                                                  | ❌ Không cần công khai (nhưng phải giữ LICENSE + NOTICE và ghi rõ thay đổi) |
-| **LGPL 2.1 / 3.0**                                           | ❌ Không cần công khai toàn bộ mã                                                       |                                                                            ✔️ PHẢI công khai mã nguồn của **thư viện đã sửa** (không bắt buộc công khai ứng dụng) |                                                                            |
-| **GPL 2.0 / 3.0**                                            | ✔️ Phải công khai **nếu phân phối sản phẩm có bao gồm mã GPL** (vì copyleft mạnh)      | ✔️ Phải công khai toàn bộ mã nguồn của phần mềm dẫn xuất                   |
-| **MPL 2.0**                                                  | ❌ Không cần công khai khi chỉ sử dụng                                                  | ✔️ Phải công khai **chỉ những file đã sửa** (copyleft file-level)          |
+| Giấy phép          | Khi **sử dụng** (chỉ dùng hoặc liên kết)                                           | Khi **sửa đổi** (thay đổi mã nguồn)                                                         |
+| ------------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| **MIT**            | **Không** cần công khai mã nguồn                                                   | **Không** cần công khai mã nguồn (chỉ cần giữ copyright + license)                          |
+| **BSD 2-Clause**   | **Không** cần công khai                                                            | **Không** cần công khai                                                                     |
+| **BSD 3-Clause**   | **Không** cần công khai                                                            | **Không** cần công khai                                                                     |
+| **Apache 2.0**     | **Không** cần công khai                                                            | **Không** cần công khai (nhưng **phải** giữ LICENSE + NOTICE và ghi rõ thay đổi)            |
+| **LGPL 2.1 / 3.0** | **Không** cần công khai toàn bộ mã                                                 | **PHẢI** công khai mã nguồn của **thư viện đã sửa** (**không** bắt buộc công khai ứng dụng) |  |
+| **GPL 2.0 / 3.0**  | **Phải** công khai **nếu phân phối sản phẩm có bao gồm mã GPL** (vì copyleft mạnh) | **Phải** công khai toàn bộ mã nguồn của phần mềm dẫn xuất                                   |
+| **MPL 2.0**        | **Không** cần công khai khi chỉ sử dụng                                            | **Phải** công khai **chỉ những file đã sửa** (copyleft file-level)                          |
