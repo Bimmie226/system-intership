@@ -30,6 +30,100 @@ Nginx là 1 phần mềm mã nguồn mở để phục vụ web. Nó sử dụng
 **Cấu hình linh hoạt:**
 - Nginx cung cấp một hệ thống cấu hình linh hoạt, cho phép người dùng tùy chỉnh để phù hợp với nhu cầu của mình.
 
+### Các modes load balancing trong Nginx
+Nginx hỗ trợ nhiều thuật toán cân bằng tải khác nhau. Các mode phổ biến gồm:
+
+**1. Round Robin (mặc định)**
+
+    Nginx gửi mỗi request đến các server theo vòng lặp tuần tự. Không cần cấu hình thêm.
+
+    ```nginx
+    upstream backend {
+        server srv1;
+        server srv2;
+        server srv3;
+    }
+    ```
+
+    Ưu điểm: đơn giản, dễ dùng
+
+    Nhược điểm: không xét đến tải của từng server
+
+**2. Weighted Round Robin**
+
+    Cho phép gán trọng số (weight) cho server mạnh hơn để nhận nhiều request hơn
+
+    ```nginx
+    upstream backend {
+        server srv1 weight=3;
+        server srv2 weight=1;
+    }
+    ```
+
+**3. Least Connections**
+
+    Nginx gửi request đến server có ít kết nối đang mở nhất.
+
+    ```nginx
+    upstream backend {
+        least_conn;
+        server srv1;
+        server srv2;
+    }
+    ```
+
+    Hiệu quả khi request dài hoặc không đều nhau
+
+**4. IP Hash**
+
+    Nginx sử dụng hàm băm của IP client để xác định server.
+
+    Giúp một client luôn vào cùng 1 server -> dùng cho session 
+
+    ```nginx
+    upstream backend {
+        ip_hash;
+        server srv1;
+        server srv2;
+    }
+    ```
+
+**Tóm tắt nhanh:**
+
+| Mode                  | Ý nghĩa                    | Khi dùng                              |
+| --------------------- | -------------------------- | ------------------------------------- |
+| **Round Robin**       | Luân phiên                 | Tải đều, request nhỏ                  |
+| **Weighted RR**       | Luân phiên theo trọng số   | Server mạnh/yếu khác nhau             |
+| **Least Connections** | Server nào ít kết nối nhất | Request dài hoặc không đều            |
+| **IP Hash**           | Một client → 1 server      | Session lưu tại server                |
+| **Hash (tùy biến)**   | Hash theo key bất kỳ       | A/B testing, sticky session linh hoạt |
 
 
-## Cài đặt Nginx
+## Cài đặt Nginx trên Ubuntu
+
+`Bước 1`: Cài đặt nginx
+
+```bash
+sudo apt install nginx
+```
+
+`Bước 2`: Khởi chạy dịch vụ nginx
+
+```bash
+sudo systemctl enable nginx
+sudo systemctl start nginx
+```
+
+Ta có thể kiểm tra lại xem đã khởi động thành công chưa bằng lệnh:
+
+```bash
+sudo systemctl status nginx
+```
+
+![alt text](../images/install_nginx_01.png)
+
+`Bước 3`: Kiểm tra kết quả
+
+Mở trình duyệt truy cập: `http://<IP-server>`
+
+![alt text](../images/install_nginx_02.png)
