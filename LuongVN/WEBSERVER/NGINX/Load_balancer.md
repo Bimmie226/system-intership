@@ -66,22 +66,81 @@ Tác nhân (agent) trên mỗi máy chủ theo dõi tài nguyên như CPU, RAM,�
 ## Các loại bộ cân bằng tải
 Bộ cân bằng tải có thể được phân loại dựa trên yếu tố mà nó kiểm tra trong yêu cầu của khách hàng khi điều hướng lưu lượng. Các loại chính gồm:
 
-### Application Load Balancing
-Cân bằng tải ở tầng ứng dụng, dựa vào nội dung yêu cầu (HTTP header, URL, SSL session ID…).
-- Dùng cho ứng dụng phức tạp có nhiều cụm máy chủ cho từng chức năng.
-- Ví dụ: yêu cầu xem sản phẩm được gửi đến cụm chứa hình ảnh/video; yêu cầu giỏ hàng được gửi đến cụm cần giữ kết nối lâu hơn.
+### Application Load Balancing (ALB)
+Aplication Load Balancer(ALB) là một loại load balancer thuộc layer 7 trong mô hình OSI. Nó được thiết kế để phân phối lưu lượng HTTP/HTTPS thông minh hơn. ALB hiểu và phân tích nội dung request(URL, header, cookie, host, ...) rồi phân phối đến server phù hợp.
 
-### Network Load Balancing
-Cân bằng tải ở tầng mạng, dựa trên IP và thông tin kết nối.
-- Có thể gán 1 IP tĩnh cho nhiều máy chủ
-- Sử dụng các thuật toán cân bằng tải tĩnh và động để phân phối yêu cầu
+ALB có thể đọc được:
 
-### Global Server Load Balancing (GSLB)
-Cân bằng tải giữa nhiều cụm máy chủ đặt ở các vị trí địa lý khác nhau.
-- Định tuyến yêu cầu đến máy chủ gần người dùng nhất để giảm độ trễ.
+- Đường dẫn(path-based routing)
+- Domain/host(host-based routing)
+- Header, query string, cookie
 
-- Nếu một khu vực gặp sự cố, lưu lượng được chuyển sang khu vực khác.
+Từ đó nó phân tích và điều hướng request tới backend khác nhau, ví dụ:
+
+| URL                | Backend       |
+| ------------------ | ------------- |
+| `/api/*`           | API servers   |
+| `/images/*`        | Image servers |
+| `shop.example.com` | Shop service  |
+| `blog.example.com` | Blog service  |
+
+ALB cũng có cơ chế **Health Check** thông minh, ALB gửi request đến backend (ví dụ `/health`) để kiểm tra server nào còn sống, từ đó khi gửi request đến server nó sẽ loại bỏ các server lỗi.
+
+Ngoài ra ALB còn có thể phân tích HTTPs, giải mã SSL ở load balancer để có thể giảm tải công việc cho server backend
+
+### Network Load Balancing (NLB)
+Network Load Balancer là loại load balancer layer 4 theo mô hình OSI - tức là hoạt động ở tầng Transport (TCP/UDP). Khác với ALB (layer 7), NLB không đọc nội dung HTTP/HTTPs, chỉ xử lý kết nối mạng thuần túy như: TCP hoặc UDP. 
+
+Như vậy, ta có thể hiểu NLB có nhiệm vụ là proxy TCP/UDP
+
+**Đặc điểm chính của NLB:**
+
+- `Hiệu năng cao`: Vì hoạt động ở Layer thấp hơn, NLB nhanh, nhẹ, latency cực thấp, có thể xử lý hàng triệu connections / second 
+- `non-HTTP aware`: NLB không đọc header HTTP, URL, Cookies. Nó chỉ thấy: Source IP/Port, Dest IP/Port, TCP/UDP. Do đó NLB hỗ trợ các service sử dụng TCP/UDP như là: Database (MySQL, MongoDB, ...), SSH, DNS, ...
+- `health check`: NLB cũng có health check ở layer 4 thông qua kiểm tra TCP handshake. Nếu server chết -> tự loại bỏ ra khỏi pool
+- `SSL Passthrough hoặc Offloading`: NLB xử lý 2 kiểu Passthrough và Offloading. Với Passthrough thì NLB không giải mã SSL còn Offloading thì ngược lại. Default của NLB là passthrough.
 
 ### DNS Load Balancing
-Cân bằng tải bằng cách cấu hình DNS để trả về nhiều IP khác nhau cho một tên miền.
+DNS Load Balancer là cơ chế cân bằng tải dựa trên DNS, tức là phân tán lưu lượng bằng cách trả về nhiều IP khác nhau cho cùng 1 tên miền
+
+**Ví dụ:**
+
+Khi truy cập: 
+
+```css
+api.example.com → có thể trả về IP A, hoặc IP B, hoặc IP C
+```
+
+DNS LB hoạt động trước cả Network LB (L4) hay Aplication LB (L7).
+
+DNS LB dùng để phân phối tải giữa nhiều `data center`
+
+```
+us.example.com → DC ở Mỹ  
+sg.example.com → DC ở Singapore  
+jp.example.com → DC ở Nhật
+```
+
+Client sẽ được điều hướng về nơi gần nhất. 
+
+**Sơ đồ mô tả DNS Load Balancer:**
+
+```mathematica
+                Client
+                   |
+          DNS Load Balancer
+       (Route53 / Cloudflare DNS)
+     /        |        |       \
+   Region 1 Region 2 Region 3 Region 4
+     |         |        |         |
+ ALB/NLB    ALB/NLB  ALB/NLB  ALB/NLB
+```
+
+**DNS LB** -> chọn region
+
+**NLB/ALB** -> chọn server trong region
+
+Như vậy, DNS Load Balancer là layer đầu tiên trong hệ thống phân phối tải toàn cầu. Nó giúp phân tải theo địa lý, latency, điều hướng user đến data center phù hợp nhất.
+
+
 

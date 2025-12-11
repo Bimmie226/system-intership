@@ -96,8 +96,64 @@ Nginx hỗ trợ nhiều thuật toán cân bằng tải khác nhau. Các mode p
 | **Weighted RR**       | Luân phiên theo trọng số   | Server mạnh/yếu khác nhau             |
 | **Least Connections** | Server nào ít kết nối nhất | Request dài hoặc không đều            |
 | **IP Hash**           | Một client → 1 server      | Session lưu tại server                |
-| **Hash (tùy biến)**   | Hash theo key bất kỳ       | A/B testing, sticky session linh hoạt |
 
+### Các loại Load Balancer mà Nginx hỗ trợ
+#### 1. Application Load Balancer (ALB) 
+Nginx load balancing theo tầng Layer 7 (HTTP/HTTPS) với các khả năng:
+- Routing thông minh: Theo URL, theo host, theo header/cookie, ...
+- Tích hợp SSL termination: Ta có thể gắn certificate vào Nginx để offload TLS.
+
+**Ví dụ cấu hình:**
+
+```nginx
+http {
+    upstream backend {
+        least_conn;                  # Thuật toán LB
+        server 10.0.0.1:8080 weight=2;
+        server 10.0.0.2:8080;
+        server 10.0.0.3:8080 max_fails=3 fail_timeout=30s;
+    }
+
+    server {
+        listen 80;
+        server_name example.com;
+
+        location /api/ {
+            proxy_pass http://backend;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+        }
+    }
+}
+```
+
+- Routing theo URL `/api/`
+- Thuật toán LB: `least_conn`
+- Health check đơn giản bằng `fail/fail_timeout`
+
+#### 2. Network Load Balancer (NLB)
+Nginx hỗ trợ load balancing Layer 4 nhưng không mạnh.
+
+Nginx có module:
+
+- `stream {}` để load balance TCP/UDP. Như là LB cho MySQL, DNS, ...
+
+**Ví dụ cấu hình:**
+- Load Balance cho MySQL: 
+
+    ```nginx
+    stream {
+        upstream mysql_backend {
+            server 10.0.0.11:3306;
+            server 10.0.0.12:3306;
+        }
+
+        server {
+            listen 3306;
+            proxy_pass mysql_backend;
+        }
+    }
+    ```
 
 ## Cài đặt Nginx trên Ubuntu
 
