@@ -31,8 +31,8 @@ Giải thích các trường:
 
   - `-keyout` và `-out`: đường dẫn lưu key và certificate.
 
-  - `/CN=mywp.com`: Common Name = tên domain của bạn.
-  - `-addext "subjectAltName=DNS:mywp.com"`: SAN của cert này: 
+  - `/CN=web1.cloud.vnpt.vn.com`: Common Name = tên domain của bạn.
+  - `-addext "subjectAltName=DNS:web1.cloud.vnpt.vn.com"`: SAN của cert này: 
 
 **Một số lưu ý**:
 - `domain` khi ta truy cập phải khới với `Common Name` khi ta tạo cert
@@ -49,7 +49,7 @@ Giải thích các trường:
 ### 2. Import Certificate vào hệ thống 
 
 ```bash
-cp /etc/ssl/certs/mywp.crt /usr/local/share/ca-certificates/
+cp /etc/ssl/certs/web1.cloud.vnpt.vn.crt /usr/local/share/ca-certificates/
 sudo update-ca-certificates
 ```
 
