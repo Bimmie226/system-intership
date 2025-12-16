@@ -1,4 +1,4 @@
-# Cấu hình domain
+# Cấu hình fixed domain
 ## Yêu cầu
 - Chỉ chấp nhận domain được cấu hình, domain khác -> trả về lỗi 404
 

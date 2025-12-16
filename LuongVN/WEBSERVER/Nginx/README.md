@@ -8,3 +8,4 @@
 | 4   | [Config Basic Authen](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/WEBSERVER/Nginx/config_basic_authen.md)                                   |
 | 5   | [Config Self-Signed SSL](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/WEBSERVER/Nginx/config_self_signed.md)                                 |
 | 6   | [Config JSON log format](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/WEBSERVER/Nginx/config_json_log_format.md)                             |
+| 7   | [Config fixed domain](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/WEBSERVER/Nginx/config_fixed_domain.md)                                   |
