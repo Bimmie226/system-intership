@@ -100,6 +100,8 @@ Như vậy, ta có thể hiểu NLB có nhiệm vụ là proxy TCP/UDP
 - `health check`: NLB cũng có health check ở layer 4 thông qua kiểm tra TCP handshake. Nếu server chết -> tự loại bỏ ra khỏi pool
 - `SSL Passthrough hoặc Offloading`: NLB xử lý 2 kiểu Passthrough và Offloading. Với Passthrough thì NLB không giải mã SSL còn Offloading thì ngược lại. Default của NLB là passthrough.
 
+- **NOTE:** Đối với các dịch vụ UDP, có thể sử dụng bất kỳ loại health check nào khả dụng (`TCP`, `HTTP` hoặc `HTTPs`), và bất kỳ cổng nào trên target để xác minh tính khả dụng của dịch vụ. Nếu dịch vụ nhận health check thất bại, target sẽ được coi là không khả dụng.
+
 ### DNS Load Balancing
 DNS Load Balancer là cơ chế cân bằng tải dựa trên DNS, tức là phân tán lưu lượng bằng cách trả về nhiều IP khác nhau cho cùng 1 tên miền
 
@@ -144,3 +146,8 @@ Như vậy, DNS Load Balancer là layer đầu tiên trong hệ thống phân ph
 
 
 
+## Nguồn tham khảo 
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html
+
+https://vietnix.vn/load-balancing-la-gi/?utm_source=ggads&utm_medium=pmax&p=&gad_source=1&gad_campaignid=23385187609&gbraid=0AAAAABwedNIQgcgeef3phRxchKazM4EPE&gclid=Cj0KCQiAvOjKBhC9ARIsAFvz5ljl-CdrbVRLbXFRf-jdWe7wK2_kvcFAkBffAjjRVi_SkKA0W36sfKsaArPJEALw_wcB#cac-loai-load-balancer-l4-l7-gslb
