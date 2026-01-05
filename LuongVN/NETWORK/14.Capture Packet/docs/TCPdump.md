@@ -117,3 +117,7 @@ tcpdump -tttt -n -r capture.pcap
 ```
 
 ![alt text](../images/tcpdump_04.png)
+
+
+# Nguồn tham khảo 
+https://vietnix.vn/lenh-tcpdump-trong-linux/?utm_source=ggads&utm_medium=pmax&utm_campaign={CampaignName}&p=&gad_source=1&gad_campaignid=23234186547&gbraid=0AAAAABwedNJN2xwua4W1sd0IGH9nIlPfZ&gclid=Cj0KCQiAvOjKBhC9ARIsAFvz5lh7aG9VTZCECZzZfWboiWLlzQUOuqnjGUF6wgGX9BDUNbNUcadMKXMaAgXEEALw_wcB
