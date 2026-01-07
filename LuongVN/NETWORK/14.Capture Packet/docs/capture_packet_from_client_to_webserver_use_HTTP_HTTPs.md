@@ -55,6 +55,4 @@ Ta kiểm tra gói request trả về xem với password mới này có đúng h
 
 ![alt text](../images/http_14.png)
 
-Lúc này mã status đã là `200` tức là password đã đúng và trong phần `Line-based text data` đã có file `html` server trả về cho client 
-
-
+Lúc này mã status đã là `200` tức là password đã đúng
