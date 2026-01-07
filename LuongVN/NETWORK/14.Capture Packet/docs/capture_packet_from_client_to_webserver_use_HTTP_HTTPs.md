@@ -56,3 +56,20 @@ Ta kiểm tra gói request trả về xem với password mới này có đúng h
 ![alt text](../images/http_14.png)
 
 Lúc này mã status đã là `200` tức là password đã đúng
+
+## HTTPs
+
+Để lọc các gói tin sử dụng HTTPs ta filter bằng `tls`
+
+![alt text](../images/https_01.png)
+
+Lúc này ta thấy, các gói tin thể hiện quá trình `client hello` và `server hello`
+
+![alt text](../images/https_02.png)
+
+Sau khi bắt tay xong lúc này client gửi gói tin tuy nhiên khác với HTTP, ở đây các gói tin đã được mã hóa và có thông tin là gói tin `Application Data` 
+
+![alt text](../images/https_03.png)
+
+Khi nhấp vào các gói này, ta thấy thông tin đã được mã hóa hoàn toàn và ta không thể xem được client dùng method `GET`, `POST` hay `PUT`, cũng như không thể thấy server trả về gói có status là `200` hay `404`, user và password cũng được che dấu hoàn toàn
+
