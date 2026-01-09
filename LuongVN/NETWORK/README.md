@@ -20,6 +20,8 @@
 
 - [Overview DNS](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/06.DNS/docs/DNS.md)
 
+- [Implementing DNS server model](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/06.DNS/docs/dns_server.md)
+
 ## 7. IP
 
 - [Overview IP](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/07.IP/docs/IP.md)
@@ -41,6 +43,8 @@
 
 - [Overview DHCP](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/11.DHCP/docs/dhcp.md)
 
+- [Config DHCP server](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/11.DHCP/docs/config_dhcp_server.md)
+
 ## 12. WorkFlow Packet Transmission
 
 - [Work Flow](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/12.Qua_trinh_gui_du_lieu_cua_goi_tin/docs/work_flow.md)
@@ -52,3 +56,10 @@
 - [Đổi Port SSH](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/13.SSH/Change_port/docs.md)
 - [Các bài Lab về SSH](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/NETWORK/13.SSH/Lab)
 
+## 14. Capture packet
+- [Overview TCPdump](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/TCPdump.md)
+- [Overview Wireshark](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/wireshark.md)
+- [Capture HTTP/HTTPs packet](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/capture_packet_from_client_to_webserver_use_HTTP_HTTPs.md)
+- [Capture TCP & UDP packet](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/capture_packet_tcp_%26_udp.md)
+- [Capture DHCP packet](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/capture_packet_dhcp.md)
+- [Capture DNS packet](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/capture_packet_dns.md)

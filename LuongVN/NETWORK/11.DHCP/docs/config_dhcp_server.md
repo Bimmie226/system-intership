@@ -1,6 +1,7 @@
 # Cấu hình DHCP server trên Ubuntu
 ## Mô hình
 Ubuntu: DHCP server
+
 Rocky9: DHCP client
 
 ## Thực hiện
