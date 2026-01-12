@@ -13,6 +13,24 @@ Sau đó lưu lượng các gói tin qua `ens3` sẽ hiển thị như sau:
 
 ![alt text](../images/wireshark_02.png)
 
+Ta thấy giao diện wireshark được hiển thị với 3 phần chính:
+
+**1. Packet list:** Hiển thị các gói tin bắt được trên 1 card mạng, Ở phần này mỗi gói tin là 1 dòng. Các gói tin được đánh số theo thứ tự
+
+![alt text](../images/ws_01.png)
+
+**2. Packet details:** Hiển thị thông tin chi tiết của 1 gói tin được chọn:
+
+![alt text](../images/ws_02.png)
+
+**3. Packet bytes:** Hiện thị dữ liệu thô của gói tin dưới dạng hex hoặc ASCII, giúp xem chi tiết nội dung thực tế, tìm kiếm thông tin nhạy cảm như (mật khẩu) trong các giao thức không mã hóa như (HTTP) 
+
+- Ví dụ trong 1 gói tin HTTP response:
+
+    ![alt text](../images/ws_03.png)
+
+- Ta có thể thấy thông tin về status trả về: `200`, các header, và dữ liệu trả về `hello`
+
 Ta có thể lưu lại lưu lượng hiện tại bằng cách nhấp vào nút đỏ trên thanh công cụ:
 
 ![alt text](../images/wireshark_03.png)
@@ -28,6 +46,82 @@ Sau đó để lưu, ta chọn vào `file -> save`. Lưu lượng những gói t
 Ở đây, ta chọn xem file `capture.pcap` đã có sẵn trên máy
 
 ![alt text](../images/wireshark_06.png)
+
+## Ý nghĩa về màu của các gói tin trong wireshark
+
+![alt text](../images/color_ws_01.png)
+
+Muốn xem ý nghĩa màu của các gói tin ta làm như sau: `chọn view -> Coloring Rules`
+
+![alt text](../images/color_ws_02.png)
+
+![alt text](../images/color_ws_03.png)
+
+
+- **Nền đỏ, chữ vàng** - TCP RST / SCTP ABORT
+
+    ![alt text](../images/color_ws_04.png)
+
+
+    - Kết nối bị đóng cưỡng bức 
+- **Nền đen, chữ đỏ cam** - Bad TCP
+
+    ![alt text](../images/color_ws_05.png)
+
+    - `tcp.analysis.flags`: cờ này được bật khi gói TCP thuộc nhóm bất thường
+
+        | Tên nhóm bất thường | Ý nghĩa                                                   |
+        | ------------------- | --------------------------------------------------------- |
+        | Retransmission      | Gửi lại 1 segment TCP vì không nhận được ACK hoặc timeout |
+        | Out of order        | Segmment đến không đúng thứ tự                            |
+        | Zero Window         | Server hết buffer, yêu cầu không gửi nữa                  |
+
+    - `!tcp.analysis.window_update`: không phải là window update
+    - `!tcp.analysis.keep_alive`: Không phải là tcp keep alive
+    - `!tcp.analysis.keep_alive_ack`: không phải là các gói trả lời cho tcp keep alive
+
+    - **Tóm lại:** Chỉ tô màu những gói tin TCP mà wireshark đánh giá là có vấn đề nhưng KHÔNG tô: `window update`, `keep-alive`, `ACK của keep alive`
+- **Nền đen, chữ xanh** - ICMP errors
+
+    ![alt text](../images/color_ws_06.png)
+
+    - Destination Unreachable, Time Exceeded
+- **Nền đỏ, chữ trắng** - TTL/hop limit thấp
+
+    ![alt text](../images/color_ws_07.png)
+    
+- **Nền màu da nhạt, chữ đen** - ARP
+
+    ![alt text](../images/color_ws_08.png)
+
+- **Nền màu da đậm, chữ đen** - Routing
+
+    ![alt text](../images/color_ws_09.png)
+
+- **Nền hồng nhạt, chữ đen** - ICMP
+
+    ![alt text](../images/color_ws_10.png)
+
+- **Nền xanh lá nhạt, chữ đen** - HTTP
+
+    ![alt text](../images/color_ws_11.png)
+
+- **Nền tím nhạt, chữ đen** - TCP
+
+    ![alt text](../images/color_ws_12.png)
+
+- **Nền xanh dương nhạt, chữ đen** - UDP
+
+    ![alt text](../images/color_ws_13.png)
+
+- **Không màu** - broadcast
+
+    ![alt text](../images/color_ws_14.png)
+
+- **Nền xám, chữ đen** - TCP SYN/FIN
+
+    ![alt text](../images/color_ws_15.png)
+
 
 ## Sử dụng filter để lọc các gói tin
 ### Chỉ bắt các gói có IP trùng khớp 
