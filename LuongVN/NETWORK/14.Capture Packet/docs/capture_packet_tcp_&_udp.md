@@ -42,6 +42,50 @@ Ta thấy:
 
 Từ đó, ta thấy quá trình bắt tay 3 bước đã diễn ra thành công 
 
+## Các thông tin đằng sau gói TCP
+
+![alt text](../images/tcp_info_01.png)
+
+### Gói 1 - TCP SYN (Client - Server)
+
+```bash
+56216 -> 9999 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM=1 TSval=126418420 TSecr=0 WS=128
+```
+
+- `Seq=0`: sequence number của client
+- `Win=64240`: Receive window, client thông báo số lượng byte tối đa trước khi cần ACK
+- `Len=0`: không có dữ liệu, SYN chỉ thiết lập kết nối
+- `MSS=1460`: Maximum Segment Size, size tối đa cho từng segment TCP mà client muốn
+- `SACK_PERM=1`: Cho phép Selective ACK, giúp TCP phục hồi mất gói nhanh hơn
+- `TSval=126418420`: Timestamp Value 
+- `Tsecr=0`: Chưa có timestamp từ server -> để 0
+- `WS=128`: Window scale, Window thực = `64240 * 128 ~ 8MB`
+
+### Gói 2 - TCP SYN,ACK (Server -> Client)
+```bash
+9999 → 56216 [SYN, ACK] Seq=0 Ack=1 Win=65160 Len=0 MSS=1460 SACK_PERM=1 TSval=299607191 TSecr=126418420 WS=128
+```
+
+- `Seq=0`: sequence number của server
+- `Ack=1`: Xác nhận SYN của client 
+- `Win=65160`: Server thông báo số lượng byte tối đa nhận là 65160 byte
+- `MSS=1460`: Maximum segment size
+- `SACK_PERM=1`: Cho phép Selective ACK, giúp TCP phục hồi mất gói nhanh hơn
+- `TSval=299607191`: Timestamp của server
+- `TSecr=126418420`: Timestamp của client vừa gửi
+- `WS=128`: Server cũng bật window scale
+
+### Gói 3 - TCP ACK (Client -> Server)
+```bash
+56216 → 9999 [ACK] Seq=1 Ack=1 Win=64128 Len=0 TSval=126418422 TSecr=299607191
+```
+
+- `Seq=1`: Client đã dùng Seq=0 cho SYN, nên giờ bắt đầu từ 1
+- `Ack=1`: Xác nhận SYN của server
+- `Win=64128`: số lượng byte tối đa mà client có thể nhận
+- `Len=0`: Chưa gửi dữ liệu
+- `TSval=126418422`: Timestamp mới của client
+- `TSecr=299607191`: Timestamp của server vừa gửi
 ## UDP
 Ta sẽ tạo 1 gói tin UDP với port `9999` để lab:
 
