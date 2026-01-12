@@ -39,9 +39,7 @@
 
 ## 11. DHCP
 
-- [Overview DHCP](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/11.DHCP/docs/dhcp.md)
-
-- [Config DHCP server](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/11.DHCP/docs/config_dhcp_server.md)
+- [DHCP - Dynamic Host Configuration Protocol](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/NETWORK/11.DHCP)
 
 ## 12. WorkFlow Packet Transmission
 
