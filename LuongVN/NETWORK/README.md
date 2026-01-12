@@ -18,9 +18,7 @@
 
 ## 6. DNS
 
-- [Overview DNS](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/06.DNS/docs/DNS.md)
-
-- [Implementing DNS server model](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/06.DNS/docs/dns_server.md)
+- [DNS - Domain Name System](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/NETWORK/06.DNS)
 
 ## 7. IP
 
