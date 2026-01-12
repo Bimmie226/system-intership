@@ -50,9 +50,5 @@
 - [SSH - Secure Shell](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/NETWORK/13.SSH)
 
 ## 14. Capture packet
-- [Overview TCPdump](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/TCPdump.md)
-- [Overview Wireshark](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/wireshark.md)
-- [Capture HTTP/HTTPs packet](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/capture_packet_from_client_to_webserver_use_HTTP_HTTPs.md)
-- [Capture TCP & UDP packet](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/capture_packet_tcp_%26_udp.md)
-- [Capture DHCP packet](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/capture_packet_dhcp.md)
-- [Capture DNS packet](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/capture_packet_dns.md)
+
+- [Capture packet with TCPdump & Wireshark](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/NETWORK/14.Capture%20Packet)
