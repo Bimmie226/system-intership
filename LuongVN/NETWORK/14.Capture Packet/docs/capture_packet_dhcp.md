@@ -111,3 +111,28 @@ Tầng ứng dụng: DHCP(ack)
   - default gateway
   - DNS server
   - subnet mask
+
+## Bảng các DHCP option quan trọng
+
+### Option nhận dạng & điều khiển
+
+| Code | Tên Option             | Ý nghĩa                                      |
+| ---- | ---------------------- | -------------------------------------------- |
+| 53   | DHCP Message Type      | Loại gói DHCP(Discover, Offer, Request, Ack) |
+| 61   | Client Identifier      | Định danh client                             |
+| 50   | Requested IP Address   | IP client muốn                               |
+| 51   | IP Address Lease Time  | Thời gian thuê IP                            |
+| 54   | Server Identifier      | IP DHCP Server                               |
+| 55   | Parameter Request List | Client yêu cầu option nào                    |
+
+### Option cấu hình mạng
+
+| Code | Tên Option               | Ví dụ         |
+| ---- | ------------------------ | ------------- |
+| 1    | Subnet Mask              | 255.255.255.0 |
+| 3    | Router (Default Gateway) | 192.168.1.1   |
+| 6    | DNS Server               | 8.8.8.8       |
+| 15   | Domain Name              | example.com   |
+| 28   | Broadcast Address        | 192.168.1.255 |
+
+
