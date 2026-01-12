@@ -47,10 +47,7 @@
 
 ## 13. SSH
 
-- [Overview SSH](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/13.SSH/SSH_protocol/docs.md)
-- [Trao đổi khóa Diffie-Hellman để tạo session key khi SSH](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/13.SSH/SSH_protocol/diffie_hellman.md)
-- [Đổi Port SSH](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/13.SSH/Change_port/docs.md)
-- [Các bài Lab về SSH](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/NETWORK/13.SSH/Lab)
+- [SSH - Secure Shell](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/NETWORK/13.SSH)
 
 ## 14. Capture packet
 - [Overview TCPdump](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/NETWORK/14.Capture%20Packet/docs/TCPdump.md)
