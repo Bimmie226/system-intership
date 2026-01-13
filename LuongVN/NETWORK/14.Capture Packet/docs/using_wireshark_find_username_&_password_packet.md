@@ -73,3 +73,7 @@ Mã trạng thái lúc này đã là `200`, ta kiểm tra chi tiết thông tin 
 ![alt text](../images/http_pw_13.png)
 
 Ta không thấy thẻ `Error` -> dữ liệu đã hoàn toàn chính xác
+
+# Nguồn tham khảo
+
+https://github.com/hungviet99/THUC-TAP/blob/master/Wireshark/docs/Su-dung-wireshark-de-phan-tich-goi-tin.md
