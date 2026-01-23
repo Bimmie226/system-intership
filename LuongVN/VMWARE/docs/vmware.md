@@ -146,3 +146,33 @@ netplan apply
 
 ![alt text](../images/static_IP_03.png)
 
+### Trên Rocky 9
+
+```bash
+vi /etc/NetworkManager/system-connections/[NIC].nmconnection
+```
+
+```bash
+[connection]
+id=ens33
+type=ethernet
+interface-name=ens33
+autoconnect=true
+
+[ipv4]
+method=auto
+addresses=192.168.1.100/24
+gateway=192.168.1.1
+dns=8.8.8.8;1.1.1.1;
+
+[ipv6]
+method=ignore
+```
+
+Sau đó reload NetworkManager
+
+```bash
+nmcli connection reload
+nmcli connection down <NIC>
+nmcli connection up <NIC>
+```
