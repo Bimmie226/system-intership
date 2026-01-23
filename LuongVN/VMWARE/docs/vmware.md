@@ -160,7 +160,7 @@ interface-name=ens33
 autoconnect=true
 
 [ipv4]
-method=auto
+method=manual
 addresses=192.168.1.100/24
 gateway=192.168.1.1
 dns=8.8.8.8;1.1.1.1;
