@@ -52,3 +52,7 @@
 ## 14. Capture packet
 
 - [Capture packet with TCPdump & Wireshark](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/NETWORK/14.Capture%20Packet)
+
+## 15. Routing
+
+- [Tìm hiểu về Routing & lab static routing](https://github.com/Bimmie226/system-intership/tree/main/LuongVN/NETWORK/15.Routing)
