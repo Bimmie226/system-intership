@@ -33,3 +33,9 @@
 ## II. CheatSheet Docker 
 
 [2.0 Dockerfile CheatSheet](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/DOCKER/ghichep_Docker/ghichep_Dockerfile.md)
+
+## III. Lab 
+
+[3.0 Triển khai MariaDB HA trên Docker](https://github.com/Bimmie226/LAMP-stack-HA/tree/master/mariaDB)
+
+[3.1 Triển khai Apache HA trên Docker](https://github.com/Bimmie226/LAMP-stack-HA/tree/master/apache)
