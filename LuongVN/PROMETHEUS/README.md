@@ -11,3 +11,9 @@
 [1.3 Cài đặt Node Exporter trên Windows](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/04.Install_Node_Exporter_On_Windows.md)
 
 [1.4 Cài đặt Node Exporter trên Ubuntu](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/05.Install_Node_Exporter_On_Ubuntu.md)
+
+[1.5 Tìm hiểu về các loại metrics trong Prometheus](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/06.Metric_Types.md)
+
+## II. Thực hành vẽ Dashboard Grafana 
+
+[1.0 Dashboard Grafana sử dụng metrics Node Exporter](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/01.Dashboard_Grafana_Using_Metrics_Node_Exporter.md)
