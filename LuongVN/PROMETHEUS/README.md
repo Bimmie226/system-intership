@@ -14,8 +14,11 @@
 
 [1.5 Tìm hiểu về các loại metrics trong Prometheus](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/06.Metric_Types.md)
 
+[1.6 Tìm hiểu về Storage trong Prometheus - TSDB](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/07.Prometheus_Storage_TSDB.md)
+
 ## II. Thực hành vẽ Dashboard Grafana 
 
 [1.0 Dashboard Grafana sử dụng metrics Node Exporter](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/01.Dashboard_Grafana_Using_Metrics_Node_Exporter.md)
 
 [1.1 Dashboard Grafana cho từng loại Metrics](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/02.Dashboard_Grafana_For_Each_Type_of_Metrics.md)
+
