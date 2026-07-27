@@ -16,6 +16,8 @@
 
 [1.6 Tìm hiểu về Storage trong Prometheus - TSDB](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/07.Prometheus_Storage_TSDB.md)
 
+[1.7 Tổng quan về Pushgateway & Cài đặt Pushgateway](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/08.Pushgateway_Prometheus.md)
+
 ## II. Thực hành vẽ Dashboard Grafana 
 
 [1.0 Dashboard Grafana sử dụng metrics Node Exporter](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/01.Dashboard_Grafana_Using_Metrics_Node_Exporter.md)
