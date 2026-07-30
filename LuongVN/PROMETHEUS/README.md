@@ -18,9 +18,18 @@
 
 [1.7 Tổng quan về Pushgateway & Cài đặt Pushgateway](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/08.Pushgateway_Prometheus.md)
 
+[1.8 Tổng quan về Alertmanager & Cài đặt Alertmanager](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/09.Alertmananger.md)
+
 ## II. Thực hành vẽ Dashboard Grafana 
 
-[1.0 Dashboard Grafana sử dụng metrics Node Exporter](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/01.Dashboard_Grafana_Using_Metrics_Node_Exporter.md)
+[2.0 Dashboard Grafana sử dụng metrics Node Exporter](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/01.Dashboard_Grafana_Using_Metrics_Node_Exporter.md)
 
-[1.1 Dashboard Grafana cho từng loại Metrics](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/02.Dashboard_Grafana_For_Each_Type_of_Metrics.md)
+[2.1 Dashboard Grafana cho từng loại Metrics](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/02.Dashboard_Grafana_For_Each_Type_of_Metrics.md)
 
+## III. Thực hành cấu hình Alertmanager 
+
+[3.0 Cấu hình Alertmanager: Tạo receiver, Routing tree, Grouping, Silencing, Inhibition](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/03.Config_Alertmanager.md)
+
+## IV. Prometheus High Availability (HA) 
+
+[4.0 Kiến trúc và các thành phần Thanos](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/10.Thanos_Architecture.md)
