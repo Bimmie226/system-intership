@@ -35,3 +35,4 @@
 [4.0 Kiến trúc và các thành phần Thanos](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/10.Thanos_Architecture.md)
 
 [4.1 Triển khai Prometheus HA sử dụng Thanos](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/04.Prometheus_HA_Using_Thanos.md)
+
