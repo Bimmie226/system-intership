@@ -14,7 +14,7 @@
 
 [1.5 Tìm hiểu về các loại metrics trong Prometheus](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/06.Metric_Types.md)
 
-[1.6 Tìm hiểu về Storage trong Prometheus - TSDB](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/07.Time_series_database_deep_dive.md#ii-time-series-storage-engine)
+[1.6 Tìm hiểu về Storage trong Prometheus - TSDB](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/07.Time_series_database_deep_dive.md)
 
 [1.7 Tìm hiểu cách Prometheus lưu trữ Metrics](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/08.Prometheus_Storage_Metrics.md)
 
