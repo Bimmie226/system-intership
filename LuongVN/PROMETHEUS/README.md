@@ -16,11 +16,11 @@
 
 [1.6 Tìm hiểu về Storage trong Prometheus - TSDB](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/07.Time_series_database_deep_dive.md#ii-time-series-storage-engine)
 
-[1.7 Tìm hiểu cách Prometheus lưu trữ Metrics](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/07.Time_series_database_deep_dive.md#ii-time-series-storage-engine)
+[1.7 Tìm hiểu cách Prometheus lưu trữ Metrics](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/08.Prometheus_Storage_Metrics.md)
 
-[1.7 Tổng quan về Pushgateway & Cài đặt Pushgateway](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/08.Pushgateway_Prometheus.md)
+[1.8 Tổng quan về Pushgateway & Cài đặt Pushgateway](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/08.Pushgateway_Prometheus.md)
 
-[1.8 Tổng quan về Alertmanager & Cài đặt Alertmanager](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/09.Alertmananger.md)
+[1.9 Tổng quan về Alertmanager & Cài đặt Alertmanager](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/09.Alertmananger.md)
 
 ## II. Thực hành vẽ Dashboard Grafana 
 
