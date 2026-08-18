@@ -18,9 +18,9 @@
 
 [1.7 Tìm hiểu cách Prometheus lưu trữ Metrics](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/08.Prometheus_Storage_Metrics.md)
 
-[1.8 Tổng quan về Pushgateway & Cài đặt Pushgateway](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/08.Pushgateway_Prometheus.md)
+[1.8 Tổng quan về Pushgateway & Cài đặt Pushgateway](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/09.Pushgateway_Prometheus.md)
 
-[1.9 Tổng quan về Alertmanager & Cài đặt Alertmanager](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/09.Alertmananger.md)
+[1.9 Tổng quan về Alertmanager & Cài đặt Alertmanager](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/10.Alertmananger.md)
 
 ## II. Thực hành vẽ Dashboard Grafana 
 
@@ -36,6 +36,6 @@
 
 ## IV. Prometheus High Availability (HA) 
 
-[4.0 Kiến trúc và các thành phần Thanos](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/10.Thanos_Architecture.md)
+[4.0 Kiến trúc và các thành phần Thanos](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/11.Thanos_Architecture.md)
 
 [4.1 Triển khai Prometheus HA sử dụng Thanos](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/04.Prometheus_HA_Using_Thanos.md)
