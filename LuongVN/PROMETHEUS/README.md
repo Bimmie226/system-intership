@@ -32,6 +32,8 @@
 
 [3.0 Cấu hình Alertmanager: Tạo receiver, Routing tree, Grouping, Silencing, Inhibition](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/03.Config_Alertmanager.md)
 
+[3.1 Tạo 1 số alert về CPU, RAM, DISK, NETWORK](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/05.Create_alert_for_MEM_CPU_DISK_NETWORK.md)
+
 ## IV. Prometheus High Availability (HA) 
 
 [4.0 Kiến trúc và các thành phần Thanos](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/10.Thanos_Architecture.md)
