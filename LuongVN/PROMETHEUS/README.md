@@ -22,6 +22,8 @@
 
 [1.9 Tổng quan về Alertmanager & Cài đặt Alertmanager](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/10.Alertmananger.md)
 
+[1.10 Tìm hiểu Telgegraf Exporter](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/12.telegraf_exporter.md)
+
 ## II. Thực hành vẽ Dashboard Grafana 
 
 [2.0 Dashboard Grafana sử dụng metrics Node Exporter](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/01.Dashboard_Grafana_Using_Metrics_Node_Exporter.md)
