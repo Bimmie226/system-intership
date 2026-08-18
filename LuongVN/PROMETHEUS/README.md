@@ -34,6 +34,8 @@
 
 [3.1 Tạo 1 số alert về CPU, RAM, DISK, NETWORK](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/05.Create_alert_for_MEM_CPU_DISK_NETWORK.md)
 
+[3.2 Tạo alert node down sử dụng blackbox exporter](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/labs/06.Alert_node_down.md)
+
 ## IV. Prometheus High Availability (HA) 
 
 [4.0 Kiến trúc và các thành phần Thanos](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/PROMETHEUS/docs/11.Thanos_Architecture.md)
