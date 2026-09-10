@@ -42,7 +42,7 @@ def check_resource():
     # Liệt kê thông tin về Pod của namespace 
     
     print(f">>> Danh sách các Pod của namespace: {ns_name} <<<")
-    print(f"{'NAME':<48} {'READY':<8} {'STATUS':<16} {'RESTARTS':<20} {'AGE':<30}")
+    print(f"{'NAME':<65} {'READY':<8} {'STATUS':<16} {'RESTARTS':<20} {'AGE':<30}")
 
     pods = core_v1.list_namespaced_pod(namespace = ns_name)
     for i in pods.items:
@@ -76,13 +76,13 @@ def check_resource():
         pod_age = now - created
         pod_age = f"{pod_age}"
         
-        print(f"{pod_name:<50}" f"{pod_ready:<8}" f"{pod_status:<20}" f"{pod_restarts:<12}" f"{pod_age:<30}")
+        print(f"{pod_name:<66}" f"{pod_ready:<9}" f"{pod_status:<17}" f"{pod_restarts:<21}" f"{pod_age:<30}")
     print()
         
     # Liệt kê thông tin về Service của namespace
     
     print(f">>> Danh sách các Service của namespace: {ns_name} <<<")
-    print(f"{'NAME':<40} {'TYPE':<15} {'CLUSTER-IP':<20} {'EXTERNAL-IP':<20} {'PORT(S)':<30} {'AGE':<25}")
+    print(f"{'NAME':<60} {'TYPE':<15} {'CLUSTER-IP':<20} {'EXTERNAL-IP':<20} {'PORT(S)':<30} {'AGE':<25}")
     
     services = core_v1.list_namespaced_service(namespace = ns_name)
     for i in services.items: 
@@ -122,16 +122,16 @@ def check_resource():
         svc_age = now - created
         svc_age = f"{svc_age}"
         
-        print(f"{svc_name:<40}" f"{svc_type:<15}", end = " ")
+        print(f"{svc_name:<61}" f"{svc_type:<15}", end = " ")
         
         for j in range(len(svc_cluster_ip)):
-            print(f"{svc_cluster_ip[j]:<20}", end = "")
+            print(f"{svc_cluster_ip[j]:<21}", end = "")
             
         if len(svc_external_ips) == 0:
-            print(f"{"<none>":<20}", end = "")
+            print(f"{"<none>":<21}", end = "")
         else: 
             for j in range(len(svc_external_ips)): 
-                print(f"{svc_external_ips[j]:<20}", end = "")
+                print(f"{svc_external_ips[j]:<21}", end = "")
         
         all_port = ""
         for j in range(len(svc_ports)): 
@@ -139,7 +139,7 @@ def check_resource():
             if (j < len(svc_ports) - 1): 
                 all_port += ","
 
-        print(f"{all_port:<30}", end = "")
+        print(f"{all_port:<31}", end = "")
         print(svc_age)
         
     print()
@@ -147,7 +147,7 @@ def check_resource():
     # Liệt kê thông tin về Deployment của namespace
     
     print(f">>> Danh sách các Deployment của namespace: {ns_name} <<<")
-    print(f"{"NAME":<40} {"READY":<10} {"UP-TO-DATE":<15} {"AVAILABLE":<14} {"AGE"}")
+    print(f"{"NAME":<60} {"READY":<10} {"UP-TO-DATE":<15} {"AVAILABLE":<14} {"AGE"}")
     
     deployments = apps_v1.list_namespaced_deployment(namespace = ns_name)
     for i in deployments.items: 
@@ -169,7 +169,7 @@ def check_resource():
         deploy_age = now - created
         deploy_age = f"{deploy_age}"
         
-        print(f"{deploy_name:<40} {deploy_ready:<10} {deploy_up_to_date:<15} {deploy_available:<13} {deploy_age}")
+        print(f"{deploy_name:<60} {deploy_ready:<10} {deploy_up_to_date:<15} {deploy_available:<14} {deploy_age}")
     
     print()
     
@@ -209,10 +209,62 @@ def check_resource():
     
     statefulsets = apps_v1.list_namespaced_stateful_set(namespace = ns_name) 
     for i in statefulsets.items: 
-        print(i)
-        break
-    
+        # STATEFULSET NAME 
+        statefulset_name = i.metadata.name
         
+        # STATEFULSET READY 
+        current_rep = i.status.ready_replicas
+        rep = i.status.replicas
+        statefulset_ready = f"{current_rep}" + "/" + f"{rep}"
+        
+        # STATEFULSET AGE 
+        created = i.metadata.creation_timestamp
+        now = datetime.now(timezone.utc)
+        statefulset_age = now - created
+        statefulset_age = f"{statefulset_age}"
+        
+        print(f"{statefulset_name:<60} {statefulset_ready:<9} {statefulset_age}")
+        
+    print()
+    
+    # Liệt kê thông tin về Daemonset của namespace
+            
+    print(f">>> Danh sách các Daemonset của namespace: {ns_name} <<<")
+    print(f"{"NAME":<60} {"DESIRED":<12} {"CURRENT":<12} {"READY":<10} {"UP-TO-DATE":<15} {"AVAILABLE":<14} {"NODE SELECTOR":<28} {"AGE"}")
+    daemonsets = apps_v1.list_namespaced_daemon_set(namespace = ns_name)
+    for i in daemonsets.items:
+        # DAEMONSET NAME 
+        daemonset_name = i.metadata.name
+        
+        # DAEMONSET DESIRED 
+        daemonset_desired = i.status.desired_number_scheduled
+        
+        # DAEMONSET CURRENT
+        daemonset_current = i.status.current_number_scheduled
+        
+        # DAEMONSET READY 
+        daemonset_ready = i.status.number_ready
+        
+        # DAEMONSET UP-TO-DATE 
+        daemonset_up_to_date = i.status.updated_number_scheduled
+        
+        # DAEMONSET AVAILABLE
+        daemonset_available = i.status.number_available
+        
+        # DAEMONSET NODE SELECTOR 
+        node_selector = i.spec.template.spec.node_selector # -> class: dictionary
+        daemonset_node_selector = ""
+        for key, value in node_selector.items(): 
+            daemonset_node_selector += f"{key}" + "=" + f"{value}" + ("," if key != list(node_selector.keys())[-1] else "")
+        
+        # DAEMONSET AGE 
+        created = i.metadata.creation_timestamp
+        now = datetime.now(timezone.utc)
+        daemonset_age = now - created
+        daemonset_age = f"{daemonset_age}"
+        
+        print(f"{daemonset_name:<60} {daemonset_desired:<12} {daemonset_current:<12} {daemonset_ready:<10} {daemonset_up_to_date:<15} {daemonset_available:<14} {daemonset_node_selector:<28} {daemonset_age}")
+    
 if __name__ == "__main__":
     check_node_status()
     check_resource()
