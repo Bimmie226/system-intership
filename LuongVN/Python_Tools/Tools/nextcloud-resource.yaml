@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-deployment
+  name: nginx-deployment
+  namespace: bim
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-deployment
+  template:
+    metadata:
+      labels:
+        app: nginx-deployment
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+
+--- 
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx
+  name: nginx-service
+  namespace: bim
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: nginx-deployment
+  type: LoadBalancer
