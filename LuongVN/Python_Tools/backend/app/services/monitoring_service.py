@@ -17,6 +17,7 @@ from app.repositories.replicaset_repository import save_replicaset
 from app.repositories.statefulset_repository import save_statefulset
 from app.repositories.daemonset_repository import save_daemonsets
 from app.cache.monitoring_cache import get_monitoring_cache, set_monitoring_cache
+from app.repositories.node_conditions_repository import save_node_conditions
 
 def collect_resource_data(namespace): 
     nodes = collect_node()
@@ -39,7 +40,10 @@ def collect_resource_data(namespace):
     }
 
 def save_resource_data(db, check_run_id, resource_data): 
-    save_nodes(db, check_run_id=check_run_id, nodes=resource_data["nodes"])
+    nodes = resource_data["nodes"]
+    saved_nodes = save_nodes(db, check_run_id=check_run_id, nodes=resource_data["nodes"])
+    for node, saved_node in zip(nodes, saved_nodes): 
+        save_node_conditions(db, node_snapshot_id=saved_node.id, conditions=node["conditions"])
     
     # Save POD
     save_pods(db, check_run_id=check_run_id, pods=resource_data["pods"])

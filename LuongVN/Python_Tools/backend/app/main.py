@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.monitoring import router as monitoring_router 
 from app.api.apply_manifest import router as manifest_router
+from app.api.metric import router as metric_router 
 
 app = FastAPI(
     title="Kubernetes Monitoring API", 
@@ -22,6 +23,7 @@ app.add_middleware(
 
 app.include_router(monitoring_router)
 app.include_router(manifest_router)
+app.include_router(metric_router)
 
 @app.get("/")
 def root(): 

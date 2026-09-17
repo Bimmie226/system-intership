@@ -9,6 +9,7 @@ from app.models.deployment_snapshots import deployment_snapshots
 from app.models.service_cluster_ips import service_cluster_ips
 from app.models.service_external_ips import service_external_ips
 from app.models.service_ports import service_ports
+from app.models.node_conditions import node_conditions
 
 def get_check_runs(db, namespace=None, limit=20): 
     query = db.query(check_runs)
@@ -21,6 +22,9 @@ def get_check_run_by_id(db, check_run_id):
 
 def get_nodes_by_check_run(db, check_run_id): 
     return db.query(node_snapshots).filter(node_snapshots.check_run_id == check_run_id).all()
+
+def get_node_conditions(db, node_snapshot_id): 
+    return db.query(node_conditions).filter(node_conditions.node_snapshot_id == node_snapshot_id).all()
 
 def get_pods_by_check_run(db, check_run_id): 
     return db.query(pod_snapshots).filter(pod_snapshots.check_run_id == check_run_id).all()

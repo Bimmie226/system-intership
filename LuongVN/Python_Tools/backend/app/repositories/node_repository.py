@@ -12,6 +12,7 @@ def save_nodes(db, check_run_id, nodes):
         node_records.append(node_record)
         
     db.add_all(node_records)
+    db.flush()
     
     return node_records 
 

@@ -1,6 +1,7 @@
 from app.repositories.monitoring_history_repository import (
     get_check_run_by_id, 
     get_nodes_by_check_run, 
+    get_node_conditions,
     get_pods_by_check_run, 
     get_deployments_by_check_run, 
     get_services_by_check_run, 
@@ -9,7 +10,7 @@ from app.repositories.monitoring_history_repository import (
     get_service_ports, 
     get_replicasets_by_check_run, 
     get_statefulsets_by_check_run, 
-    get_daemonsets_by_check_run   
+    get_daemonsets_by_check_run 
 )
 
 def get_monitoring_history_detail(db, check_run_id): 
@@ -40,7 +41,16 @@ def get_monitoring_history_detail(db, check_run_id):
             {
                 "id": node.id,
                 "node_name": node.node_name,
-                "checked_at": node.checked_at
+                "checked_at": node.checked_at,
+                "conditions": [
+                    {
+                        "condition_type": condition.condition_type, 
+                        "condition_status": condition.condition_status, 
+                        "reason": condition.reason, 
+                        "message": condition.message   
+                    }
+                    for condition in get_node_conditions(db, node.id)
+                ]
             }
             for node in nodes
         ],

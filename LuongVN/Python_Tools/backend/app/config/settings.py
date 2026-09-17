@@ -21,4 +21,9 @@ class Settings:
     REDIS_PORT = os.getenv("REDIS_PORT")
     REDIS_DB = os.getenv("REDIS_DB")
     REDIS_TTL = os.getenv("REDIS_TTL")
+    
+    TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+    TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+    
+    IP_MONITORING_SERVER = os.getenv("IP_MONITORING_SERVER")
 settings = Settings()

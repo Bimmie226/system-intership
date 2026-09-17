@@ -5,6 +5,10 @@ def collect_node():
     
     results = []
     for node in nodes.items:
-        results.append({"node_name": node.metadata.name})
+        conditions = []
+        for condition in node.status.conditions: 
+            conditions.append({"condition_type": condition.type, "condition_status": condition.status, "reason": condition.reason, "message": condition.message})
+            
+        results.append({"node_name": node.metadata.name, "conditions": conditions})
         
     return results
