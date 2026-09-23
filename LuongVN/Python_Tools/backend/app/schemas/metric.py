@@ -20,3 +20,8 @@ class ServerMetric(BaseModel):
     cpu_percent: float
     memory: MemoryMetric
     disk: DiskMetric
+    
+class PodMetric(BaseModel): 
+    pod_name: str
+    namespace: str
+    ready: bool

@@ -4,7 +4,7 @@ metadata:
   labels:
     app: nginx-deployment
   name: nginx-deployment
-  namespace: my_ns
+  namespace: demo
 spec:
   replicas: 1
   selector:
@@ -27,7 +27,7 @@ metadata:
   labels:
     app: nginx
   name: nginx-service
-  namespace: my_ns
+  namespace: demo
 spec:
   ports:
   - port: 80

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Check Resource · K8s Monitor</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/monitoring.css">
+    <script src="js/monitoring.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Đến nội dung chính</a>
+    <aside class="sidebar" aria-label="Điều hướng">
+        <a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">⎈</span><span>K8s Monitor<small>CLUSTER WORKSPACE</small></span></a>
+        <p class="nav-label">QUẢN LÝ KUBERNETES</p>
+        <nav><a class="nav-item active" href="monitoring.html" aria-current="page"><span aria-hidden="true">◉</span> Check Resource</a><a class="nav-item" href="index.html"><span aria-hidden="true">↗</span> Apply Manifest</a></nav>
+        <div class="sidebar-note"><span class="status-dot"></span> Namespace monitoring<p>Theo dõi node và readiness của các workload.</p></div>
+    </aside>
+    <main id="main">
+        <header class="topbar"><span>Workspace <span class="separator">/</span> <strong>Check Resource</strong></span><span class="pill">Kubernetes</span></header>
+        <div class="page">
+            <header class="page-heading"><p class="eyebrow">CLUSTER OBSERVABILITY</p><h1>Check Resource</h1><p>Kiểm tra node của cluster và các resource trong namespace bạn chọn.</p></header>
+            <form id="monitoring-form" class="card">
+                <fieldset id="monitoring-controls" class="monitoring-controls">
+                    <legend class="sr-only">Thiết lập kiểm tra</legend>
+                    <div class="field"><label for="monitoring-api">Địa chỉ API</label><input id="monitoring-api" type="url" value="http://127.0.0.1:8000" required spellcheck="false" aria-describedby="monitoring-hint"></div>
+                    <div class="field"><label for="namespace">Namespace</label><input id="namespace" type="text" value="default" required maxlength="63" autocomplete="off" spellcheck="false" placeholder="Ví dụ: demo"></div>
+                    <button id="check-button" class="button primary" type="submit">Kiểm tra trạng thái</button>
+                </fieldset>
+                <p id="monitoring-hint" class="form-hint">Nhập namespace đang tồn tại. Mỗi lần kiểm tra có thể trả về dữ liệu cache và được backend ghi nhận trong lịch sử.</p>
+            </form>
+            <div id="monitoring-feedback" class="card feedback monitoring-feedback" role="status" aria-live="polite" aria-atomic="true">Chưa có dữ liệu. Chọn namespace và bấm Kiểm tra trạng thái để bắt đầu.</div>
+            <div id="monitoring-results" aria-busy="false" hidden>
+                <section class="card snapshot-meta" aria-labelledby="snapshot-title">
+                    <div class="card-heading"><h2 id="snapshot-title">Kết quả kiểm tra</h2><span id="snapshot-source" class="pill"></span></div>
+                    <dl class="metadata-grid"><div><dt>Namespace đã kiểm tra</dt><dd id="snapshot-namespace"></dd></div><div><dt>Nhận phản hồi lúc</dt><dd id="snapshot-received"></dd></div><div><dt>Mã lần kiểm tra</dt><dd id="snapshot-run"></dd></div><div><dt>Trạng thái thu thập</dt><dd id="snapshot-status"></dd></div></dl>
+                    <p id="cache-note" class="form-hint"></p>
+                </section>
+                <div class="summary-grid" aria-label="Tổng quan">
+                    <article class="card summary-card"><p>Node toàn cluster</p><strong id="node-total">—</strong><small>Không giới hạn theo namespace</small></article>
+                    <article class="card summary-card"><p>Node Ready=True</p><strong id="node-ready">—</strong><small>Xem thêm conditions bên dưới</small></article>
+                    <article class="card summary-card"><p>Pod trong namespace</p><strong id="pod-total">—</strong><small>Phase và container readiness</small></article>
+                    <article class="card summary-card"><p>Tổng resource trong namespace</p><strong id="resource-total">—</strong><small>Không bao gồm node</small></article>
+                </div>
+                <section class="card node-section" aria-labelledby="nodes-title"><div class="card-heading"><div><h2 id="nodes-title">Nodes <span class="pill">Toàn cluster</span></h2><p>Ready và các conditions do Kubernetes báo cáo.</p></div></div><div id="node-content"></div></section>
+                <section class="resources-section" aria-labelledby="resources-title"><div class="resource-heading"><h2 id="resources-title">Resource trong namespace</h2><p>Readiness phản ánh số lượng hiện tại; không thay thế kiểm tra rollout hoặc khả năng kết nối Service.</p></div><div id="resource-groups"></div></section>
+            </div>
+            <footer class="page-footer">K8s Monitor <span>Namespace workspace</span></footer>
+        </div>
+    </main>
+</body>
+</html>

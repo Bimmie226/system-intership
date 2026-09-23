@@ -19,13 +19,13 @@ else
 fi 
 
 if ! command -v python3 >/dev/null 2>&1; then 
-    echo "Cài đặt python"
+    echo "Cai dat Python"
     if [ "$PKG_MANAGER" = "apt" ]; then 
         apt-get update 
         apt-get install -y python3 python3-pip python3-venv
-    elif [ "$PKG_MANGER" = "dnf" ]; then 
+    elif [ "$PKG_MANAGER" = "dnf" ]; then 
         dnf install -y python3 python3-pip
-    elif [ "$PKG_MANGER" = "yum" ]; then 
+    elif [ "$PKG_MANAGER" = "yum" ]; then 
         yum install -y python3 python3-pip
     fi 
 else
@@ -47,6 +47,9 @@ After=network.target
 
 [Service]
 Type=oneshot
+User=devops
+Environment="HOME=/home/devops"
+Environment="KUBECONFIG=/home/devops/.kube/config"
 WorkingDirectory=$INSTALL_DIR
 ExecStart=$INSTALL_DIR/bin/python $INSTALL_DIR/metric_agent.py
 EOF

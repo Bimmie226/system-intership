@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apply Manifest · K8s Monitor</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Đến nội dung chính</a>
+    <aside class="sidebar" aria-label="Điều hướng">
+        <a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">⎈</span><span>K8s Monitor<small>CLUSTER WORKSPACE</small></span></a>
+        <p class="nav-label">QUẢN LÝ KUBERNETES</p>
+        <nav><a class="nav-item" href="monitoring.html"><span aria-hidden="true">◉</span> Check Resource</a><a class="nav-item active" href="index.html" aria-current="page"><span aria-hidden="true">↗</span> Apply Manifest</a></nav>
+        <div class="sidebar-note"><span class="status-dot"></span> Server-side apply<p>Triển khai resource bằng cấu hình YAML của bạn.</p></div>
+    </aside>
+    <main id="main">
+        <header class="topbar"><span>Workspace <span class="separator">/</span> <strong>Apply Manifest</strong></span><span class="pill">Kubernetes</span></header>
+        <div class="page">
+            <header class="page-heading"><p class="eyebrow">DEPLOYMENT TOOLS</p><h1>Apply Manifest</h1><p>Đưa cấu hình của bạn lên cluster, từ YAML đến resource.</p></header>
+            <form id="manifest-form">
+                <fieldset id="controls">
+                    <legend class="sr-only">Cấu hình và nội dung manifest</legend>
+                    <section class="card connection" aria-labelledby="connection-title">
+                        <div><h2 id="connection-title">Kết nối backend</h2><p>Manifest được gửi đến cluster mà backend đang cấu hình.</p></div>
+                        <div class="field"><label for="api-url">Địa chỉ API</label><input id="api-url" type="url" value="http://127.0.0.1:8000" required spellcheck="false" aria-describedby="api-hint"><small id="api-hint">Ví dụ: http://127.0.0.1:8000</small></div>
+                    </section>
+                    <div class="workspace-grid">
+                        <section class="card editor-card" aria-labelledby="editor-title">
+                            <div class="card-heading"><div><h2 id="editor-title">Nội dung manifest</h2><p>Nhập YAML hoặc chọn file từ máy tính.</p></div><span class="pill">YAML</span></div>
+                            <div class="mode-switch" role="group" aria-label="Cách nhập manifest"><button id="text-mode" class="mode-button selected" type="button" aria-pressed="true">Nhập YAML</button><button id="file-mode" class="mode-button" type="button" aria-pressed="false">Tải file lên</button></div>
+                            <div id="text-panel"><label class="sr-only" for="manifest">Nội dung YAML</label><textarea id="manifest" spellcheck="false" placeholder="apiVersion: v1&#10;kind: ConfigMap&#10;metadata:&#10;  name: app-config&#10;  namespace: default&#10;data:&#10;  environment: development"></textarea><div class="editor-footer"><span>Hỗ trợ nhiều document, phân cách bằng ---</span><span id="line-count">1 dòng</span></div></div>
+                            <div id="file-panel" class="upload-panel" hidden><div class="upload-icon" aria-hidden="true">↑</div><h3>Chọn manifest của bạn</h3><p>Chấp nhận file .yaml hoặc .yml</p><label class="sr-only" for="manifest-file">File YAML</label><input id="manifest-file" type="file" accept=".yaml,.yml" aria-describedby="file-info"><p id="file-info">Chưa chọn file.</p></div>
+                            <div class="submit-row"><p>Apply sẽ tạo hoặc cập nhật resource trên cluster.</p><button id="submit-button" class="button primary" type="submit"><span id="submit-label">Apply Manifest</span><span aria-hidden="true">↗</span></button></div>
+                        </section>
+                        <aside class="guide" aria-labelledby="guide-title"><p class="eyebrow">HƯỚNG DẪN</p><h2 id="guide-title">Trước khi triển khai</h2><ol><li><strong>Kiểm tra resource</strong><p>Khai báo apiVersion, kind và metadata.name trong mỗi document.</p></li><li><strong>Chọn namespace</strong><p>Đặt metadata.namespace trong YAML. Resource có namespace sẽ dùng default nếu bỏ trống.</p></li><li><strong>Xem kết quả</strong><p>Mỗi resource được backend áp dụng sẽ xuất hiện trong bảng bên dưới.</p></li></ol><div class="note">Namespace phải tồn tại trước khi áp dụng resource vào namespace đó.</div></aside>
+                    </div>
+                </fieldset>
+            </form>
+            <section id="results-section" class="card results-card" aria-labelledby="results-title" aria-busy="false">
+                <div class="card-heading"><div><h2 id="results-title">Kết quả triển khai</h2><p id="result-summary">Kết quả của lần gửi gần nhất sẽ hiển thị tại đây.</p></div><span id="result-badge" class="pill">Chưa gửi</span></div>
+                <div id="feedback" class="feedback" role="status" aria-live="polite" aria-atomic="true">Sẵn sàng nhận manifest. Chọn cách nhập để bắt đầu.</div>
+                <div id="table-wrapper" class="table-wrapper" hidden><table><caption class="sr-only">Các resource được backend trả về</caption><thead><tr><th scope="col">Resource</th><th scope="col">Kind</th><th scope="col">Namespace</th><th scope="col">API version</th><th scope="col">Trạng thái</th></tr></thead><tbody id="result-rows"></tbody></table></div>
+            </section>
+            <footer class="page-footer">K8s Monitor <span>Manifest workspace</span></footer>
+        </div>
+    </main>
+</body>
+</html>
