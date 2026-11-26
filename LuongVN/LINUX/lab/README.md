@@ -10,3 +10,4 @@
 | 6   | [Command Chapter 1 LPIC](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/LINUX/lab/lab_LPIC_chapter_1.md)              |
 | 7   | [Command Chapter 2 LPIC](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/LINUX/lab/lab_LPIC_chapter_2.md)              |
 | 8   | [Command Chapter 3 LPIC](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/LINUX/lab/lab_LPIC_chapter_3.md)              |
+| 9   | [Mở rộng phân vùng](https://github.com/Bimmie226/system-intership/blob/main/LuongVN/LINUX/lab/lab_resize_disk.md)                      |
